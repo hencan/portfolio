@@ -1,0 +1,125 @@
+<!-- Progress Bar -->
+<mat-progress-bar *ngIf="valueProgress < 100" mode="indeterminate" [value]="valueProgress"></mat-progress-bar>
+
+<div id="projects" class="projects showProjects">
+
+  <!-- Header Field -->
+  <span class="header">PROJETOS</span>
+
+  <!-- Filters Code -->
+  <div class="btnsFilters">
+    <mat-chip-list aria-label="Filter selection">
+      <mat-chip selected (click)="selectChips('Todos')">Todos</mat-chip>
+      <mat-chip *ngFor="let chip of listChips" (click)="selectChips(this.chip)">
+        {{chip}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <div id="countItensFiltersProjects"></div>
+
+  <!-- Search Code -->
+  <mat-form-field appearance="outline" class="search">
+    <mat-label>
+      <mat-icon>search</mat-icon>
+    </mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Pesquise" #input id="search" />
+  </mat-form-field>
+
+  <table mat-table multiTemplateDataRows>
+    <!-- ImageTitle Column -->
+    <ng-container matColumnDef="imageTitle">
+      <th mat-header-cell *matHeaderCellDef>Imagem Capa</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.imageTitle" class="capa" />
+      </td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Título</th>
+      <td mat-cell [id]="element.id" *matCellDef="let element">
+        <div class="titleColumn">
+          <span class="category">
+            {{ element.categories | uppercase }}
+          </span>
+          <span class="title">
+            {{ element.title | uppercase }}
+          </span>
+          <span class="subtitle">
+            {{ element.subtitle }}
+          </span>
+          <span class="dateAndBy">
+            <!-- {{element.date}}   •   {{element.author | uppercase}} -->
+            {{ element.date }}
+          </span>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Details Column -->
+    <!-- <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef>Detalhes</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="detailsColumn">
+          <mat-icon *ngIf="element.content" class="fas fa-file-alt" matTooltip="Possui Descrição"></mat-icon>
+
+          <mat-icon *ngIf="element.linkGithub" matTooltip="Possui Link Github" class="fab fa-github"></mat-icon>
+
+          <mat-icon *ngIf="element.linkLive" matTooltip="Possui Link Live" class="fas fa-external-link-alt"></mat-icon>
+        </div>
+      </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+        <div class="cardDetailHidden" [@detailExpand]="
+            element == expandedElement ? 'expanded' : 'collapsed'
+          ">
+          <div class="cardDetailExpanded">
+            <!-- Divider line -->
+            <div>
+              <hr id="null" />
+            </div>
+
+            <!-- Subtitle Field -->
+            <!-- <span *ngIf="element.subtitle" class="label">RESUMO</span>
+            <span *ngIf="element.subtitle" class="subtitle">
+              {{ element.subtitle }}
+            </span> -->
+
+            <!-- Content Field -->
+            <span *ngIf="element.content" class="label">DETALHES</span>
+            <div *ngIf="element.content" class="content" [innerHtml]="element.content"></div>
+
+            <!-- Button Goto -->
+            <span class="label" *ngIf="element.linkLive || element.linkGithub">LINKS</span>
+            <div class="btnsGoto" *ngIf="element.linkLive || element.linkGithub">
+              <div>
+                <a mat-raised-button *ngIf="element.linkGithub" [href]="element.linkGithub" target="_blank">
+                  <mat-icon matTooltip="Acessar Projeto Github" class="fab fa-github"></mat-icon>
+                </a>
+              </div>
+              <div>
+                <a mat-raised-button *ngIf="element.linkLive" [href]="element.linkLive" target="_blank">
+                  <mat-icon matTooltip="Acessar Link Live" class="fas fa-external-link-alt"></mat-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+    <tr mat-row *matRowDef="let element; columns: displayedColumns"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element" class="cardDetailHiddenRow"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="cardDetailRow"></tr>
+  </table>
+
+  <mat-paginator class="paginator" pageSize="20"></mat-paginator>
+
+
+  <!-- <mat-paginator class="paginator" [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator> -->
+</div>

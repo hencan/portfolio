@@ -1,0 +1,31 @@
+<!-- Progress Bar -->
+<mat-progress-bar *ngIf="valueProgress < 100" mode="indeterminate" [value]="valueProgress"></mat-progress-bar>
+
+<div id="info" class="info showInfo">
+  <span class="header">INFO</span>
+
+  <div class="">
+
+    <!-- BIO Field -->
+    <div *ngIf='storeData.bio' class="subtitle">[ BIO ]</div>
+    <div *ngIf='storeData.bio' class="description" [innerHtml]='storeData.bio'></div>
+
+    <!-- HABILIDADES Field -->
+    <div *ngIf='storeData.skills' class="subtitle">[ HABILIDADES ]</div>
+    <!-- <div *ngIf='storeData.skills' class="description" [innerHtml]='storeData.skills'></div> -->
+    <div *ngIf='storeData.skills' class="description" [innerHtml]='storeData.skills'></div>
+
+    <!-- TRABALHOS Field -->
+    <!-- <div *ngIf='storeData.services' class="subtitle">[ TRABALHOS ]</div>
+    <div *ngIf='storeData.services' class="description" [innerHtml]='storeData.services'></div> -->
+
+    <!-- CLIENTES Field -->
+    <!-- <div *ngIf='storeData.clients' class="subtitle">[ CLIENTES ]</div>
+    <div *ngIf='storeData.clients' class="description" [innerHtml]='storeData.clients'></div> -->
+
+    <!-- CONTATO Field -->
+    <div *ngIf='storeData.contact' class="subtitle">[ CONTATO ]</div>
+    <div *ngIf='storeData.contact' class="description" [innerHtml]='storeData.contact'></div>
+
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div id="admin" class="admin">
+    <div style="text-align: center;">
+        Administração do Portifólio
+    </div>
+    <div class="adminHeader">
+        <!-- <div *ngIf='storeData.photo'> -->
+        <!-- <div>
+            <img [src]="storeData.photo" alt="">
+        </div> -->
+        <div class="adminHeaderDetails">
+            <span><mat-icon>account_circle</mat-icon>{{storeData.fname}}</span>
+            <span><mat-icon>admin_panel_settings</mat-icon>{{storeData.permission}}</span>
+        </div>
+    </div>
+    <div class="adminNav">
+        <button mat-button (click)='goTo("admin/profile")'>Meu Perfil</button>
+        <button mat-button (click)='goTo("admin/projects")'>Posts de Projetos</button>
+        <button mat-button (click)='goTo("admin/tutorials")'>Posts de Tutoriais</button>
+        <button mat-button (click)='goTo("admin/blog")'>Posts do Blog</button>
+        <button mat-button (click)='goTo("admin/users")'>Usuários</button>
+        <button mat-button (click)='goTo("admin/config")'>Configurações</button>
+    </div>
+</div>

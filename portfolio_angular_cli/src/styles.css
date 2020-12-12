@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* Tipos de Fonts: opentype   |   truetype */
+
+@font-face {
+  font-family: Neoneon;
+  src: url(./assets/fonts/neoneon/Neoneon.otf) format("opentype");
+}
+@font-face {
+  font-family: Kompakt;
+  src: url(./assets/fonts/kompact/kompakt-Regular.otf) format("opentype");
+}
+
+:host {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: rgb(44, 55, 66); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(55, 66, 77);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(29, 116, 245);
+  }

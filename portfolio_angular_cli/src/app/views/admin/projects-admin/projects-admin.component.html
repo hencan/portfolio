@@ -1,0 +1,100 @@
+<div id="projectsAdmin">
+    <app-admin></app-admin>
+
+    <mat-card class="projectsAdmin">
+        <mat-card-subtitle>Posts de Projetos</mat-card-subtitle>
+
+        <div class="buttonsHeader">
+            <button mat-mini-fab class='primaryBtnGreen' (click)='buttonCreate()'>
+                <mat-icon>add</mat-icon>
+            </button>
+            <mat-form-field class="seacrhInput" appearance="outline">
+                <mat-label>
+                    <mat-icon>person_search</mat-icon> Pesquisar
+                </mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Encontre um usuário" #input>
+            </mat-form-field>
+        </div>
+        <table mat-table class="mat-elevation-z2" matSort matSortActive="id" matSortDirection="desc">
+
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">ID:</span>
+                    {{element.id}}
+                </td>
+            </ng-container>
+
+            <!-- ImageTitle Column -->
+            <ng-container matColumnDef="imageTitle">
+                <th mat-header-cell *matHeaderCellDef> Capa </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Capa:</span>
+                    <img [src]="element.imageTitle" class="columnImage">
+                </td>
+            </ng-container>
+
+            <!-- Title Column -->
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
+                <td mat-cell *matCellDef="let element" id="element.id">
+                    <span class="mobile-label">Título:</span>
+                    <span class="primaryGreen" matTooltip="Ver, Editar e Deletar"
+                        [matMenuTriggerFor]="menu">{{element.title}}</span>
+                    <mat-menu #menu>
+                        <button mat-menu-item (click)='buttonRead(this.element)' class="view">
+                            <mat-icon>visibility</mat-icon>
+                            <span>Ver</span>
+                        </button>
+                        <button mat-menu-item (click)='buttonUpdate(this.element.id)' class="edit">
+                            <mat-icon>edit</mat-icon>
+                            <span>Editar</span>
+                        </button>
+                        <button mat-menu-item (click)='buttonDelete(this.element)' class="delete">
+                            <mat-icon>delete</mat-icon>
+                            <span>Excluir</span>
+                        </button>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <!-- Categories Column -->
+            <ng-container matColumnDef="categories">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Categoria:</span>
+                    {{element.categories}} </td>
+            </ng-container>
+
+            <!-- Situation Column -->
+            <ng-container matColumnDef="situation">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Situação </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Situação:</span>
+                    {{element.situation}} </td>
+            </ng-container>
+
+            <!-- ModifiedBy Column -->
+            <ng-container matColumnDef="modifiedBy">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Modificado por </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Mod. por:</span>
+                    {{element.modifiedBy}} </td>
+            </ng-container>
+
+            <!-- ModifiedIn Column -->
+            <ng-container matColumnDef="modifiedIn">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Modificado em </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Mod. em:</span>
+                    {{element.modifiedIn}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+    </mat-card>
+
+</div>

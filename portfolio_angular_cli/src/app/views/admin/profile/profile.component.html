@@ -1,0 +1,48 @@
+<div id="profileAdminUpdate">
+
+  <app-admin></app-admin>
+
+  <div class="profileAdminUpdate">
+    <mat-card class="card">
+
+      <!-- Title Card Form -->
+      <mat-card-subtitle>Editar Perfil / Info</mat-card-subtitle>
+
+      <form class="cardForm">
+
+        <!-- Bio Field -->
+        <br>
+        <mat-label>BIO</mat-label>
+        <angular-editor #input3 id="bio" [(ngModel)]="storeData.bio" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+        <!-- Skills Field -->
+        <br>
+        <mat-label>HABILIDADES</mat-label>
+        <angular-editor #input4 id="skills" [(ngModel)]="storeData.skills" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+        <!-- Services Field -->
+        <br>
+        <mat-label>Trabalhos Realizados</mat-label>
+        <angular-editor #input6 id="services" [(ngModel)]="storeData.services" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+        <!-- Clients Field -->
+        <br>
+        <mat-label>CLIENTES</mat-label>
+        <angular-editor #input5 id="clients" [(ngModel)]="storeData.clients" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+        <!-- Contact Field -->
+        <br>
+        <mat-label>CONTATO</mat-label>
+        <angular-editor #input7 id="contact" [(ngModel)]="storeData.contact" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+
+      </form>
+    </mat-card>
+  </div>
+
+</div>

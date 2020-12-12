@@ -1,0 +1,106 @@
+<div id="usersAdmin">
+    <app-admin></app-admin>
+
+    <mat-card class="usersAdmin">
+        <mat-card-subtitle>Usuários</mat-card-subtitle>
+
+        <div class="buttonsHeader">
+            <button mat-mini-fab class='primaryBtnGreen' (click)='buttonCreate()'>
+                <mat-icon>add</mat-icon>
+            </button>
+            <mat-form-field class="seacrhInput" appearance="outline">
+                <mat-label>
+                    <mat-icon>person_search</mat-icon> Pesquisar
+                </mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Encontre um usuário" #input>
+            </mat-form-field>
+        </div>
+        <table mat-table class="mat-elevation-z2">
+
+            <!-- Id Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">ID:</span>
+                    {{element.id}} </td>
+            </ng-container>
+
+            <!-- Photo Column -->
+            <ng-container matColumnDef="photo">
+                <th mat-header-cell *matHeaderCellDef> Foto </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Foto:</span>
+                    <img [src]="element.photo" class="columnIMG"> </td>
+            </ng-container>
+
+            <!-- User Column -->
+            <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef> Usuário </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Usuário:</span>
+                    <span class="primaryGreen" matTooltip="Ver, Editar e Deletar"
+                        [matMenuTriggerFor]="menu">{{element.username}}</span>
+                    <mat-menu #menu>
+                        <button mat-menu-item (click)='buttonRead(this.element)' class="view">
+                            <mat-icon>visibility</mat-icon>
+                            <span>Ver</span>
+                        </button>
+                        <button mat-menu-item (click)='buttonUpdate(this.element.id)' class="edit">
+                            <mat-icon>edit</mat-icon>
+                            <span>Editar</span>
+                        </button>
+                        <button mat-menu-item (click)='buttonDelete(this.element)' class="delete">
+                            <mat-icon>delete</mat-icon>
+                            <span>Excluir</span>
+                        </button>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <!-- Full Name Column -->
+            <ng-container matColumnDef="fname">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Nome:</span>
+                    {{element.fname}} </td>
+            </ng-container>
+
+            <!-- E-mail Column -->
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">E-mail:</span>
+                    {{element.email}} </td>
+            </ng-container>
+
+            <!-- Permission Column -->
+            <ng-container matColumnDef="permission">
+                <th mat-header-cell *matHeaderCellDef> Permissões </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Permissões:</span>
+                    {{element.permission}} </td>
+            </ng-container>
+
+            <!-- ModifiedBy Column -->
+            <ng-container matColumnDef="modifiedBy">
+                <th mat-header-cell *matHeaderCellDef> Modificado por </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Mod. por:</span>
+                    {{element.modifiedBy}} </td>
+            </ng-container>
+
+            <!-- ModifiedIn Column -->
+            <ng-container matColumnDef="modifiedIn">
+                <th mat-header-cell *matHeaderCellDef> Modificado em </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="mobile-label">Mod. em:</span>
+                    {{element.modifiedIn}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+    </mat-card>
+
+</div>

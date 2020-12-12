@@ -1,0 +1,144 @@
+.members {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 25px 0;
+}
+.showMembers {
+  animation: showMembers 1s forwards;
+}
+
+@keyframes showMembers {
+  0% {filter: opacity(0); transform: translateY(100vh);}
+  50% {filter: opacity(1);}
+  100% {filter: opacity(1); transform: translateY(0);}
+}
+
+.hideMembers {
+  animation: hideMembers 1.5s forwards;
+}
+
+@keyframes hideMembers {
+  0% {transform: translateY(0);}
+  50% {filter: opacity(0);}
+  100% {filter: opacity(0); transform: scale(1, 0.8) translateY(200px);}
+}
+
+button {
+  font-size: 0.8rem;
+  color: rgb(44, 44, 58);
+  background-color: rgb(197, 197, 208);
+  margin: 20px auto;
+}
+button:hover {
+  /* background-color: rgb(0, 74, 133); */
+  background-color: rgb(66, 66, 78);
+  color: white;
+}
+.search  {
+  margin: 0 5%;
+  margin-right: calc(5% + 1px);
+  padding: 24px 24px 0;
+  background-color: rgba(241, 243, 244, 0.85);
+  border-radius: 2.5px 2.5px 0 0;
+}
+table {
+  background-color: rgba(241, 243, 244, 0.85);
+  margin: 0 5%;
+  /* padding-left: calc(1% - 24px); */
+}
+.mat-table, .mat-row, .mat-cell {
+  background-color: transparent;
+}
+.mat-cell {
+  background-color: rgba(241, 243, 244, 0.85);
+}
+.header {
+  color: rgb(241, 243, 244);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 5% 5% 10%;
+}
+.capa {
+  width: 100px;
+  margin: 10px 10px 10px 0;
+  border: solid 1px black;
+}
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Animação da tabela */
+.cardDetailHiddenRow {
+  height: 0;
+}
+.cardDetailHiddenRow td {
+  border-bottom-width: 0;
+}
+.cardDetailRow {
+  height: 0;
+}
+.cardDetailHidden {
+  overflow: hidden;
+  display: flex;
+}
+.cardDetailExpanded {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  width: 100%;
+}
+tr.cardDetailHiddenRow:hover {
+  /* background-color: rgba(66, 66, 78, 0.2); */
+  /* background-color: rgba(0, 104, 184, 0.5);
+  cursor: pointer; */
+  filter: brightness(75%);
+  cursor: pointer;
+
+}
+tr.cardDetailHiddenRow:active {
+  background-color: rgb(66, 66, 78);
+}
+.paginator {
+  margin: 0 5% 20px;
+  margin-right: calc(5% + 1px);
+  padding: 0 24px 24px;
+  background-color: rgba(241, 243, 244, 0.85);
+  border-radius: 0 0 2.5px 2.5px;
+}
+
+
+/* Visualização Desktop */
+@media(min-width: 650.5px) {
+
+}
+
+/* Visualização Mobile */
+@media(max-width: 650px) {
+  /* .members {
+    padding: 5px;
+  } */
+  .mat-row  {
+      display: flex; 
+      flex-direction: column;
+      height: auto;
+      padding: 0 20px 10px;
+  }
+  .mat-cell:first-of-type {
+      padding-left: 0;
+  }
+  .capa {
+      width: 40%;
+  }
+  .cardDetailExpanded {
+    padding: 10px 0;
+  }
+  .search {
+    margin: 0 10px;
+  }
+}

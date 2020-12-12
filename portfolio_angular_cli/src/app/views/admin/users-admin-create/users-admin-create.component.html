@@ -1,0 +1,164 @@
+<div id="usersAdminCreate">
+  <app-admin></app-admin>
+
+  <div class="usersAdminCreate">
+    <mat-card class="card">
+
+      <!-- Title Card Form -->
+      <mat-card-subtitle>Cadastrar Usuário</mat-card-subtitle>
+
+      <!-- Buttons Header -->
+      <div class="cardBtnHeader">
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+        <button mat-raised-button class="primaryBtnGreen" (click)="create()">Cadastrar</button>
+      </div>
+      <form class="cardForm">
+
+        <!-- Photo Field -->
+        <mat-card id="createPhotoChange" class="fadeIn">
+          <div class="createPhotoChangeBox">
+            <h4 class="createFormImageRaw">Original</h4>
+            <h4>Preview</h4>
+          </div>
+          <!-- <div class="createPhotoChangeBox">
+            <image-cropper class="createFormImageRaw" [imageChangedEvent]="imageChangedEvent"
+              [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [resizeToWidth]="150" [resizeToHeight]="150"
+              format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+            <img class="createFormImageWaited" [src]="croppedImage" />
+          </div> -->
+          <div class="createPhotoChangeBox">
+            <image-cropper class="createFormImageRaw" [imageChangedEvent]="imageChangedEvent"
+              [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [resizeToWidth]="200" [resizeToHeight]="200"
+              format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+            <img class="createFormImageWaited" [src]="croppedImage" />
+          </div>
+          <div class="createFormImageBtn">
+            <button mat-stroked-button color="primary" (click)="saveImageCroppie()">
+              <mat-icon>done</mat-icon>
+            </button>
+            <button mat-stroked-button color="warn" (click)="cancelImageCroppie()">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </div>
+        </mat-card>
+        <div id="createPhotoFinal" class="fadeIn">
+          <img id="createFormImageID" class="createFormImageFinal" [src]="photoBase64"> <br />
+          <input id="createFormImageINPUT" type="file" (change)="fileChangeEvent($event)" />
+        </div>
+
+
+        <!-- Username Field -->
+        <mat-form-field appearance="outline" hintLabel="Indicado utilizar o seu email">
+          <mat-label>Username</mat-label>
+          <input matInput #input1 maxlength="20" placeholder="Nome de Usuário" id="username" name="username"
+            [(ngModel)]="storeData.username">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint align="end">{{input1.value?.length || 0}}/20</mat-hint>
+        </mat-form-field>
+
+        <!-- Password Field -->
+        <mat-form-field appearance="outline" hintLabel="Escolha uma senha forte com letras e números">
+          <mat-label>Password</mat-label>
+          <input matInput #input2 id="password" name="password" [type]="hide ? 'password' : 'text'"
+            [(ngModel)]="storeData.password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint align="end">{{input2.value?.length || 0}}/40 </mat-hint>
+        </mat-form-field>
+
+        <!-- Full Name Field -->
+        <mat-form-field appearance="outline" hintLabel="Max 20 characters">
+          <mat-label>Nome Completo</mat-label>
+          <input matInput #input3 maxlength="20" placeholder="Nome Completo" id="fname" name="fname"
+            [(ngModel)]="storeData.fname">
+          <mat-hint align="end">{{input3.value?.length || 0}}/20</mat-hint>
+        </mat-form-field>
+
+        <!-- E-mail Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>E-mail</mat-label>
+          <input matInput #input4 maxlength="40" placeholder="nome@email.com" id="email" name="email"
+            [(ngModel)]="storeData.email">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-hint align="end">{{input4.value?.length || 0}}/40</mat-hint>
+        </mat-form-field>
+
+        <!-- Phone Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Telefone</mat-label>
+          <input matInput #input5 maxlength="40" placeholder="+55 (99) 9999-9999" id="phone" name="phone"
+            [(ngModel)]="storeData.phone">
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-hint align="end">{{input5.value?.length || 0}}/40</mat-hint>
+        </mat-form-field>
+
+        <!-- Profession Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Profissão</mat-label>
+          <input matInput #input6 maxlength="40" placeholder="Profissão ou Ofício" id="profession" name="profession"
+            [(ngModel)]="storeData.profession">
+          <mat-hint align="end">{{input6.value?.length || 0}}/40</mat-hint>
+        </mat-form-field>
+
+        <!-- Country Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>País</mat-label>
+          <input matInput #input7 maxlength="40" placeholder="Informe o seu país" id="country" name="country"
+            [(ngModel)]="storeData.country">
+          <mat-hint align="end">{{input7.value?.length || 0}}/40</mat-hint>
+        </mat-form-field>
+
+        <!-- State Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Estado</mat-label>
+          <input matInput #input8 maxlength="40" placeholder="Estado" id="state" name="state"
+            [(ngModel)]="storeData.state">
+          <mat-hint align="end">{{input8.value?.length || 0}}/40</mat-hint>
+        </mat-form-field>
+
+        <!-- City Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Cidade</mat-label>
+          <input matInput #input9 maxlength="40" placeholder="Cidade" id="city" name="city"
+            [(ngModel)]="storeData.city">
+          <mat-hint align="end">{{input9.value?.length || 0}}/40</mat-hint>
+        </mat-form-field>
+
+        <!-- Permission Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Permissão</mat-label>
+          <mat-select placeholder="Nível de permissão" id="permission" name="permission"
+            [(ngModel)]="storeData.permission">
+            <mat-option value="Visitante">Visitante</mat-option>
+            <mat-option value="Usuário">Usuário</mat-option>
+            <mat-option value="Administrador">Administrador</mat-option>
+          </mat-select>
+          <mat-hint align="end">Selecione uma Opção ^</mat-hint>
+        </mat-form-field>
+
+        <!-- Status Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Status</mat-label>
+          <mat-select placeholder="Status Inicial" id="status" name="status" [(ngModel)]="storeData.status">
+            <mat-option value="Ativo">Ativo</mat-option>
+          </mat-select>
+          <mat-hint align="end">Selecione uma Opção ^</mat-hint>
+        </mat-form-field>
+
+        <!-- Buttons Footer -->
+        <div class="cardBtnFooter">
+          <button mat-raised-button (click)="cancel()">Cancelar</button>
+          <button mat-raised-button class="primaryBtnGreen" (click)="create()">Cadastrar</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+
+</div>

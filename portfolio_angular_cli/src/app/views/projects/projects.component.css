@@ -1,0 +1,293 @@
+.projects {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(241, 243, 244);
+  padding: 10px 0;
+}
+
+.showProjects {
+  animation: showProjects 1s forwards;
+}
+
+@keyframes showProjects {
+  0% {
+    filter: opacity(0);
+    transform: translateY(100vh);
+  }
+  50% {
+    filter: opacity(1);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateY(0);
+  }
+}
+
+.hideProjects {
+  animation: hideProjects 1.5s forwards;
+}
+
+@keyframes hideProjects {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    filter: opacity(0);
+  }
+  100% {
+    filter: opacity(0);
+    transform: scale(1, 0.8) translateY(200px);
+  }
+}
+
+.btnsFilters {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0 5px;
+  padding: 0 24px;
+}
+
+#countItensFiltersProjects {
+  display: flex;
+  flex-direction: row;
+  margin: 2.5px 0;
+  padding: 0 30px;
+  font-size: 0.75rem;
+  color: rgb(96, 96, 96);
+}
+
+.btnsGoto div button, a {
+  font-size: 1rem;
+  color: rgb(241, 243, 244);
+  background-color: rgb(25, 26, 31);
+  margin: 10px auto;
+  transition: background-color 0.5s
+}
+
+.btnsGoto div button:hover {
+  background-color: rgb(96, 96, 96);
+  color: rgb(241, 243, 244);
+}
+
+a:hover {
+  background-color: rgb(96, 96, 96);
+  color: rgb(241, 243, 244);
+}
+
+.search {
+  margin: 0;
+  padding: 0 24px;
+}
+
+table {
+  margin: 0;
+}
+
+mat-icon {
+  margin-left: 2.5px;
+}
+
+.mat-table, .mat-row, .mat-cell {
+  background-color: transparent;
+}
+
+.mat-cell {
+  /* background-color: rgba(241, 243, 244, 0.85); */
+}
+
+.header {
+  text-align: center;
+  color: rgb(7, 19, 33);
+  font-size: 5vw;
+  font-weight: 100;
+  letter-spacing: 5vw;
+  margin: 50px 0 25px 5vw;
+  transform: scale(1, 0.2);
+  filter: opacity(0.05);
+  animation: growHeader 1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes growHeader {
+  0% {
+    transform: translateY(0);
+    transform: scale(1, 0.25);
+  }
+  100% {
+    transform: scale(1, 0.85);
+    filter: opacity(1);
+    text-shadow: 5px 5px 20px rgba(3, 2, 1, 0.2);
+  }
+}
+
+.capa {
+  /* width: 300px; */
+  width: 20vw;
+  margin: 5px 10px 5px 0;
+  border: solid 1px rgb(66, 66, 78);
+  border-radius: 2.5px;
+}
+
+.titleColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  margin: 5px 0 0;
+  color: rgb(76, 76, 76);
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 0 10px;
+}
+
+.title {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(31, 31, 31);
+  padding: 0 30px 0 10px;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  font-weight: 100;
+  color: rgb(31, 31, 31);
+  padding: 5px 10px;
+}
+
+.dateAndBy {
+  margin: 10px 0 5px;
+  color: rgb(31, 31, 31);
+  font-size: 0.9rem;
+  font-weight: 100;
+  padding: 0 10px;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+.subtitle, .content {
+  font-size: 1rem;
+  font-weight: 200;
+  color: rgb(31, 31, 31);
+  padding: 10px 10px 20px;
+}
+
+.buttonsGoto {
+  margin: 10px 0;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Animação da tabela */
+
+.cardDetailHiddenRow {
+  height: 0;
+}
+
+.cardDetailHiddenRow td {
+  border-bottom-width: 0;
+}
+
+.cardDetailRow {
+  height: 0;
+}
+
+.cardDetailHidden {
+  overflow: hidden;
+  display: flex;
+}
+
+.cardDetailExpanded {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  width: 100%;
+}
+
+tr.cardDetailHiddenRow:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.paginator {
+  margin: 0;
+  padding: 10px 24px 20px;
+  color: rgb(31, 31, 31);
+  background-color: transparent;
+}
+
+/* Visualização Desktop */
+
+@media(min-width: 650.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 650px) {
+  .header {
+    font-size: 7.5vw;
+    font-weight: 400;
+    letter-spacing: 5vw;
+    margin: 20px 0 5px 5vw;
+  }
+  .btnsFilters {
+    margin: 10px 0 5px;
+    padding: 0 2.5vw;
+  }
+  #countItensFiltersProjects {
+    padding: 0 3vw;
+  }
+  .search {
+    margin: 0;
+    padding: 0 2.5vw;
+  }
+  .capa {
+    width: 95vw;
+    margin: 0 2.5vw;
+  }
+  .category {
+    /* font-size: 1rem; */
+    font-size: 0.85rem;
+    /* margin: 5px 0 0; */
+    margin: 2.5px 0 0;
+  }
+  .title {
+    /* font-size: 1rem; */
+    font-size: 0.85rem;
+    /* margin: 10px 0 0; */
+    margin: 5px 0 0;
+  }
+  .dateAndBy {
+    /* font-size: 0.9rem; */
+    font-size: 0.75rem;
+    /* margin: 10px 0 5px; */
+    margin: 5px 0 2.5px;
+  }
+  .mat-row {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 20px;
+    border-radius: 2.5px;
+  }
+  .mat-cell:first-of-type {
+    padding-left: 0;
+  }
+  .mat-cell {
+    padding-left: 0;
+  }
+  .cardDetailExpanded {
+    padding: 20px 10px;
+  }
+}

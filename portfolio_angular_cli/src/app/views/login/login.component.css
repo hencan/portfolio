@@ -1,0 +1,98 @@
+#login {}
+
+.login {
+    position: absolute;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    padding-left: calc((100% - 270px)/2);
+    padding-top: 10%;
+    height: calc(100% - 80px)
+}
+
+#logged {
+    display: none;
+}
+
+.logged {
+    position: absolute;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    padding-left: calc((100% - 270px)/2);
+    padding-top: 10%;
+    height: calc(100% - 80px)
+}
+
+.showLog {
+    animation: showLog 1s forwards;
+}
+
+@keyframes showLog {
+    0% {
+        filter: opacity(0);
+        /* transform: translateY(100vh); */
+    }
+    50% {
+        filter: opacity(1);
+    }
+    100% {
+        filter: opacity(1);
+        /* transform: translateY(0); */
+    }
+}
+
+.hideLog {
+    animation: hideLog 1.5s forwards;
+}
+
+@keyframes hideLog {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        filter: opacity(0);
+    }
+    100% {
+        filter: opacity(0);
+        transform: scale(1, 0.8) translateY(200px);
+    }
+}
+
+.loginCard {
+    width: 250px;
+    height: 230px;
+    background-color: rgba(241, 243, 244, 0.85);
+    border-radius: 2.5px 2.5px 0 0;
+}
+
+.loginCardForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    font-size: 0.8rem;
+    /* background-color: rgb(1, 229, 137); */
+    background-color: rgb(0, 103, 184);
+    color: white;
+    margin: 10px auto;
+}
+
+.button:hover {
+    background-color: rgb(0, 74, 133);
+}
+
+/* Visualização Desktop */
+
+@media(min-width: 650.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 650px) {
+    .login, .logged {
+        padding-top: 25%;
+    }
+}

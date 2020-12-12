@@ -1,0 +1,33 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+import { LoginService } from '../../../services/login/login.service';
+
+
+@Component({
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
+})
+export class AdminComponent implements OnInit {
+
+  // photoBase64: any = 'data:image/webp;base64,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'
+
+  storeData = this.loginService.loggedAs
+
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  goTo(route: string): void {
+    this.router.navigate([route])
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'  // 👈 
+    })
+  }
+
+}

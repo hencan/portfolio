@@ -1,0 +1,255 @@
+.header {
+    position: fixed;
+    top: -60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+.toolbar {
+    height: 60px;
+    justify-content: space-between;
+    color: rgb(241, 243, 244);
+    background-color: transparent;
+    border-bottom: none;
+    padding: 0 5%;
+}
+
+.bgDark {
+    animation: bgDark 0.5s forwards;
+}
+
+@keyframes bgDark {
+    from {
+        /* background-color: transparent; */
+    }
+    to {
+        /* background-color: rgb(0, 0, 0); */
+        background-color: rgb(7, 19, 33);
+    }
+}
+
+.showToolbar {
+    animation: showToolbar 1s forwards ease;
+}
+
+@keyframes showToolbar {
+    0% {
+        /* background-color: transparent; */
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(60px);
+        /* background-color: rgb(7, 19, 33); */
+    }
+}
+
+.hideToolbar {
+    animation: hideToolbar 1s forwards;
+}
+
+@keyframes hideToolbar {
+    0% {
+        transform: translateY(60px);
+    }
+    100% {
+        transform: translateY(-60px);
+    }
+}
+
+#rightButtons {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 17.5px;
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    font-weight: 100;
+    color: rgba(241, 243, 244, 0.75);
+}
+
+.buttonsNav a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    background-color: transparent;
+    /* color: rgba(241, 243, 244, 0.75); */
+    /* text-shadow: 1.5px 1.5px 5px rgba(241, 243, 244, 0.25); */
+    color: rgba(241, 243, 244, 0.45);
+    border: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.buttonsNav a mat-icon {
+    vertical-align: middle;
+    color: rgba(241, 243, 244, 0.45);
+}
+
+.buttonsNav a:hover {
+    /* text-decoration: underline; */
+    color: rgba(241, 243, 244, 0.85);
+}
+
+.buttonsNav a mat-icon:hover {
+    color: rgba(241, 243, 244, 0.85);
+}
+
+#btnsLoginBox {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#buttonLogin {
+    background-color: transparent;
+    color: rgba(241, 243, 244, 0.45);
+}
+
+#buttonLogin:hover {
+    color: rgba(241, 243, 244, 0.85);
+}
+
+#buttonLogged {
+    display: none;
+    background-color: transparent;
+    color: rgba(241, 243, 244, 0.25);
+}
+
+#buttonLogged img {
+    width: 25px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+#btnsMusic {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+#btnMusicOff {
+    background-color: transparent;
+    color: rgba(241, 243, 244, 0.45);
+}
+
+#btnMusicOn {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    cursor: pointer;
+    display: none;
+}
+
+#bar_0 {
+    width: 0.25px;
+    height: 24px;
+    margin: 0;
+}
+
+#bar_1, #bar_2, #bar_3, #bar_4, #bar_5 {
+    width: 2px;
+    /* border-radius: 20px 20px 0 0; */
+    border-radius: 20px;
+    height: 20px;
+    margin: 0 1px;
+}
+
+.sound {
+    animation: animeBars 0.8s infinite ease-in-out alternate;
+    background-color: rgba(241, 243, 244, 0.75);
+}
+
+.noSound {
+    background-color: rgba(241, 243, 244, 0.25);
+}
+
+#bar_1 {
+    animation-delay: 0;
+}
+
+#bar_2 {
+    animation-delay: 0.25s;
+}
+
+#bar_3 {
+    animation-delay: 0.75s;
+}
+
+#bar_4 {
+    animation-delay: 0.55s;
+}
+
+#bar_5 {
+    animation-delay: 0.45s;
+}
+
+#btnGithub {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#btnGithub a {
+    background-color: transparent;
+    color: rgba(241, 243, 244, 0.45);
+}
+
+@keyframes animeBars {
+    from {
+        height: 20px;
+    }
+    to {
+        height: 3px;
+    }
+}
+
+/* Animations */
+
+/* Visualização Desktop */
+
+@media(min-width: 650.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 650px) {
+    .toolbar {}
+    #rightButtons {
+        margin-right: 30px;
+    }
+    #btnsLoginBox {
+        position: fixed;
+        top: 12px;
+        right: 0;
+    }
+    #btnsMusic {
+        position: fixed;
+        top: 12px;
+        left: 0;
+    }
+    #btnMusicOn {
+        margin-left: 5px;
+    }
+    .buttonsNav a {
+        font-size: 0.75rem;
+        margin: 0 4px;
+    }
+    mat-icon {
+        font-size: 1.25rem;
+    }
+}
+
+@media(max-width: 340px) {
+    .buttonsNav a {
+        font-size: 0.7rem;
+        margin: 0 2.5px;
+    }
+}
