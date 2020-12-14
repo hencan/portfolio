@@ -47,7 +47,7 @@
 }
 
 .capa {
-    margin-left: calc((100% - 602px)/2);
+    margin-left: calc((100% - 452px)/2);
     border: solid 1px rgb(116, 116, 116);
     border-radius: 2.5px;
 }
@@ -162,11 +162,11 @@ button:hover {
 
 /* Visualização Desktop */
 
-@media(min-width: 650.5px) {}
+@media(min-width: 450.5px) {}
 
 /* Visualização Mobile */
 
-@media(max-width: 650px) {
+@media(max-width: 450px) {
     .tutorialsRead {
         width: 95%;
         margin: 50px 2.5% 20px;

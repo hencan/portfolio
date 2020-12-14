@@ -251,8 +251,13 @@
         font-size: 0.75rem;
         margin: 0 4px;
     }
-    mat-icon {
-        font-size: 1.25rem;
+    #buttonLogin mat-icon {
+        font-size: 1.1rem;
+        padding-top: 3px;
+    }
+    #btnMusicOff mat-icon {
+        font-size: 1.1rem;
+        padding-top: 3px;
     }
 }
 

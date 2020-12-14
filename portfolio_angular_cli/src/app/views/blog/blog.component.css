@@ -185,11 +185,11 @@ table {
 
 /* Visualização Desktop */
 
-@media(min-width: 650.5px) {}
+@media(min-width: 450.5px) {}
 
 /* Visualização Mobile */
 
-@media(max-width: 650px) {
+@media(max-width: 450px) {
   .header {
     font-size: 7.5vw;
     font-weight: 400;
