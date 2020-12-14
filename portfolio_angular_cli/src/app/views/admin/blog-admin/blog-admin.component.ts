@@ -56,7 +56,7 @@ export class BlogAdminComponent implements OnInit {
         this.dataSource.sort = this.sort;
       })
     } else {
-      console.log('Utilizando BD do Blog Service')
+      console.log('Utilizando BD do Artigos Service')
     }
     this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
     this.applyFilterOnInitTable() // Aplicação do filtro inicial da visualização inicial da planilha
@@ -69,9 +69,9 @@ export class BlogAdminComponent implements OnInit {
 
   buttonCreate(): void {
     console.log('***')
-    console.log('Blog | Botão criar clicado')
+    console.log('Artigos | Botão criar clicado')
     console.log('Início dos processos do botão criar')
-    this.router.navigate(['admin/blog/create'])
+    this.router.navigate(['admin/articles/create'])
     console.log('-> Router para página de Cadastrar Post')
     console.log('Fim do processo do botão criar')
     console.log('***')
@@ -79,7 +79,7 @@ export class BlogAdminComponent implements OnInit {
 
   buttonRead(element): void {
     console.log('***')
-    console.log('Blog | Botão ver clicado')
+    console.log('Artigos | Botão ver clicado')
     console.log('Início dos processos do botão ver')
     for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
       if (this.blogService.BLOG_DATA_SERVICE[i].id == element.id) {
@@ -89,8 +89,8 @@ export class BlogAdminComponent implements OnInit {
     }
     console.log('-> Atribuição do nº de ID na variável id')
     this.blogService.readData(this.posArray)
-    console.log('-> Chamada função readUpdateData no Blog Service')
-    this.router.navigate(['admin/blog/read'])
+    console.log('-> Chamada função readUpdateData no Artigos Service')
+    this.router.navigate(['admin/articles/read'])
     console.log('-> Router para página de Dados do Post')
     console.log('Fim do processo do botão ver')
     console.log('***')
@@ -98,7 +98,7 @@ export class BlogAdminComponent implements OnInit {
 
   buttonReadUpdate(id): void {
     console.log('***')
-    console.log('Blog | Botão editar clicado')
+    console.log('Artigos | Botão editar clicado')
     console.log('Início dos processos do botão editar')
     for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
       if (this.blogService.BLOG_DATA_SERVICE[i].id == id) {
@@ -107,16 +107,16 @@ export class BlogAdminComponent implements OnInit {
       }
     }
     this.blogService.updateReadData(this.posArray)
-    console.log('-> Chamada função readUpdateData no Blog Service')
-    this.router.navigate(['admin/blog/update'])
-    console.log('-> Router para página de Blog Admin Usuário')
+    console.log('-> Chamada função readUpdateData no Artigos Service')
+    this.router.navigate(['admin/articles/update'])
+    console.log('-> Router para página de Artigos Admin Usuário')
     console.log('Fim do processo do botão editar')
     console.log('***')
   }
 
   buttonDelete(element): void {
     console.log('***')
-    console.log('Blog | Botão excluir clicado')
+    console.log('Artigos | Botão excluir clicado')
     console.log('Início dos processos do botão excluir')
     for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
       if (this.blogService.BLOG_DATA_SERVICE[i].id == element.id) {
@@ -126,9 +126,9 @@ export class BlogAdminComponent implements OnInit {
     }
     console.log('-> Atribuição do nº de ID na variável id')
     this.blogService.readData(this.posArray)
-    console.log('-> Chamada função readUpdateData no Blog Service')
-    this.router.navigate(['admin/blog/delete'])
-    console.log('-> Router para página de Blog Admin Usuário')
+    console.log('-> Chamada função readUpdateData no Artigos Service')
+    this.router.navigate(['admin/articles/delete'])
+    console.log('-> Router para página de Artigos Admin Usuário')
     console.log('Fim do processo do botão excluir')
     console.log('***')
   }

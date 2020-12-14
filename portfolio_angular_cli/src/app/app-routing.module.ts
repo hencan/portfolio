@@ -136,23 +136,23 @@ const routes: Routes = [
     component: TutorialsAdminDeleteComponent
   },
   {
-    path: "admin/blog",
+    path: "admin/articles",
     component: BlogAdminComponent
   },
   {
-    path: "admin/blog/create",
+    path: "admin/articles/create",
     component: BlogAdminCreateComponent
   },
   {
-    path: "admin/blog/read",
+    path: "admin/articles/read",
     component: BlogAdminReadComponent
   },
   {
-    path: "admin/blog/update",
+    path: "admin/articles/update",
     component: BlogAdminUpdateComponent
   },
   {
-    path: "admin/blog/delete",
+    path: "admin/articles/delete",
     component: BlogAdminDeleteComponent
   },
   {

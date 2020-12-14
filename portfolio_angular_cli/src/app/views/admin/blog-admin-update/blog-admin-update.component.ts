@@ -118,7 +118,7 @@ export class BlogAdminUpdateComponent implements OnInit {
     }
     this.blogService.updateSaveData(posArray)
     this.snackBarService.showMassage('Atualização feita com sucesso!')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
   }
 
   updateDraft(): void {
@@ -136,7 +136,7 @@ export class BlogAdminUpdateComponent implements OnInit {
     }
     this.blogService.updateSaveData(posArray)
     this.snackBarService.showMassage('Atualização feita com sucesso!')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
   }
 
   cancel(): void {
@@ -144,7 +144,7 @@ export class BlogAdminUpdateComponent implements OnInit {
     console.log('Início dos processos do botão cancelar')
     this.snackBarService.showMassage('Operação cancelada!')
     console.log('-> Snackbar da mensagem de sucesso')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
     console.log('-> Router para página de Posts')
     console.log('Fim do processo do botão cancelar')
   }

@@ -51,6 +51,10 @@
   padding: 0 24px;
 }
 
+.btnsFilters mat-chip-list mat-chip {
+  font-size: 0.75rem;
+}
+
 #countItensFiltersTutorials {
   display: flex;
   flex-direction: row;

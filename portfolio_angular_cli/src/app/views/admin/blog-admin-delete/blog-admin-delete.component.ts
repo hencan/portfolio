@@ -80,9 +80,9 @@ export class BlogAdminDeleteComponent implements OnInit {
   posArray: any = ""
 
   cancel(): void {
-    console.log('Retornando a admin/blog')
+    console.log('Retornando a admin/articles')
     // this.showMassage('Operação cancelada!')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
   }
 
   delete(id): void {
@@ -96,7 +96,7 @@ export class BlogAdminDeleteComponent implements OnInit {
     }
     this.blogService.deleteData(this.posArray)
     this.snackBarService.showMassage('Registro apagado!')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
   }
 
 }

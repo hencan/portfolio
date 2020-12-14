@@ -73,9 +73,9 @@ export class BlogAdminReadComponent implements OnInit {
   }
 
   cancel(): void {
-    console.log('Retornando a admin/blog')
+    console.log('Retornando a admin/articles')
     // this.showMassage('Operação cancelada!')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
   }
 
 }

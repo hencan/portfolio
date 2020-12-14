@@ -58,7 +58,7 @@ export class BlogComponent implements OnInit {
         this.dataSource = this.blogService.BLOG_DATA_SERVICE
         this.dataSource = JSON.parse(JSON.stringify(this.dataSource))
         for (var i = 0; i < this.dataSource.length; i++) {
-          if (this.dataSource[i].status == "Excluído") {
+          if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
             // delete this.dataSource[i]
             this.selectedChips.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
           }
@@ -77,7 +77,7 @@ export class BlogComponent implements OnInit {
       this.dataSource = this.blogService.BLOG_DATA_SERVICE
       this.dataSource = JSON.parse(JSON.stringify(this.dataSource))
       for (var i = 0; i < this.dataSource.length; i++) {
-        if (this.dataSource[i].status == "Excluído") {
+        if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
           // delete this.dataSource[i]
           this.selectedChips.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
         }

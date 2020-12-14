@@ -127,7 +127,7 @@ export class BlogAdminCreateComponent implements OnInit {
     console.log('-> Concluído o cadastro do novo item')
     this.snackBarService.showMassage('Cadastro feito com sucesso!')
     console.log('-> Snackbar da mensagem de sucesso')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
     console.log('-> Router para página de Posts do Blog')
     console.log('Fim do processo do botão Salvar Rascunho')
   }
@@ -158,7 +158,7 @@ export class BlogAdminCreateComponent implements OnInit {
     console.log('-> Concluído o cadastro do novo item')
     this.snackBarService.showMassage('Cadastro feito com sucesso!')
     console.log('-> Snackbar da mensagem de sucesso')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
     console.log('-> Router para página de Posts do Blog')
     console.log('Fim do processo do botão Postar')
   }
@@ -168,7 +168,7 @@ export class BlogAdminCreateComponent implements OnInit {
     console.log('Início dos processos do botão cancelar')
     this.snackBarService.showMassage('Operação cancelada!')
     console.log('-> Snackbar da mensagem de sucesso')
-    this.router.navigate(['admin/blog'])
+    this.router.navigate(['admin/articles'])
     console.log('-> Router para página de Posts')
     console.log('Fim do processo do botão cancelar')
   }
