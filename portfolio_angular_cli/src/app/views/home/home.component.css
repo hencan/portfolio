@@ -131,11 +131,12 @@
   #buttonsNav {
     /* position: fixed;
     bottom: 50px; */
+    bottom: 10vw;
     margin: 0 5%;
   }
   #buttonsNav a {
     font-size: 3.5vw;
-    margin: 0 7px;
+    margin: 0 1.5vw;
     /* font-weight: 100; */
   }
   #buttonsNav a mat-icon {

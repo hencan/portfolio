@@ -78,6 +78,7 @@
     color: rgba(31, 31, 31);
     padding: 10px 5% 50px;
     width: 90%;
+    word-break: break-all;
 }
 
 /* Visualização Desktop */
