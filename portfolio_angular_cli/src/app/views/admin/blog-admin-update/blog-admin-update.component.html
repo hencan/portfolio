@@ -24,7 +24,7 @@
           </div>
           <div class="createPhotoChangeBox">
             <image-cropper class="createFormImageRaw" [imageChangedEvent]="imageChangedEvent"
-            [maintainAspectRatio]="true" [aspectRatio]="13 / 6" [resizeToWidth]="600"
+            [maintainAspectRatio]="true" [aspectRatio]="13 / 6" [resizeToWidth]="450"
               format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
               (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
 
@@ -57,7 +57,7 @@
           <mat-label>Subtitulo</mat-label>
           <textarea matInput #input2 maxlength="400" placeholder="Digite o Subtítulo aqui" id="subtitle" name="subtitle"
             [(ngModel)]="storeData.subtitle"></textarea>
-          <mat-hint align="end">{{input1.value?.length || 0}}/400</mat-hint>
+          <mat-hint align="end">{{input2.value?.length || 0}}/400</mat-hint>
         </mat-form-field>
 
         <!-- Categories Field -->
@@ -86,9 +86,11 @@
             <mat-option value="Reactive_X">Reactive_X</mat-option>
             <mat-option value="Vue_Js">Vue_Js</mat-option>
             <mat-option value="Webpack">Webpack</mat-option>
+            <mat-option value="Educação">Educação</mat-option>
             <mat-option value="Scrum">Scrum</mat-option>
             <mat-option value="PMBOK">PMBOK</mat-option>
             <mat-option value="Projetos">Projetos</mat-option>
+            <mat-option value="Social">Social</mat-option>
           </mat-select>
           <mat-hint align="end">Selecione uma Opção ^</mat-hint>
         </mat-form-field>

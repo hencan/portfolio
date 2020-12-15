@@ -71,14 +71,15 @@
   margin: 0 5% 0;
   width: 90%;
   text-align: center;
-  /* filter: opacity(0); */
+  filter: opacity(0);
 }
 
 #buttonsNav a {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   color: rgba(241, 243, 244, 0.75);
-  font-size: 1.45vw;
+  /* font-size: 1.45vw; */
+  font-size: 15px;
   margin: 0 5%;
   cursor: pointer;
 }
@@ -94,7 +95,7 @@
 }
 
 .showButtons {
-  animation: showButtons 0.75s forwards;
+  animation: showButtons 1s forwards;
   animation-delay: 0.5s;
 }
 
@@ -135,11 +136,13 @@
     margin: 0 5%;
   }
   #buttonsNav a {
-    font-size: 3.5vw;
+    /* font-size: 3.5vw; */
+    font-size: 12px;
     margin: 0 1.5vw;
     /* font-weight: 100; */
   }
   #buttonsNav a mat-icon {
-    font-size: 4vw;
+    /* font-size: 4vw; */
+    font-size: 15px;
   }
 }
