@@ -25,24 +25,24 @@ export class HomeComponent implements OnInit {
     this.databaseService.getLogos().subscribe(response => {
       this.logos = response
     })
-    if (document.getElementById("header").classList.contains("showToolbar")) {
-      document.getElementById("header").classList.remove("showToolbar")
-      document.getElementById("header").classList.add("hideToolbar")
+    if (document.getElementById("navToolbar").classList.contains("showToolbar")) {
+      document.getElementById("navToolbar").classList.remove("showToolbar")
+      document.getElementById("navToolbar").classList.add("hideToolbar")
     }
   }
 
   goTo(route: string): void {
     if (route == "") {
-      document.getElementById("header").classList.remove("showToolbar")
-      document.getElementById("header").classList.add("hideToolbar")
+      document.getElementById("navToolbar").classList.remove("showToolbar")
+      document.getElementById("navToolbar").classList.add("hideToolbar")
       this.router.navigate([route])
       window.scroll({
         top: 0,
         behavior: 'smooth'  // 👈 
       })
     } else {
-      document.getElementById("header").classList.remove("hideToolbar")
-      document.getElementById("header").classList.add("showToolbar")
+      document.getElementById("navToolbar").classList.remove("hideToolbar")
+      document.getElementById("navToolbar").classList.add("showToolbar")
       this.router.navigate([route])
       window.scroll({
         top: 0,

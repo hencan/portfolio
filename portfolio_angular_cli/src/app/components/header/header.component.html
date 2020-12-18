@@ -1,96 +1,76 @@
 <div id="header" class="header">
-    <mat-toolbar id="toolbar" class="toolbar">
-        <div id="rightButtons">
-            <div id="buttonsNav" class="buttonsNav">
-                <!-- <button (click)='goTo("")'>
-                    HOME
-                </button>
-                |
-                <button (click)='goTo("projects")'>
-                    PROJETOS
-                </button>
-                |
-                <button (click)='goTo("blog")'>
-                    BLOG
-                </button>
-                |
-                <button (click)='goTo("info")'>
-                    INFO
-                </button> -->
-                <a (click)='goTo("")'>
-                    <!-- <i class="fas fa-arrow-left"></i> -->
-                    <mat-icon>arrow_back </mat-icon>
-                    <!-- HOME -->
-                </a>
-                <!-- | -->
-                <a (click)='goTo("projects")'>
-                    PROJETOS
-                </a>
-                <!-- | -->
-                <a (click)='goTo("tutorials")'>
-                    TUTORIAIS
-                </a>
-                <!-- | -->
-                <a (click)='goTo("articles")'>
-                    ARTIGOS
-                </a>
-                <!-- | -->
-                <a (click)='goTo("info")'>
-                    INFO
-                </a>
-
+    <div id="btnsHeader">
+        <div id="btnsMusic">
+            <a id="btnMusicOff" (click)='activeMusic()' matTooltip="Ligar música">
+                <mat-icon>music_off</mat-icon>
+            </a>
+            <div id="btnMusicOn" (click)='activeMusic()' matTooltip="Desligar música">
+                <div id="bar_0"></div>
+                <div id="bar_1" class="bars noSound"></div>
+                <div id="bar_2" class="bars noSound"></div>
+                <div id="bar_3" class="bars noSound"></div>
+                <div id="bar_4" class="bars noSound"></div>
+                <div id="bar_5" class="bars noSound"></div>
             </div>
         </div>
-    </mat-toolbar>
-</div>
-<div id="btnsLoginBox">
-    <button id="buttonLogin" mat-mini-fab (click)='goTo2("login")' matTooltip="Login">
-        <mat-icon>login </mat-icon>
-    </button>
-    <button id="buttonLogged" matTooltip="Perfil, Admin e Logoff" mat-mini-fab [matMenuTriggerFor]="menu">
-        <img id="buttonLogged_Img" [src]="loggedAs.photo" alt="">
-    </button>
-    <mat-menu #menu>
-        <button mat-menu-item (click)='goTo("admin/profile")'>
-            <mat-icon>account_circle</mat-icon>
-            Meu Perfil
-        </button>
-        <button mat-menu-item (click)='goTo("admin/projects")'>
-            <mat-icon>apps</mat-icon>
-            Posts de Projetos
-        </button>
-        <button mat-menu-item (click)='goTo("admin/tutorials")'>
-            <mat-icon>library_books</mat-icon>
-            Posts de Tutoriais
-        </button>
-        <button mat-menu-item (click)='goTo("admin/articles")'>
-            <mat-icon>library_books</mat-icon>
-            Posts do Artigos
-        </button>
-        <button mat-menu-item (click)='goTo("admin/users")'>
-            <mat-icon>people</mat-icon>
-            Usuários
-        </button>
-        <button mat-menu-item (click)='goTo("admin/config")'>
-            <mat-icon>construction</mat-icon>
-            Configurações
-        </button>
-        <button mat-menu-item (click)='goTo2("login")'>
-            <mat-icon>login</mat-icon>
-            Logoff
-        </button>
-    </mat-menu>
-</div>
-<div id="btnsMusic">
-    <button id="btnMusicOff" mat-mini-fab (click)='activeMusic()' matTooltip="Ligar música">
-        <mat-icon>music_off </mat-icon>
-    </button>
-    <div id="btnMusicOn" (click)='activeMusic()' matTooltip="Desligar música">
-        <div id="bar_0"></div>
-        <div id="bar_1" class="bars noSound"></div>
-        <div id="bar_2" class="bars noSound"></div>
-        <div id="bar_3" class="bars noSound"></div>
-        <div id="bar_4" class="bars noSound"></div>
-        <div id="bar_5" class="bars noSound"></div>
+        <div id="btnsLoginBox">
+            <a id="buttonLogin" (click)='goTo2("login")' matTooltip="Login">
+                <mat-icon>login</mat-icon>
+            </a>
+            <a id="buttonLogged" matTooltip="Perfil, Admin e Logoff" [matMenuTriggerFor]="menu">
+                <img id="buttonLogged_Img" [src]="loggedAs.photo" alt="">
+            </a>
+            <mat-menu #menu>
+                <button mat-menu-item (click)='goTo("admin/profile")'>
+                    <mat-icon>account_circle</mat-icon>
+                    Meu Perfil
+                </button>
+                <button mat-menu-item (click)='goTo("admin/projects")'>
+                    <mat-icon>apps</mat-icon>
+                    Posts de Projetos
+                </button>
+                <button mat-menu-item (click)='goTo("admin/tutorials")'>
+                    <mat-icon>library_books</mat-icon>
+                    Posts de Tutoriais
+                </button>
+                <button mat-menu-item (click)='goTo("admin/articles")'>
+                    <mat-icon>library_books</mat-icon>
+                    Posts do Artigos
+                </button>
+                <button mat-menu-item (click)='goTo("admin/users")'>
+                    <mat-icon>people</mat-icon>
+                    Usuários
+                </button>
+                <button mat-menu-item (click)='goTo("admin/config")'>
+                    <mat-icon>construction</mat-icon>
+                    Configurações
+                </button>
+                <button mat-menu-item (click)='goTo2("login")'>
+                    <mat-icon>login</mat-icon>
+                    Logoff
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+    <div id="navToolbar" class="navToolbar">
+        <a (click)='goTo("")' matTooltip="Home">
+            <mat-icon>arrow_back</mat-icon>
+        </a>
+        <!-- | -->
+        <a (click)='goTo("projects")'>
+            PROJETOS
+        </a>
+        <!-- | -->
+        <a (click)='goTo("tutorials")'>
+            TUTORIAIS
+        </a>
+        <!-- | -->
+        <a (click)='goTo("articles")'>
+            ARTIGOS
+        </a>
+        <!-- | -->
+        <a (click)='goTo("info")'>
+            INFO
+        </a>
     </div>
 </div>

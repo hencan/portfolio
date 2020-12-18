@@ -196,13 +196,13 @@
     transform: translate(95vw, -5vh) rotateX(1440deg) rotateY(1440deg) rotateZ(1440deg) scale3d(0.2, 0.2, 0.2);
   }
   62.5% {
-    transform: translate(75vw, -30vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.15, 0.15, 0.15);
+    transform: translate(75vw, -30vh) rotateX(1080deg) rotateY(1080deg) rotateZ(1080deg) scale3d(0.15, 0.15, 0.15);
   }
   75% {
-    transform: translate(50vw, -40vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.1, 0.1, 0.1);
+    transform: translate(50vw, -40vh) rotateX(720deg) rotateY(720deg) rotateZ(720deg) scale3d(0.1, 0.1, 0.1);
   }
   87.5% {
-    transform: translate(25vw, -30vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.15, 0.15, 0.15);
+    transform: translate(25vw, -30vh) rotateX(360deg) rotateY(360deg) rotateZ(360deg) scale3d(0.15, 0.15, 0.15);
   }
   100% {
     transform: translate(5vw, -5vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.2, 0.2, 0.2);
@@ -241,7 +241,7 @@
     }
     25% {
       visibility: visible;
-      transform: translate(50vw, 10vh) rotateX(720deg) rotateY(720deg) rotateZ(720deg) scale3d(1.5, 1.5, 1.5);
+      transform: translate(50vw, 10vh) rotateX(720deg) rotateY(720deg) rotateZ(720deg) scale3d(1.25, 1.25, 1.25);
     }
     37.5% {
       visibility: visible;
@@ -253,15 +253,15 @@
     }
     62.5% {
       visibility: visible;
-      transform: translate(75vw, -30vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.175, 0.175, 0.175);
+      transform: translate(75vw, -20vh) rotateX(1080deg) rotateY(1080deg) rotateZ(1080deg) scale3d(0.175, 0.175, 0.175);
     }
     75% {
       visibility: visible;
-      transform: translate(50vw, -35vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.1, 0.1, 0.1);
+      transform: translate(50vw, -25vh) rotateX(720deg) rotateY(720deg) rotateZ(720deg) scale3d(0.1, 0.1, 0.1);
     }
     87.5% {
       visibility: visible;
-      transform: translate(25vw, -30vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.175, 0.175, 0.175);
+      transform: translate(25vw, -20vh) rotateX(360deg) rotateY(360deg) rotateZ(360deg) scale3d(0.175, 0.175, 0.175);
     }
     100% {
       visibility: visible;

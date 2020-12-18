@@ -1,20 +1,60 @@
 .header {
     position: fixed;
-    top: -60px;
-    width: 100%;
+    top: 0;
+    /* width: 100%; */
+    width: calc(100vw - 1px);
     display: flex;
-    flex-direction: row;
-    z-index: 1000;
+    flex-direction: column;
     background-color: transparent;
+    z-index: 100;
 }
 
-.toolbar {
-    height: 60px;
+#btnsHeader {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 35px;
+    /* align-items: center; */
     justify-content: space-between;
-    color: rgb(241, 243, 244);
+    /* z-index: 100; */
+}
+
+#navToolbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 35px;
     background-color: transparent;
-    border-bottom: none;
-    padding: 0 5%;
+    align-items: center;
+    justify-content: flex-end;
+    transform: scale(1, 0);
+}
+
+#navToolbar a {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    background-color: transparent;
+    color: rgba(241, 243, 244, 0.5);
+    border: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 2%;
+}
+
+#navToolbar a mat-icon {
+    font-size: 20px;
+    vertical-align: middle;
+    color: rgba(241, 243, 244, 0.5);
+}
+
+#navToolbar a:hover {
+    /* text-decoration: underline; */
+    color: rgba(241, 243, 244, 0.85);
+}
+
+#navToolbar a mat-icon:hover {
+    color: rgba(241, 243, 244, 0.85);
 }
 
 .bgDark {
@@ -27,85 +67,50 @@
     }
     to {
         /* background-color: rgb(0, 0, 0); */
-        background-color: rgb(7, 19, 33);
+        background-color: rgb(16, 16, 16);
+        border-bottom: solid 1px rgba(241, 243, 244, 0.25);
     }
 }
 
 .showToolbar {
-    animation: showToolbar 1s forwards ease;
+    animation: showToolbar 0.25s forwards linear;
 }
 
 @keyframes showToolbar {
     0% {
-        /* background-color: transparent; */
-        transform: translateY(0px);
+        transform: scale(1, 0);
+        filter: opacity(0);
     }
     100% {
-        transform: translateY(60px);
-        /* background-color: rgb(7, 19, 33); */
+        transform: scale(1, 1);
+        filter: opacity(1);
     }
 }
 
 .hideToolbar {
-    animation: hideToolbar 1s forwards;
+    animation: hideToolbar 0.25s forwards linear;
 }
 
 @keyframes hideToolbar {
     0% {
-        transform: translateY(60px);
+        transform: scale(1, 1);
+        filter: opacity(1);
     }
+    /* 50% {
+        transform: scale(1, 0.5);
+        filter: opacity(0);
+    } */
     100% {
-        transform: translateY(-60px);
+        transform: scale(1, 0);
+        filter: opacity(0);
     }
-}
-
-#rightButtons {
-    display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: 17.5px;
-    display: flex;
-    flex-direction: row;
-    font-size: 1rem;
-    font-weight: 100;
-    color: rgba(241, 243, 244, 0.75);
-}
-
-.buttonsNav a {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    /* font-size: 1rem; */
-    font-size: 15px;
-    background-color: transparent;
-    /* color: rgba(241, 243, 244, 0.75); */
-    /* text-shadow: 1.5px 1.5px 5px rgba(241, 243, 244, 0.25); */
-    color: rgba(241, 243, 244, 0.45);
-    border: transparent;
-    cursor: pointer;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-.buttonsNav a mat-icon {
-    font-size: 20px;
-    vertical-align: middle;
-    color: rgba(241, 243, 244, 0.45);
-}
-
-.buttonsNav a:hover {
-    /* text-decoration: underline; */
-    color: rgba(241, 243, 244, 0.85);
-}
-
-.buttonsNav a mat-icon:hover {
-    color: rgba(241, 243, 244, 0.85);
 }
 
 #btnsLoginBox {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1000;
+    margin: 10px 2% 0;
+    cursor: pointer;
+    text-align: right;
+    /* z-index: 1000; */
 }
 
 #buttonLogin {
@@ -114,7 +119,7 @@
 }
 
 #buttonLogin mat-icon {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
 }
 
 #buttonLogin:hover {
@@ -124,20 +129,20 @@
 #buttonLogged {
     display: none;
     background-color: transparent;
-    color: rgba(241, 243, 244, 0.25);
+    color: rgba(241, 243, 244, 0.45);
 }
 
 #buttonLogged img {
-    width: 25px;
+    width: 23px;
     border-radius: 10px;
-    margin-right: 5px;
+    /* margin-right: 5px; */
 }
 
 #btnsMusic {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
+    margin: 10px 2% 0;
+    cursor: pointer;
+    text-align: left;
+    /* z-index: 1000; */
 }
 
 #btnMusicOff {
@@ -149,6 +154,10 @@
     font-size: 1.25rem;
 }
 
+#btnMusicOff:hover {
+    color: rgba(241, 243, 244, 0.85);
+}
+
 #btnMusicOn {
     background-color: transparent;
     display: flex;
@@ -156,12 +165,12 @@
     align-items: baseline;
     cursor: pointer;
     display: none;
-    margin: 5px 0 0 5px;
+    /* margin: 5px 0 0 5px; */
 }
 
 #bar_0 {
     width: 0.25px;
-    height: 24px;
+    height: 18px;
     margin: 0;
 }
 
@@ -169,7 +178,7 @@
     width: 2px;
     /* border-radius: 20px 20px 0 0; */
     border-radius: 20px;
-    height: 20px;
+    height: 15px;
     margin: 0 1px;
 }
 
@@ -216,10 +225,10 @@
 
 @keyframes animeBars {
     from {
-        height: 20px;
+        height: 15px;
     }
     to {
-        height: 3px;
+        height: 2px;
     }
 }
 
@@ -227,45 +236,34 @@
 
 /* Visualização Desktop */
 
-@media(min-width: 650.5px) {}
+@media(min-width: 450.5px) {}
 
 /* Visualização Mobile */
 
-@media(max-width: 650px) {
-    .toolbar {}
-    #rightButtons {
-        margin-right: 30px;
-    }
+@media(max-width: 450px) {
     #btnsLoginBox {
-        position: fixed;
-        top: 12px;
-        right: 0;
+        margin: 15px 4% 0;
     }
     #btnsMusic {
-        position: fixed;
-        top: 12px;
-        left: 0;
+        margin: 15px 4% 0;
     }
-    #btnMusicOn {
-        margin-left: 5px;
+    #navToolbar {
+        margin: 0 4%;
+        width: 92%;
+        justify-content: space-between;
     }
-    .buttonsNav a {
-        /* font-size: 0.75rem; */
-        font-size: 12px;
-        margin: 0 4px;
+    #navToolbar a {
+        margin: 0;
+        font-size: 3vw;
     }
-    .buttonsNav a mat-icon {
-        /* font-size: 20px; */
+    #navToolbar a mat-icon {
+        font-size: 5vw;
     }
     #buttonLogin mat-icon {
-        /* font-size: 1.1rem; */
-        font-size: 18px;
-        padding-top: 2px;
+        font-size: 5.5vw;
     }
     #btnMusicOff mat-icon {
-        /* font-size: 1.1rem; */
-        font-size: 15px;
-        padding-top: 3px;
+        font-size: 5vw;
     }
 }
 

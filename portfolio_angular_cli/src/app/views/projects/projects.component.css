@@ -1,6 +1,6 @@
 .projects {
   position: absolute;
-  top: 60px;
+  top: 70px;
   width: 100%;
   height: auto;
   display: flex;
@@ -17,9 +17,6 @@
   0% {
     filter: opacity(0);
     transform: translateY(100vh);
-  }
-  50% {
-    filter: opacity(1);
   }
   100% {
     filter: opacity(1);
@@ -244,6 +241,9 @@ tr.cardDetailHiddenRow:hover {
 /* Visualização Mobile */
 
 @media(max-width: 450px) {
+  /* .projects {
+    top: 80px;
+  }   */
   .header {
     font-size: 7.5vw;
     font-weight: 400;

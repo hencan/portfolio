@@ -57,9 +57,9 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Trabalhos');
-    if (document.getElementById("header").classList.contains("showToolbar") == false) {
-      document.getElementById("header").classList.remove("hideToolbar")
-      document.getElementById("header").classList.add("showToolbar")
+    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
+      document.getElementById("navToolbar").classList.remove("hideToolbar")
+      document.getElementById("navToolbar").classList.add("showToolbar")
     }
     if (this.projectsService.bdLoaded == false) {
       this.databaseService.getProjects().subscribe(response => {

@@ -39,8 +39,8 @@ export class HeaderComponent implements OnInit {
 
   goTo(route: string): void {
     if (route == "") {
-      document.getElementById("header").classList.remove("showToolbar")
-      document.getElementById("header").classList.add("hideToolbar")
+      document.getElementById("navToolbar").classList.remove("showToolbar")
+      document.getElementById("navToolbar").classList.add("hideToolbar")
       this.router.navigate([route])
       window.scrollTo(0, 0)
 
@@ -49,8 +49,8 @@ export class HeaderComponent implements OnInit {
       //   behavior: 'smooth' 
       // })
     } else {
-      document.getElementById("header").classList.remove("hideToolbar")
-      document.getElementById("header").classList.add("showToolbar")
+      document.getElementById("navToolbar").classList.remove("hideToolbar")
+      document.getElementById("navToolbar").classList.add("showToolbar")
       this.router.navigate([route])
       window.scrollTo(0, 0)
 
@@ -69,14 +69,14 @@ export class HeaderComponent implements OnInit {
   changeStyleHeader(): void {
     if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
       // console.log("Ativar class")
-      document.getElementById("toolbar").classList.add("bgDark")
+      document.getElementById("header").classList.add("bgDark")
       // document.getElementById("toolbar").classList.remove("toolbar")
       // document.getElementById("toolbar").classList.add("toolbar2")
       // document.getElementById("buttonsNav").classList.remove("buttonsNav1")
       // document.getElementById("buttonsNav").classList.add("buttonsNav2")
     } else {
       // console.log("Desativar class")
-      document.getElementById("toolbar").classList.remove("bgDark")
+      document.getElementById("header").classList.remove("bgDark")
       // document.getElementById("toolbar").classList.remove("toolbar2")
       // document.getElementById("toolbar").classList.add("toolbar")
       // document.getElementById("buttonsNav").classList.remove("buttonsNav2")

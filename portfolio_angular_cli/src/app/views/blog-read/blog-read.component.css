@@ -4,7 +4,7 @@
 
 .blogRead {
     position: absolute;
-    top: 60px;
+    top: 70px;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -82,7 +82,7 @@
 button {}
 
 button:hover {
-    background-color: rgb(7, 19, 33);
+    background-color: rgb(53, 68, 153);
     color: rgb(241, 243, 244);
 }
 
@@ -90,24 +90,22 @@ button:hover {
     position: fixed;
     top: 80px;
     right: 10px;
-    background-color: rgb(241, 243, 244);
-    color: rgb(7, 19, 33);
-    border: solid 1px rgb(7, 19, 33);
+    background-color: rgba(224, 224, 224);
+    color: rgb(31, 31, 31);
     padding-left: 6px;
     z-index: 10;
 }
 
 .buttonBack mat-icon, .buttonShare mat-icon {
-    font-size: 1rem;
+    font-size: 20px;
 }
 
 .buttonShare {
     position: fixed;
     top: 130px;
     right: 10px;
-    background-color: rgb(241, 243, 244);
-    color: rgb(7, 19, 33);
-    border: solid 1px rgb(7, 19, 33);
+    background-color: rgba(224, 224, 224);
+    color: rgb(31, 31, 31);
     z-index: 10;
 }
 
@@ -166,6 +164,13 @@ button:hover {
 
 /* Visualização Mobile */
 
+@media(max-width: 550px) {
+    .capa {
+        width: 100%;
+        margin-left: auto;
+    }
+}
+
 @media(max-width: 450px) {
     .blogRead {
         width: 95%;
@@ -174,14 +179,21 @@ button:hover {
     .buttonBack {
         position: initial;
         position: fixed;
-        top: 60px;
+        top: 75px;
         right: 2.5%;
+        width: 9vw;
+        height: 9vw;
     }
     .buttonShare {
         position: initial;
         position: fixed;
-        top: 60px;
+        top: 75px;
         right: calc(2.5% + 45px);
+        width: 9vw;
+        height: 9vw;
+    }
+    .buttonBack mat-icon, .buttonShare mat-icon {
+        font-size: 4.5vw;
     }
     .showBlogPost {}
     .title {

@@ -34,9 +34,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Login');
-    if (document.getElementById("header").classList.contains("showToolbar") == false) {
-      document.getElementById("header").classList.remove("hideToolbar")
-      document.getElementById("header").classList.add("showToolbar")
+    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
+      document.getElementById("navToolbar").classList.remove("hideToolbar")
+      document.getElementById("navToolbar").classList.add("showToolbar")
     }
     this.isLogged()
     document.getElementById("user").focus()
@@ -89,8 +89,8 @@ export class LoginComponent implements OnInit {
           document.getElementById("buttonLogged").style.display = "block"
           document.getElementById("buttonLogged_Img").setAttribute('src', this.loginService.loggedAs.photo)
 
-          document.getElementById("header").classList.remove("showToolbar")
-          document.getElementById("header").classList.add("hideToolbar")    
+          // document.getElementById("header").classList.remove("showToolbar")
+          // document.getElementById("header").classList.add("hideToolbar")    
           
           // document.getElementById("buttonLogged_Span").innerHTML = this.loginService.loggedAs.fname
           this.router.navigate([''])

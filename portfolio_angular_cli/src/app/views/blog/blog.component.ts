@@ -46,9 +46,9 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Artigos');
-    if (document.getElementById("header").classList.contains("showToolbar") == false) {
-      document.getElementById("header").classList.remove("hideToolbar")
-      document.getElementById("header").classList.add("showToolbar")
+    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
+      document.getElementById("navToolbar").classList.remove("hideToolbar")
+      document.getElementById("navToolbar").classList.add("showToolbar")
     }
     if (this.blogService.bdLoaded == false) {
       this.databaseService.getBlog().subscribe(response => {
