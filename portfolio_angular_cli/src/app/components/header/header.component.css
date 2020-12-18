@@ -33,7 +33,8 @@
 #navToolbar a {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: 15px;
+    /* font-size: 15px; */
+    font-size: 1rem;
     background-color: transparent;
     color: rgba(241, 243, 244, 0.5);
     border: transparent;
@@ -43,7 +44,8 @@
 }
 
 #navToolbar a mat-icon {
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-size: 1.25rem;
     vertical-align: middle;
     color: rgba(241, 243, 244, 0.5);
 }
@@ -96,10 +98,6 @@
         transform: scale(1, 1);
         filter: opacity(1);
     }
-    /* 50% {
-        transform: scale(1, 0.5);
-        filter: opacity(0);
-    } */
     100% {
         transform: scale(1, 0);
         filter: opacity(0);
@@ -119,7 +117,7 @@
 }
 
 #buttonLogin mat-icon {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
 }
 
 #buttonLogin:hover {
@@ -151,7 +149,7 @@
 }
 
 #btnMusicOff mat-icon {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 #btnMusicOff:hover {
@@ -211,6 +209,15 @@
     animation-delay: 0.45s;
 }
 
+@keyframes animeBars {
+    from {
+        height: 15px;
+    }
+    to {
+        height: 2px;
+    }
+}
+
 #btnGithub {
     position: fixed;
     bottom: 10px;
@@ -221,15 +228,6 @@
 #btnGithub a {
     background-color: transparent;
     color: rgba(241, 243, 244, 0.45);
-}
-
-@keyframes animeBars {
-    from {
-        height: 15px;
-    }
-    to {
-        height: 2px;
-    }
 }
 
 /* Animations */
@@ -254,16 +252,16 @@
     }
     #navToolbar a {
         margin: 0;
-        font-size: 3vw;
+        font-size: 3.5vw;
     }
     #navToolbar a mat-icon {
         font-size: 5vw;
     }
     #buttonLogin mat-icon {
-        font-size: 5.5vw;
+        font-size: 4.75vw;
     }
     #btnMusicOff mat-icon {
-        font-size: 5vw;
+        font-size: 4vw;
     }
 }
 

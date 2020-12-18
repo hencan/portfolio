@@ -97,6 +97,7 @@
   #stars {
     width: 0.75px;
     height: 0.75px;
+    animation: animStar 150s linear infinite;
   }
   #stars:after {
     width: 0.75px;
@@ -105,6 +106,7 @@
   #stars2 {
     width: 1.5px;
     height: 1.5px;
+    animation: animStar 300s linear infinite;
   }
   #stars2:after {
     width: 1.5px;
@@ -113,6 +115,7 @@
   #stars3 {
     width: 2px;
     height: 2px;
+    animation: animStar 450s linear infinite;
   }
   #stars3:after {
     width: 2px;
