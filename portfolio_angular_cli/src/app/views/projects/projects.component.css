@@ -262,36 +262,45 @@ tr.cardDetailHiddenRow:hover {
     padding: 0 2.5vw;
   }
   .capa {
-    width: 95vw;
-    margin: 0 2.5vw;
+    width: 26.5vw;
+    margin: 0 1vw 0 2.5vw;
   }
   .category {
     /* font-size: 1rem; */
     font-size: 0.85rem;
     /* margin: 5px 0 0; */
     margin: 2.5px 0 0;
+    /* Desktop => padding: 0 10px;*/
+    padding: 0 0 0 10px;
   }
   .title {
     /* font-size: 1rem; */
     font-size: 0.85rem;
-    /* margin: 10px 0 0; */
+    /* Desktop => margin: 10px 0 0; */
     margin: 5px 0 0;
+    /* Desktop => padding: 0 30px 0 10px; */
+    padding: 0 0 0 10px;
   }
   .dateAndBy {
     /* font-size: 0.9rem; */
     font-size: 0.75rem;
     /* margin: 10px 0 5px; */
     margin: 5px 0 2.5px;
+    /* Desktop => padding: 0 10px;*/
+    padding: 0 0 0 10px;
   }
   .mat-row {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     height: auto;
     padding-bottom: 20px;
     border-radius: 2.5px;
   }
   .mat-cell:first-of-type {
     padding-left: 0;
+  }
+  .mat-cell:last-of-type {
+    padding-right: 2.5vw;
   }
   .mat-cell {
     padding-left: 0;

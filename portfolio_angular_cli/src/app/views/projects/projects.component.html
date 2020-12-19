@@ -46,9 +46,6 @@
           <span class="title">
             {{ element.title | uppercase }}
           </span>
-          <span class="subtitle">
-            {{ element.subtitle }}
-          </span>
           <span class="dateAndBy">
             <!-- {{element.date}}   •   {{element.author | uppercase}} -->
             {{ element.date }}
@@ -89,7 +86,10 @@
             </span> -->
 
             <!-- Content Field -->
-            <span *ngIf="element.content" class="label">DETALHES</span>
+            <span *ngIf="element.subtitle" class="label">RESUMO</span>
+            <span class="subtitle">{{ element.subtitle }}</span>
+  
+            <span *ngIf="element.content" class="label">DESCRIÇÃO</span>
             <div *ngIf="element.content" class="content" [innerHtml]="element.content"></div>
 
             <!-- Button Goto -->
