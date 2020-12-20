@@ -99,7 +99,7 @@ export class ProfileComponent implements OnInit {
         this.infoService.bdLoaded = true
         console.log('Banco de dados JSON Lastest Info importado para Info Component')
         this.storeData = this.infoService.INFO_DATA_SERVICE
-        console.log(this.storeData)
+        // console.log(this.storeData)
       })
     } else {
       console.log('Utilizando BD do Widget Service')
