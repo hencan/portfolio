@@ -12,8 +12,8 @@ export class SnackbarService {
 
   showMassage(msg: string): void {
     console.log('Snackbar Service')
-    this.snackBar.open(msg, '', {
-      duration: 2500,
+    this.snackBar.open(msg, '✖', {
+      duration: 15000,
       horizontalPosition: "right",
       verticalPosition: "bottom"
     })
