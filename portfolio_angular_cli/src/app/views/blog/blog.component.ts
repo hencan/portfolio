@@ -61,6 +61,7 @@ export class BlogComponent implements OnInit {
           if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
             // delete this.dataSource[i]
             this.selectedChips.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
+            i = i-1
           }
         }
         this.dataSource = new MatTableDataSource(this.dataSource)
@@ -80,6 +81,7 @@ export class BlogComponent implements OnInit {
         if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
           // delete this.dataSource[i]
           this.selectedChips.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
+          i = i-1
         }
       }
       this.dataSource = new MatTableDataSource(this.dataSource)
