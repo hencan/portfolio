@@ -69,8 +69,8 @@
   position: fixed;
   display: flex;
   bottom: 4vw;
-  margin: 0 5%;
-  width: 90%;
+  margin: 0 2%;
+  width: 96%;
   justify-content: space-around;
   filter: opacity(0);
 }

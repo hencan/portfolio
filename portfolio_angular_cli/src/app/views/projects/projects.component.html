@@ -88,7 +88,7 @@
             <!-- Content Field -->
             <span *ngIf="element.subtitle" class="label">RESUMO</span>
             <span class="subtitle">{{ element.subtitle }}</span>
-  
+
             <span *ngIf="element.content" class="label">DESCRIÇÃO</span>
             <div *ngIf="element.content" class="content" [innerHtml]="element.content"></div>
 
@@ -96,13 +96,14 @@
             <span class="label" *ngIf="element.linkLive || element.linkGithub">LINKS</span>
             <div class="btnsGoto" *ngIf="element.linkLive || element.linkGithub">
               <div>
-                <a mat-raised-button *ngIf="element.linkGithub" [href]="element.linkGithub" target="_blank">
-                  <mat-icon matTooltip="Acessar Projeto Github" class="fab fa-github"></mat-icon>
+                <a mat-raised-button *ngIf="element.linkLive" [href]="element.linkLive" target="_blank">
+                  <mat-icon class="fas fa-external-link-square-alt"></mat-icon> Demo || Site
                 </a>
               </div>
+
               <div>
-                <a mat-raised-button *ngIf="element.linkLive" [href]="element.linkLive" target="_blank">
-                  <mat-icon matTooltip="Acessar Link Live" class="fas fa-external-link-alt"></mat-icon>
+                <a mat-raised-button *ngIf="element.linkGithub" [href]="element.linkGithub" target="_blank">
+                  <mat-icon class="fab fa-github"></mat-icon> Repositório Github
                 </a>
               </div>
             </div>
