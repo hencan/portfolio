@@ -119,7 +119,9 @@ export class ProjectsComponent implements OnInit {
 
   createChipsFilter(): void {
     for (var i = 0; i < this.dataSource.data.length; i++) {
-      this.listChips.push(this.dataSource.data[i].categories)
+      for (var j=0; j < this.dataSource.data[i].categories.length; j++ ) {
+        this.listChips.push(this.dataSource.data[i].categories[j])
+      }
     }
     this.listChips = JSON.parse(JSON.stringify(this.listChips))
     this.listChips.sort()
@@ -168,10 +170,11 @@ export class ProjectsComponent implements OnInit {
 
   selectFilter(): void {
     this.dataSourceFiltered = []
-    for (var i = 0; i < this.selectedChips.length; i++) {
-      for (var j = 0; j < this.dataSource.data.length; j++) {
-        if (this.dataSource.data[j].categories == this.selectedChips[i]) {
-          this.dataSourceFiltered.push(this.dataSource.data[j])
+    for (var i = 0; i < this.dataSource.data.length; i++) {
+      for (var j = 0; j < this.selectedChips.length; j++) {
+        if (this.dataSource.data[i].categories.includes(this.selectedChips[j])) {
+          this.dataSourceFiltered.push(this.dataSource.data[i])
+          j = this.selectedChips.length
         }
       }
     }

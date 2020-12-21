@@ -45,7 +45,7 @@
             <td mat-cell *matCellDef="let element">
                 <div class="titleColumn">
                     <span class="category">
-                        {{element.categories | uppercase}}
+                        {{element.categories.toString() | uppercase}}
                     </span>
                     <span class="title condense" (click)="buttonRead(this.element)">
                         {{element.title | uppercase}}
