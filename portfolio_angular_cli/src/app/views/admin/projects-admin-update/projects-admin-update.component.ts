@@ -18,6 +18,8 @@ export class ProjectsAdminUpdateComponent implements OnInit {
 
   storeData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '',  linkLive: '', linkGithub: '', content: '', situation: '', status: "", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: ''  }
 
+  backupData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '',  linkLive: '', linkGithub: '', content: '', situation: '', status: "", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: ''  }
+
   photoBase64: any = ''
 
   hide = true
@@ -100,6 +102,7 @@ export class ProjectsAdminUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.authenticationService.authentication("projectAdminUpdate")   
     this.storeData = this.projectsService.PROJECTS_READ_UPDATE
+    this.backupData = JSON.parse(JSON.stringify(this.projectsService.PROJECTS_READ_UPDATE))
     this.photoBase64 = this.storeData.imageTitle
   }
 
@@ -142,6 +145,7 @@ export class ProjectsAdminUpdateComponent implements OnInit {
   cancel(): void {
     console.log('Botão cancelar clicado')
     console.log('Início dos processos do botão cancelar')
+    this.projectsService.PROJECTS_READ_UPDATE = this.backupData
     this.snackBarService.showMassage('Operação cancelada!')
     console.log('-> Snackbar da mensagem de sucesso')
     this.router.navigate(['admin/projects'])

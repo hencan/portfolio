@@ -18,6 +18,8 @@ export class BlogAdminUpdateComponent implements OnInit {
 
   storeData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '', paragraf1: '', paragraf2: '', paragraf3: '', paragraf4: '', paragraf5: '', situation: '', status: "Ativo", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: ''  }
 
+  backupData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '', paragraf1: '', paragraf2: '', paragraf3: '', paragraf4: '', paragraf5: '', situation: '', status: "Ativo", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: ''  }
+
   photoBase64: any = ''
 
   hide = true
@@ -100,6 +102,7 @@ export class BlogAdminUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.authenticationService.authentication("blogAdminUpdate")   
     this.storeData = this.blogService.BLOG_READ_UPDATE
+    this.backupData = JSON.parse(JSON.stringify(this.blogService.BLOG_READ_UPDATE))
     this.photoBase64 = this.storeData.imageTitle
   }
 
@@ -142,6 +145,7 @@ export class BlogAdminUpdateComponent implements OnInit {
   cancel(): void {
     console.log('Botão cancelar clicado')
     console.log('Início dos processos do botão cancelar')
+    this.blogService.BLOG_READ_UPDATE = this.backupData
     this.snackBarService.showMassage('Operação cancelada!')
     console.log('-> Snackbar da mensagem de sucesso')
     this.router.navigate(['admin/articles'])

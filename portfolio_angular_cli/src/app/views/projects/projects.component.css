@@ -176,10 +176,12 @@ table {
 
 .btnsGoto div button, a {
   font-size: 0.9rem;
-  background-color: rgb(224, 224, 224);
+  /* background-color: rgb(224, 224, 224); */
+  background-color: rgba(241, 243, 244);
   color: rgb(25, 26, 31);
   margin: 10px auto;
-  border-radius: 25px;
+  /* border-radius: 25px; */
+  border-radius: 5px;
 }
 
 .btnsGoto div a mat-icon {

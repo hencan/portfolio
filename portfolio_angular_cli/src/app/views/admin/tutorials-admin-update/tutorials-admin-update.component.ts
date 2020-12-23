@@ -17,6 +17,8 @@ export class TutorialsAdminUpdateComponent implements OnInit {
 
   storeData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '', paragraf1: '', paragraf2: '', paragraf3: '', paragraf4: '', paragraf5: '', situation: '', status: "Ativo", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: ''  }
 
+  backupData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '', paragraf1: '', paragraf2: '', paragraf3: '', paragraf4: '', paragraf5: '', situation: '', status: "Ativo", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: ''  }
+
   photoBase64: any = ''
 
   hide = true
@@ -99,6 +101,7 @@ export class TutorialsAdminUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.authenticationService.authentication("tutorialsAdminUpdate")   
     this.storeData = this.tutorialsService.TUTORIALS_READ_UPDATE
+    this.backupData = JSON.parse(JSON.stringify(this.tutorialsService.TUTORIALS_READ_UPDATE))
     this.photoBase64 = this.storeData.imageTitle
   }
 
@@ -141,6 +144,7 @@ export class TutorialsAdminUpdateComponent implements OnInit {
   cancel(): void {
     console.log('Botão cancelar clicado')
     console.log('Início dos processos do botão cancelar')
+    this.tutorialsService.TUTORIALS_READ_UPDATE = this.backupData
     this.snackBarService.showMassage('Operação cancelada!')
     console.log('-> Snackbar da mensagem de sucesso')
     this.router.navigate(['admin/tutorials'])

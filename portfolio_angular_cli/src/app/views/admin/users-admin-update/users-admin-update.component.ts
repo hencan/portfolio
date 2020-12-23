@@ -25,6 +25,8 @@ export class UsersAdminUpdateComponent implements OnInit {
 
   storeData: any = { id: "", photo: '', fname: '', lname: '', profession: '', email: '', phone: "", permission: "", status: "", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '' }
 
+  backupData: any = { id: "", photo: '', fname: '', lname: '', profession: '', email: '', phone: "", permission: "", status: "", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '' }
+
   photoBase64: any 
 
   hide = true
@@ -36,11 +38,13 @@ export class UsersAdminUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.authenticationService.authentication("usersAdminUpdate")   
     this.storeData = this.usersService.USERS_READ_UPDATE
+    this.backupData = JSON.parse(JSON.stringify(this.usersService.USERS_READ_UPDATE))
     this.photoBase64 = this.storeData.photo
   }
 
   cancel(): void {
     console.log('Fechar janela')
+    this.usersService.USERS_READ_UPDATE = this.backupData
     this.snackbarService.showMassage('Operação cancelada!')
     this.router.navigate(['admin/users'])
   }
