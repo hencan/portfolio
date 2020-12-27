@@ -129,9 +129,18 @@ export class BlogComponent implements OnInit {
     console.log('***')
   }
 
+  showFilters(): void {
+    console.log('ShowFilters Functions')
+    if (document.getElementById("filtersBlog").style.display == "flex") {
+      document.getElementById("filtersBlog").style.display = "none"
+    } else {
+      document.getElementById("filtersBlog").style.display = "flex"
+    }
+  }
+
   createChipsFilter(): void {
     for (var i = 0; i < this.dataSource.data.length; i++) {
-      for (var j=0; j < this.dataSource.data[i].categories.length; j++ ) {
+      for (var j = 0; j < this.dataSource.data[i].categories.length; j++) {
         this.listChips.push(this.dataSource.data[i].categories[j])
       }
     }
@@ -159,14 +168,27 @@ export class BlogComponent implements OnInit {
         document.activeElement.classList.remove("mat-chip-selected")
         if (this.selectedChips.length == 0) {
           document.querySelector('mat-chip').classList.add("mat-chip-selected")
+          document.getElementById("filterBtnBlog").classList.add("mat-chip-selected")
           this.selectAll()
         } else {
           this.selectFilter()
         }
       } else {
         document.activeElement.classList.add("mat-chip-selected")
+        document.getElementById("filterBtnBlog").classList.add("mat-chip-selected")
         this.selectedChips[this.selectedChips.length] = element
-        this.selectFilter()
+        console.log(this.selectedChips.length)
+        console.log(this.listChips.length)
+        if (this.selectedChips.length == this.listChips.length) {
+          this.selectAll()
+          var resetSelected = document.querySelectorAll('mat-chip')
+          resetSelected[0].classList.add("mat-chip-selected")
+          for (var h = 1; h < resetSelected.length; h++) {
+            resetSelected[h].classList.remove("mat-chip-selected")
+          }    
+        } else {
+          this.selectFilter()
+        }
       }
     }
     this.valueProgress = 100
@@ -193,7 +215,7 @@ export class BlogComponent implements OnInit {
     this.dataSourceFiltered = new MatTableDataSource(this.dataSourceFiltered)
     this.table.dataSource = this.dataSourceFiltered // Atualização do banco de dados da planilha
     this.dataSourceFiltered.paginator = this.paginator; // Paginação da planilha
-    document.getElementById('countItensFiltersBlog').innerHTML = this.dataSourceFiltered.data.length + " de " + this.dataSource.data.length + " itens selecionados"
+    document.getElementById('countItensFiltersBlog').innerHTML = "Filtro: " + this.dataSourceFiltered.data.length + " de " + this.dataSource.data.length + " itens"
   }
 
 }

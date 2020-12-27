@@ -184,13 +184,13 @@
     transform: translate(5vw, -5vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(0.2, 0.2, 0.2);
   }
   12.5% {
-    transform: translate(20vw, 15vh) rotateX(360deg) rotateY(360deg) rotateZ(360deg) scale3d(0.75, 0.75, 0.75);
+    transform: translate(20vw, 10vh) rotateX(360deg) rotateY(360deg) rotateZ(360deg) scale3d(0.75, 0.75, 0.75);
   }
   25% {
-    transform: translate(50vw, 20vh) rotateX(720deg) rotateY(720deg) rotateZ(720deg) scale3d(1.25, 1.25, 1.25);
+    transform: translate(50vw, 15vh) rotateX(720deg) rotateY(720deg) rotateZ(720deg) scale3d(1.25, 1.25, 1.25);
   }
   37.5% {
-    transform: translate(75vw, 15vh) rotateX(1080deg) rotateY(1080deg) rotateZ(1080deg) scale3d(0.75, 0.75, 0.75);
+    transform: translate(75vw, 10vh) rotateX(1080deg) rotateY(1080deg) rotateZ(1080deg) scale3d(0.75, 0.75, 0.75);
   }
   50% {
     transform: translate(95vw, -5vh) rotateX(1440deg) rotateY(1440deg) rotateZ(1440deg) scale3d(0.2, 0.2, 0.2);

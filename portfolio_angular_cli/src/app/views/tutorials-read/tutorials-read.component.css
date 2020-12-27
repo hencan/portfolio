@@ -4,11 +4,11 @@
 
 .tutorialsRead {
     position: absolute;
-    top: 70px;
-    width: 90%;
+    top: 90px;
+    width: 98%;
     display: flex;
     flex-direction: column;
-    margin: 20px 5%;
+    margin: 0 1% 20px;
     /* padding: 20px 5%; */
 }
 
@@ -88,10 +88,12 @@ button:hover {
 
 .buttonBack {
     position: fixed;
-    top: 80px;
-    right: 10px;
-    background-color: rgba(224, 224, 224);
-    color: rgb(31, 31, 31);
+    top: 100px;
+    right: 1.5%;
+    /* background-color: rgba(224, 224, 224); */
+    /* color: rgb(31, 31, 31); */
+    background-color: rgba(16, 16, 16, 0.9);
+    color: rgb(241, 243, 244);
     padding-left: 6px;
     z-index: 10;
 }
@@ -102,10 +104,12 @@ button:hover {
 
 .buttonShare {
     position: fixed;
-    top: 130px;
-    right: 10px;
-    background-color: rgba(224, 224, 224);
-    color: rgb(31, 31, 31);
+    top: 150px;
+    right: 1.5%;
+    /* background-color: rgba(224, 224, 224); */
+    /* color: rgb(31, 31, 31); */
+    background-color: rgba(16, 16, 16, 0.9);
+    color: rgb(241, 243, 244);
     z-index: 10;
 }
 
@@ -175,7 +179,7 @@ button:hover {
 @media(max-width: 450px) {
     .tutorialsRead {
         width: 95%;
-        margin: 50px 2.5% 20px;
+        margin: 0 2.5% 20px;
     }
     .buttonBack {
         position: initial;

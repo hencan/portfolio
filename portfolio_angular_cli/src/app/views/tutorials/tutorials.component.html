@@ -3,70 +3,83 @@
 
 <div id="tutorials" class="tutorials showTutorials">
 
-    <!-- Header Field -->
-    <span class="header">TUTORIAIS</span>
+  <!-- Header Field -->
+  <span class="header">TUTORIAIS</span>
 
-    <!-- Filters Code -->
-    <div class="btnsFilters">
-        <mat-chip-list aria-label="Filter selection">
-            <mat-chip selected (click)="selectChips('Todos')">Todos</mat-chip>
-            <mat-chip *ngFor="let chip of listChips" (click)="selectChips(this.chip)">
-                {{chip}}
-            </mat-chip>
-        </mat-chip-list>
-    </div>
+  <!-- Filters Code -->
+  <div class="btnsFilters">
+    <mat-chip-list aria-label="Filter selection">
+      <mat-chip selected (click)="selectChips('Todos')">Todos</mat-chip>
+      <mat-chip id="filterBtnTutorials" (click)="showFilters()">Filtro <mat-icon>filter_alt</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
 
     <div id="countItensFiltersTutorials"></div>
 
-    <!-- Search Code -->
-    <mat-form-field appearance="outline" class="search">
-        <mat-label>
-            <mat-icon>search</mat-icon>
-        </mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Encontre um post" #input>
-    </mat-form-field>
+  </div>
 
-    <!-- Progress Bar -->
-    <!-- <mat-progress-bar *ngIf="valueProgress < 100" mode="indeterminate" [value]="valueProgress"></mat-progress-bar> -->
 
-    <!-- <mat-spinner *ngIf="valueProgress < 100"></mat-spinner> -->
-    <table mat-table>
+  <!-- Filter Code -->
+  <div id="filtersTutorials">
+    <div class="btnsFilters">
+      <mat-chip-list aria-label="Filter selection">
+        <mat-chip *ngFor="let chip of listChips" (click)="selectChips(this.chip)">
+          {{chip}}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <!-- Campo de Texto de Filtro -->
+    <!-- <mat-form-field appearance="outline" class="search">
+      <mat-label>
+        <mat-icon>search</mat-icon>
+      </mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Pesquise" #input id="search" />
+    </mat-form-field> -->
+  </div>
 
-        <!-- ImageTitle Column -->
-        <ng-container matColumnDef="imageTitle">
-            <th mat-header-cell *matHeaderCellDef> Imagem Capa </th>
-            <td mat-cell *matCellDef="let element"> <img [src]="element.imageTitle" class="capa"
-                    (click)="buttonRead(this.element)">
-            </td>
-        </ng-container>
+  <!-- Progress Bar -->
+  <!-- <mat-progress-bar *ngIf="valueProgress < 100" mode="indeterminate" [value]="valueProgress"></mat-progress-bar> -->
 
-        <!-- Title Column -->
-        <ng-container matColumnDef="title">
-            <th mat-header-cell *matHeaderCellDef> Título </th>
-            <td mat-cell *matCellDef="let element">
-                <div class="titleColumn">
-                    <span class="category">
-                        {{element.categories.toString() | uppercase}}
-                    </span>
-                    <span class="title condense" (click)="buttonRead(this.element)">
-                        {{element.title | uppercase}}
-                    </span>
-                    <span class="subtitle condense">
-                        {{element.subtitle}}
-                    </span>
-                    <span class="dateAndBy">
-                        <!-- {{element.date}}   •   {{element.author | uppercase}} -->
-                        {{element.date}}
+  <!-- <mat-spinner *ngIf="valueProgress < 100"></mat-spinner> -->
+  <table mat-table>
 
-                    </span>
-                </div>
-            </td>
-        </ng-container>
+    <!-- ImageTitle Column -->
+    <ng-container matColumnDef="imageTitle">
+      <th mat-header-cell *matHeaderCellDef> Imagem Capa </th>
+      <td mat-cell *matCellDef="let element"> <img [src]="element.imageTitle" class="capa"
+          (click)="buttonRead(this.element)">
+      </td>
+    </ng-container>
 
-        <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <!-- <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator> -->
-    <mat-paginator class="paginator" pageSize=20></mat-paginator>
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Título </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="titleColumn">
+          <div class="category">
+            <span class="categoryChips" *ngFor="let category of element.categories">
+              {{ category.toString() | uppercase }}
+            </span>
+          </div>
+          <span class="title condense" (click)="buttonRead(this.element)">
+            {{element.title | uppercase}}
+          </span>
+          <span class="subtitle condense">
+            {{element.subtitle}}
+          </span>
+          <span class="dateAndBy">
+            <!-- {{element.date}}   •   {{element.author | uppercase}} -->
+            {{element.date}}
+
+          </span>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <!-- <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator> -->
+  <mat-paginator class="paginator" pageSize=20></mat-paginator>
 
 </div>

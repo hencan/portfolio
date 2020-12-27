@@ -1,12 +1,13 @@
 .tutorials {
   position: absolute;
-  top: 70px;
-  width: 100%;
+  top: 90px;
+  width: 98%;
   height: auto;
   display: flex;
   flex-direction: column;
   background-color: rgba(241, 243, 244);
   padding: 10px 0;
+  margin: 0 1% 0;
 }
 
 .showTutorials {
@@ -47,8 +48,23 @@
 .btnsFilters {
   display: flex;
   flex-direction: row;
-  margin: 10px 0 5px;
+  margin: 10px 0;
   padding: 0 24px;
+}
+
+.btnsFilters mat-chip mat-icon {
+  font-size: 1.15rem;
+  padding-top: 3px;
+}
+
+#filtersTutorials {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: none;
 }
 
 .btnsFilters mat-chip-list mat-chip {
@@ -63,24 +79,6 @@
   font-size: 0.75rem;
   font-weight: 100;
   color: rgb(86, 86, 86);
-}
-
-button, a {
-  font-size: 1rem;
-  color: rgb(241, 243, 244);
-  background-color: rgb(25, 26, 31);
-  margin: 10px auto;
-  transition: background-color 0.5s
-}
-
-button:hover {
-  background-color: rgb(96, 96, 96);
-  color: rgb(241, 243, 244);
-}
-
-a:hover {
-  background-color: rgb(96, 96, 96);
-  color: rgb(241, 243, 244);
 }
 
 .search {
@@ -146,10 +144,15 @@ table {
 }
 
 .category {
-  margin: 5px 0 0;
-  color: rgb(76, 76, 76);
-  font-size: 1rem;
-  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+}
+
+.categoryChips {
+  cursor: default;
+  color: rgb(31, 31, 31);
+  font-size: 0.9rem;
+  font-weight: 100;
   padding: 0 10px;
 }
 
@@ -198,7 +201,7 @@ table {
     margin: 20px 0 5px 5vw;
   }
   .btnsFilters {
-    margin: 10px 0 5px;
+    margin: 10px 0 15px;
     padding: 0 2.5vw;
   }
   #countItensFiltersTutorials {
@@ -209,8 +212,8 @@ table {
     padding: 0 2.5vw;
   }
   .capa {
-    width: 95vw;
-    margin: 0 2.5vw;
+    width: calc(98% - 20px);
+    margin: 0 10px;
   }
   .category {
     /* font-size: 1rem; */

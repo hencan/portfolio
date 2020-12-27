@@ -4,13 +4,14 @@
 
 .info {
     position: absolute;
-    top: 70px;
-    width: 100%;
+    top: 90px;
+    width: 98%;
     height: auto;
     display: flex;
     flex-direction: column;
     background-color: rgba(241, 243, 244);
     padding: 10px 0;
+    margin: 0 1% 0;
 }
 
 .showInfo {

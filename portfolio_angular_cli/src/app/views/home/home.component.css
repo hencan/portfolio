@@ -1,6 +1,6 @@
 .home {
   position: absolute;
-  top: 70px;
+  top: 90px;
   display: flex;
   flex-direction: column;
   background-color: transparent;
@@ -9,7 +9,7 @@
 }
 
 #fullName {
-  margin: 30vh 5% 40px;
+  margin: 28vh 5% 40px;
   width: 90%;
   text-align: center;
   font-size: 5vw;
@@ -68,7 +68,7 @@
 #buttonsNav {
   position: fixed;
   display: flex;
-  bottom: 4vw;
+  bottom: 1.5vw;
   margin: 0 2%;
   width: 96%;
   justify-content: space-around;
@@ -76,16 +76,26 @@
 }
 
 #buttonsNav a {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  color: rgba(241, 243, 244, 0.85);
-  font-size: 15px;
+  /* color: rgba(241, 243, 244, 0.85); */
+  color: rgba(241, 243, 244, 0.65);
+  font-size: 9px;
   cursor: pointer;
+}
+
+#buttonsNav a i {
+  /* font-size: 1.75vw; */
+  font-size: 27.5px;
+  margin-bottom: 10px;
 }
 
 #buttonsNav a mat-icon {
   /* font-size: 1.75vw; */
-  font-size: 20px;
+  font-size: 27.5px;
 }
 
 #buttonsNav a:hover {
@@ -133,9 +143,13 @@
     bottom: 10vw;
   }
   #buttonsNav a {
-    font-size: 3.5vw;
+    font-size: 10px;
+    font-weight: 100;
+  }
+  #buttonsNav a  i {
+    font-size: 20px;
   }
   #buttonsNav a mat-icon {
-    font-size: 4vw;
+    font-size: 20px;
   }
 }

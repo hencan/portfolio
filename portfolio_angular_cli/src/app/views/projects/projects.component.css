@@ -1,12 +1,13 @@
 .projects {
   position: absolute;
-  top: 70px;
-  width: 100%;
+  top: 90px;
+  width: 98%;
   height: auto;
   display: flex;
   flex-direction: column;
   background-color: rgba(241, 243, 244);
   padding: 10px 0;
+  margin: 0 1% 0;
 }
 
 .showProjects {
@@ -44,8 +45,23 @@
 .btnsFilters {
   display: flex;
   flex-direction: row;
-  margin: 10px 0 5px;
+  margin: 10px 0;
   padding: 0 24px;
+}
+
+.btnsFilters mat-chip mat-icon {
+  font-size: 1.15rem;
+  padding-top: 3px;
+}
+
+#filtersProjects {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: none;
 }
 
 .btnsFilters mat-chip-list mat-chip {
@@ -119,11 +135,15 @@ table {
 }
 
 .category {
+  display: flex;
+  flex-direction: row;
+}
+
+.categoryChips {
   cursor: default;
-  margin: 5px 0 0;
-  color: rgb(76, 76, 76);
-  font-size: 1rem;
-  font-weight: 300;
+  color: rgb(31, 31, 31);
+  font-size: 0.9rem;
+  font-weight: 100;
   padding: 0 10px;
 }
 
@@ -192,7 +212,8 @@ table {
 a:hover {
   /* background-color: rgb(25, 26, 31); */
   /* color: rgb(241, 243, 244); */
-  background-color: rgb(63, 81, 181);
+  /* background-color: rgb(63, 81, 181); */
+  background-color: rgb(16, 16, 16);
   color: rgb(241, 242, 243);
 }
 
@@ -251,7 +272,7 @@ tr.cardDetailHiddenRow:hover {
     margin: 20px 0 5px 5vw;
   }
   .btnsFilters {
-    margin: 10px 0 5px;
+    margin: 10px 0 15px;
     padding: 0 2.5vw;
   }
   #countItensFiltersProjects {
@@ -269,9 +290,8 @@ tr.cardDetailHiddenRow:hover {
     /* font-size: 1rem; */
     font-size: 0.85rem;
     /* margin: 5px 0 0; */
-    margin: 2.5px 0 0;
+    margin: 5px 0 0;
     /* Desktop => padding: 0 10px;*/
-    padding: 0 0 0 10px;
   }
   .title {
     /* font-size: 1rem; */

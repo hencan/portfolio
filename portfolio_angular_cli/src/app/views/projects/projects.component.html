@@ -10,21 +10,31 @@
   <div class="btnsFilters">
     <mat-chip-list aria-label="Filter selection">
       <mat-chip selected (click)="selectChips('Todos')">Todos</mat-chip>
-      <mat-chip *ngFor="let chip of listChips" (click)="selectChips(this.chip)">
-        {{chip}}
-      </mat-chip>
+      <mat-chip id="filterBtnProjects" (click)="showFilters()">Filtro <mat-icon>filter_alt</mat-icon></mat-chip>
     </mat-chip-list>
+
+    <div id="countItensFiltersProjects"></div>
+
   </div>
 
-  <div id="countItensFiltersProjects"></div>
 
-  <!-- Search Code -->
-  <mat-form-field appearance="outline" class="search">
-    <mat-label>
-      <mat-icon>search</mat-icon>
-    </mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Pesquise" #input id="search" />
-  </mat-form-field>
+  <!-- Filter Code -->
+  <div id="filtersProjects">
+    <div class="btnsFilters">
+      <mat-chip-list aria-label="Filter selection">
+        <mat-chip *ngFor="let chip of listChips" (click)="selectChips(this.chip)">
+          {{chip}}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <!-- Campo de Texto de Filtro -->
+    <!-- <mat-form-field appearance="outline" class="search">
+      <mat-label>
+        <mat-icon>search</mat-icon>
+      </mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Pesquise" #input id="search" />
+    </mat-form-field> -->
+  </div>
 
   <table mat-table multiTemplateDataRows>
     <!-- ImageTitle Column -->
@@ -40,9 +50,11 @@
       <th mat-header-cell *matHeaderCellDef>Título</th>
       <td mat-cell [id]="element.id" *matCellDef="let element">
         <div class="titleColumn">
-          <span class="category">
-            {{ element.categories.toString() | uppercase }}
-          </span>
+          <div class="category">
+            <span class="categoryChips"  *ngFor="let category of element.categories">
+                {{ category.toString() | uppercase }}
+              </span>
+          </div>
           <span class="title">
             {{ element.title | uppercase }}
           </span>

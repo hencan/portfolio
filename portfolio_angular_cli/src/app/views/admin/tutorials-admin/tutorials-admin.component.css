@@ -1,50 +1,65 @@
 #tutorialsAdmin {
     display: none;
 }
+
 .tutorialsAdmin {
     margin: 2.5% 5%;
 }
+
 /* Buttons Header */
+
 .buttonsHeader {
     display: flex;
     justify-content: space-between;
 }
+
 .seacrhInput {
     width: 300px;
 }
 
 /* Estilo da Planilha */
+
 table {
     width: 100%;
 }
+
 .columnImage {
-    margin: 5px 5px 0 0 ;
+    margin: 5px 5px 0 0;
     height: 50px;
     border-radius: 1px;
     border: solid 1px rgba(0, 0, 0, 0.3);
 }
+
 .primaryGreen {
     font-weight: bold;
     cursor: pointer;
     color: rgb(0, 120, 215);
 }
+
 .primaryGreen:hover {
     color: rgb(1, 229, 137);
 }
+
 .primaryBtnGreen {
     background-color: rgb(1, 229, 137);
 }
 
 .mobile-label {
     display: none;
-  }
-  
-/* Visualização Desktop */
-@media(min-width: 650.5px) {
-    
 }
 
+.ellipsys {
+    width: 75px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Visualização Desktop */
+
+@media(min-width: 650.5px) {}
+
 /* Visualização Mobile */
+
 @media(max-width: 650px) {
     .tutorialsAdmin {
         margin: 5px;
@@ -58,8 +73,8 @@ table {
     .mat-header-row {
         display: none;
     }
-    .mat-row  {
-        display: flex; 
+    .mat-row {
+        display: flex;
         flex-direction: column;
         /* align-items: start; */
         height: auto;
@@ -74,6 +89,4 @@ table {
     .seacrhInput {
         width: 80%;
     }
-    
-  
 }

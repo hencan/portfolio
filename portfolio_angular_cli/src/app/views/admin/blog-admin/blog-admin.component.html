@@ -63,8 +63,9 @@
             <ng-container matColumnDef="categories">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
                 <td mat-cell *matCellDef="let element">
-                    <span class="mobile-label">Categoria:</span>
-                    {{element.categories}} </td>
+                    <div class="mobile-label">Categoria:</div>
+                    <div class="ellipsys" >{{element.categories}}</div> 
+                </td>
             </ng-container>
 
             <!-- Situation Column -->

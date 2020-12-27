@@ -5,19 +5,27 @@
     </div>
     <div id="buttonsNav" class="showButtons">
         <a (click)='goTo("projects")'>
-            PROJETOS  
+            <i class="fas fa-laptop-code"></i>
+            <!-- <i class="fas fa-archive"></i> -->
+            <!-- <i class="fas fa-jedi"></i> -->
+            <span>PROJETOS</span>
         </a>
         <a (click)='goTo("tutorials")'>
-            TUTORIAIS
+            <i class="fas fa-book"></i>
+            <span>TUTORIAIS</span>
         </a>
         <a (click)='goTo("articles")'>
-            ARTIGOS
+            <i class="fas fa-archive"></i>
+            <!-- <i class="far fa-newspaper"></i> -->
+            <span>ARTIGOS</span>
         </a>
         <a (click)='goTo("info")'>
-            INFO
+            <i class="fas fa-user-astronaut"></i>
+            <span>INFO</span>
         </a>
-        <a matTooltip="Meu Github" href="https://github.com/hencan" target="_blank">
-            <mat-icon class="fab fa-github"></mat-icon>
+        <a >
+            <i class="fab fa-github"></i>
+            <span>github</span>
         </a>
     </div>
     <app-anime-icons></app-anime-icons>
