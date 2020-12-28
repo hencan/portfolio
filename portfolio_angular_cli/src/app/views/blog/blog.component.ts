@@ -60,7 +60,7 @@ export class BlogComponent implements OnInit {
         for (var i = 0; i < this.dataSource.length; i++) {
           if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
             // delete this.dataSource[i]
-            this.selectedChips.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
+            this.dataSource.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
             i = i-1
           }
         }

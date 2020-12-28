@@ -10,17 +10,14 @@
   <div class="btnsFilters">
     <mat-chip-list aria-label="Filter selection">
       <mat-chip selected (click)="selectChips('Todos')">Todos</mat-chip>
-      <mat-chip id="filterBtnProjects" (click)="showFilters()">Filtro <mat-icon>filter_alt</mat-icon></mat-chip>
+      <mat-chip id="filterBtnProjects" (click)="showFilters()">Filtro <mat-icon>filter_alt</mat-icon>
+      </mat-chip>
     </mat-chip-list>
-
-    <div id="countItensFiltersProjects"></div>
-
   </div>
-
+  <div id="countItensFiltersProjects"></div>
 
   <!-- Filter Code -->
-  <div id="filtersProjects">
-    <div class="btnsFilters">
+    <div id="filtersProjects" class="btnsFilters">
       <mat-chip-list aria-label="Filter selection">
         <mat-chip *ngFor="let chip of listChips" (click)="selectChips(this.chip)">
           {{chip}}
@@ -34,7 +31,6 @@
       </mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Pesquise" #input id="search" />
     </mat-form-field> -->
-  </div>
 
   <table mat-table multiTemplateDataRows>
     <!-- ImageTitle Column -->
@@ -47,21 +43,24 @@
 
     <!-- Title Column -->
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef>Título</th>
-      <td mat-cell [id]="element.id" *matCellDef="let element">
+      <th mat-header-cell *matHeaderCellDef> Título </th>
+      <td mat-cell *matCellDef="let element">
         <div class="titleColumn">
-          <div class="category">
-            <span class="categoryChips"  *ngFor="let category of element.categories">
-                {{ category.toString() | uppercase }}
-              </span>
-          </div>
-          <span class="title">
-            {{ element.title | uppercase }}
+          <span class="title condense" (click)="buttonRead(this.element)">
+            {{element.title | uppercase}}
+          </span>
+          <span class="subtitle condense">
+            {{element.subtitle}}
           </span>
           <span class="dateAndBy">
             <!-- {{element.date}}   •   {{element.author | uppercase}} -->
-            {{ element.date }}
+            {{element.date}}
           </span>
+          <div class="category">
+            <span class="categoryChips" *ngFor="let category of element.categories">
+              {{ category.toString() | uppercase }}
+            </span>
+          </div>
         </div>
       </td>
     </ng-container>
@@ -79,7 +78,7 @@
         </div>
       </td>
     </ng-container> -->
-
+    
     <ng-container matColumnDef="expandedDetail">
       <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
         <div class="cardDetailHidden" [@detailExpand]="
@@ -98,8 +97,8 @@
             </span> -->
 
             <!-- Content Field -->
-            <span *ngIf="element.subtitle" class="label">RESUMO</span>
-            <span class="subtitle">{{ element.subtitle }}</span>
+            <!-- <span *ngIf="element.subtitle" class="label">RESUMO</span> -->
+            <!-- <span class="subtitle">{{ element.subtitle }}</span> -->
 
             <span *ngIf="element.content" class="label">DESCRIÇÃO</span>
             <div *ngIf="element.content" class="content" [innerHtml]="element.content"></div>
@@ -108,13 +107,13 @@
             <span class="label" *ngIf="element.linkLive || element.linkGithub">LINKS</span>
             <div class="btnsGoto" *ngIf="element.linkLive || element.linkGithub">
               <div>
-                <a mat-raised-button *ngIf="element.linkLive" [href]="element.linkLive" target="_blank">
+                <a *ngIf="element.linkLive" [href]="element.linkLive" target="_blank">
                   <mat-icon class="fas fa-external-link-square-alt"></mat-icon> Demo || Site
                 </a>
               </div>
 
               <div>
-                <a mat-raised-button *ngIf="element.linkGithub" [href]="element.linkGithub" target="_blank">
+                <a *ngIf="element.linkGithub" [href]="element.linkGithub" target="_blank">
                   <mat-icon class="fab fa-github"></mat-icon> Repositório Github
                 </a>
               </div>

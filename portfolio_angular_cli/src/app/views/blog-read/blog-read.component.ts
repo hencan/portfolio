@@ -23,6 +23,14 @@ export class BlogReadComponent implements OnInit {
 
   authorData: any = ""
 
+  postResq: any = null
+
+  postId: any = null
+
+  posArray: any = null
+
+  valueProgress: any = ""
+
   constructor(
     private router: Router,
     private title: Title,
@@ -38,33 +46,64 @@ export class BlogReadComponent implements OnInit {
       document.getElementById("navToolbar").classList.remove("hideToolbar")
       document.getElementById("navToolbar").classList.add("showToolbar")
     }
-    if (this.blogService.bdLoaded) {
+    this.postResq = location.search
+    console.log(this.postResq)
+    console.log(this.postResq.slice(0, 4))
+    
+    if (this.postResq != "") {
+      if (this.postResq.slice(0, 4) == "?id=") {
+        console.log('Sintaxe correta')
+        this.postId = this.postResq.slice(4)
+        console.log(this.postId)
+        if (this.blogService.bdLoaded) {
+          console.log('blogService.bdLoaded is true')
 
-      this.storeData = this.blogService.BLOG_READ_UPDATE
-      this.storeData = JSON.parse(JSON.stringify(this.storeData))
-      this.storeData.paragraf1 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf1)
-      this.storeData.paragraf2 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf2)
-      this.storeData.paragraf3 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf3)
-      this.storeData.paragraf4 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf4)
-      this.storeData.paragraf5 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf5)
+          this.findPosArray()
 
-      this.photoBase64 = this.storeData.imageTitle
+          if (this.posArray != null) {
+            this.blogService.readData(this.posArray)
+            this.findCopyPost()
+            this.findAuthor()
+            this.valueProgress = 100
 
-      this.title.setTitle('HenCan | Artigos - Post ' + this.storeData.id + ' - ' + this.storeData.title);
-      // document.getElementById('paragraf1').innerHTML = this.storeData.paragraf1
-      this.findAuthor()
+          } else {
+            console.log('ID não encontrado')
+            console.log('Retornando a Tutoriais')
+            this.router.navigate(['tutorials'])
+            window.scrollTo(0, 0)      
+          }
+      
+        } else {
+          console.log('blogService.bdLoaded is false')
+          this.getData()
+          this.valueProgress = 100
+
+        }
+      } else {
+        console.log('Sintaxe incorreta')
+        console.log('Retornando a Tutoriais')
+        this.router.navigate(['tutorials'])
+        window.scrollTo(0, 0)  
+      }
     } else {
-      console.log('Retornando a Artigos')
-      this.router.navigate(['articles'])
-      window.scrollTo(0, 0)
+      if (this.blogService.bdLoaded) {
+        this.findPosArray()
+        this.findCopyPost()
+        this.findAuthor()
+        this.valueProgress = 100
+
+      } else {
+        console.log('Retornando a Tutoriais')
+        this.router.navigate(['tutorials'])
+        window.scrollTo(0, 0)  
+      }
     }
-    // this.disqusCode()
   }
 
   cancel(): void {
-    console.log('Retornando a Artigos')
+    console.log('Retornando a Tutorials')
     // this.snackBarService.showMassage('Voltando')
-    this.router.navigate(['articles'])
+    this.router.navigate(['tutorials'])
     window.scrollTo(0, 0)
   }
 
@@ -73,6 +112,60 @@ export class BlogReadComponent implements OnInit {
     this.snackBarService.showMassage('Funcionamento não disponível, botão em construção!')
     // this.router.navigate(['blog'])
     // window.scrollTo(0, 0)
+  }
+
+  getData(): void {
+    this.databaseService.getTutorials().subscribe(response => {
+      this.blogService.BLOG_DATA_SERVICE = response.tutorials.slice()
+      console.log(this.blogService.BLOG_DATA_SERVICE)
+      this.blogService.bdLoaded = true
+      console.log(this.blogService.bdLoaded)
+
+      console.log('Banco de dados JSON Services importado para Services Service')
+
+      this.findPosArray()
+
+      if (this.posArray != null) {
+        this.blogService.readData(this.posArray)
+        this.findCopyPost()
+        this.findAuthor()
+
+      } else {
+        console.log('ID não encontrado')
+        console.log('Retornando a Tutoriais')
+        this.router.navigate(['tutorials'])
+        window.scrollTo(0, 0)      
+      }
+
+    })
+  }
+
+  findPosArray(): void {
+    console.log("Procurando posição no array do id: " + this.postId)
+
+    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
+      if (this.blogService.BLOG_DATA_SERVICE[i].id == this.postId) {
+        this.posArray = i
+        console.log(this.posArray)
+        break
+      }
+    }
+  }
+
+  findCopyPost(): void {
+
+    this.storeData = this.blogService.BLOG_READ_UPDATE
+    this.storeData = JSON.parse(JSON.stringify(this.storeData))
+    this.storeData.paragraf1 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf1)
+    this.storeData.paragraf2 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf2)
+    this.storeData.paragraf3 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf3)
+    this.storeData.paragraf4 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf4)
+    this.storeData.paragraf5 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf5)
+
+    this.photoBase64 = this.storeData.imageTitle
+
+    this.title.setTitle('HenCan | Tutoriais - Nº ' + this.storeData.id + ' - ' + this.storeData.title);
+    // document.getElementById('paragraf1').innerHTML = this.storeData.paragraf1
   }
 
   findAuthor(): void {

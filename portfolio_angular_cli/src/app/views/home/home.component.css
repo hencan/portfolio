@@ -85,17 +85,18 @@
   color: rgba(241, 243, 244, 0.65);
   font-size: 9px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 #buttonsNav a i {
   /* font-size: 1.75vw; */
-  font-size: 27.5px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 #buttonsNav a mat-icon {
   /* font-size: 1.75vw; */
-  font-size: 27.5px;
+  font-size: 20px;
 }
 
 #buttonsNav a:hover {
@@ -128,7 +129,7 @@
 
 @media(max-width: 450px) {
   #fullName {
-    margin: 32.5vh 5% 10px;
+    margin: 30vh 5% 10px;
     width: 90%;
     font-size: 5.8vw;
     letter-spacing: 1.9vw;

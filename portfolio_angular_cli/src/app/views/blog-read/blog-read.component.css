@@ -5,10 +5,10 @@
 .blogRead {
     position: absolute;
     top: 90px;
-    width: 90%;
+    width: 98%;
     display: flex;
     flex-direction: column;
-    margin: 20px 5%;
+    margin: 0 1% 20px;
     /* padding: 20px 5%; */
 }
 
@@ -17,7 +17,7 @@
     padding: 20px 2.5%;
     background-color: rgba(241, 243, 244);
     border-radius: 2.5px;
-    animation: showBlogPost 0.75s forwards;
+    animation: showTutorial 0.75s forwards;
 }
 
 @keyframes showBlogPost {
@@ -88,10 +88,12 @@ button:hover {
 
 .buttonBack {
     position: fixed;
-    top: 80px;
-    right: 10px;
-    background-color: rgba(224, 224, 224);
-    color: rgb(31, 31, 31);
+    top: 100px;
+    right: 1.5%;
+    /* background-color: rgba(224, 224, 224); */
+    /* color: rgb(31, 31, 31); */
+    background-color: rgba(16, 16, 16, 0.9);
+    color: rgb(241, 243, 244);
     padding-left: 6px;
     z-index: 10;
 }
@@ -102,10 +104,12 @@ button:hover {
 
 .buttonShare {
     position: fixed;
-    top: 130px;
-    right: 10px;
-    background-color: rgba(224, 224, 224);
-    color: rgb(31, 31, 31);
+    top: 150px;
+    right: 1.5%;
+    /* background-color: rgba(224, 224, 224); */
+    /* color: rgb(31, 31, 31); */
+    background-color: rgba(16, 16, 16, 0.9);
+    color: rgb(241, 243, 244);
     z-index: 10;
 }
 
@@ -135,12 +139,27 @@ button:hover {
 }
 
 .category {
-    margin: 10px 0;
-    color: rgb(76, 76, 76);
-    font-size: 1.25rem;
-    font-weight: 500;
-    padding: 0 10px;
-    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 2.5px 0 5px auto;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.categoryChips {
+    cursor: default;
+    /* color: rgb(31, 31, 31); */
+    color: rgb(224, 224, 224);
+    background-color: rgba(0, 0, 0, .87);
+    font-size: 0.75rem;
+    font-weight: 100;
+    /* padding: 0 10px; */
+    padding: 2px 8px;
+    border-radius: 16px;
+    margin: 10px 2.5px 5px 0;
 }
 
 /* Animações */
@@ -174,21 +193,21 @@ button:hover {
 @media(max-width: 450px) {
     .blogRead {
         width: 95%;
-        margin: 50px 2.5% 20px;
+        margin: 0 2.5% 20px;
     }
     .buttonBack {
         position: initial;
         position: fixed;
-        top: 75px;
-        right: 2.5%;
+        top: 95px;
+        right: 2.9%;
         width: 9vw;
         height: 9vw;
     }
     .buttonShare {
         position: initial;
         position: fixed;
-        top: 75px;
-        right: calc(2.5% + 45px);
+        top: 95px;
+        right: calc(2.9% + 40px);
         width: 9vw;
         height: 9vw;
     }

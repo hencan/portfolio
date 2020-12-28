@@ -2,7 +2,8 @@
     <div id="btnsHeader">
         <div id="btnsMusic">
             <a id="btnMusicOff" (click)='activeMusic()' matTooltip="Ligar música">
-                <mat-icon>music_off</mat-icon>
+                <!-- <mat-icon>music_off</mat-icon> -->
+                <i class="fas fa-volume-mute"></i>
             </a>
             <div id="btnMusicOn" (click)='activeMusic()' matTooltip="Desligar música">
                 <div id="bar_0"></div>
@@ -15,7 +16,8 @@
         </div>
         <div id="btnsLoginBox">
             <a id="buttonLogin" (click)='goTo2("login")' matTooltip="Login">
-                <mat-icon>login</mat-icon>
+                <i class="fas fa-sign-in-alt"></i>
+                <!-- <mat-icon>login</mat-icon> -->
             </a>
             <a id="buttonLogged" matTooltip="Perfil, Admin e Logoff" [matMenuTriggerFor]="menu">
                 <img id="buttonLogged_Img" [src]="loggedAs.photo" alt="">
@@ -54,7 +56,8 @@
     </div>
     <div id="navToolbar" class="navToolbar">
         <a (click)='goTo("")' matTooltip="Home">
-            <mat-icon>arrow_back</mat-icon>
+            <i class="fas fa-arrow-left"></i>
+            <!-- <mat-icon>arrow_back</mat-icon> -->
         </a>
         <!-- | -->
         <a (click)='goTo("projects")'>

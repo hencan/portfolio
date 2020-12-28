@@ -56,7 +56,7 @@ export class ProjectsComponent implements OnInit {
   // ngAfterViewInit, ngOnInit
 
   ngOnInit(): void {
-    this.title.setTitle('HenCan | Trabalhos');
+    this.title.setTitle('HenCan | Projetos');
     if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
       document.getElementById("navToolbar").classList.remove("hideToolbar")
       document.getElementById("navToolbar").classList.add("showToolbar")

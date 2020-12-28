@@ -58,7 +58,7 @@ export class TutorialsComponent implements OnInit {
         for (var i = 0; i < this.dataSource.length; i++) {
           if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
             // delete this.dataSource[i]
-            this.selectedChips.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
+            this.dataSource.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
             i = i-1
           }
         }
@@ -98,21 +98,23 @@ export class TutorialsComponent implements OnInit {
 
   buttonRead(element): void {
     console.log('***')
-    console.log('Blog | Botão ver clicado')
+    console.log('Tutorials | Botão ver clicado')
     console.log('Início dos processos do botão ver')
-    // console.log(this.blogService.BLOG_DATA_SERVICE)
     for (var i = 0; i < this.tutorialsService.TUTORIALS_DATA_SERVICE.length; i++) {
       if (this.tutorialsService.TUTORIALS_DATA_SERVICE[i].id == element.id) {
         this.posArray = i
         break
       }
     }
-    // console.log(element.id)
-    // console.log(this.posArray)
+    console.log(element.id)
+    console.log(this.posArray)
     console.log('-> Atribuição do nº de ID na variável PosArray')
     this.tutorialsService.readData(this.posArray)
     console.log('-> Chamada função readUpdateData no Tutorials Service')
+    // var url = location.href + '/read?id=' + element.id
+    // console.log(url)
     this.router.navigate(['tutorials/read'])
+    // location.assign(url)
     window.scrollTo(0, 0)
     console.log('-> Router para página de Dados do Tutorial')
     console.log('Fim do processo do botão ver')

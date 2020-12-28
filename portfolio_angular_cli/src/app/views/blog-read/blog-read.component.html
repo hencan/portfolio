@@ -1,3 +1,6 @@
+<!-- Progress Bar -->
+<mat-progress-bar *ngIf="valueProgress < 100" mode="indeterminate" [value]="valueProgress"></mat-progress-bar>
+
 <div id="blogRead" class="blogRead">
 
   <button class="buttonBack" mat-mini-fab (click)="cancel()" matTooltip="Voltar">
@@ -59,7 +62,9 @@
         <span>Em {{storeData.date}}</span>
       </div>
       <div class="category">
-        {{storeData.categories.toString() | uppercase}}
+        <span class="categoryChips" *ngFor="let category of storeData.categories">
+          {{ category.toString() | uppercase }}
+        </span>
       </div>
     </div>
     <br>
