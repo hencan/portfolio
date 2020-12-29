@@ -82,11 +82,11 @@ export class BlogComponent implements OnInit {
       for (var i = 0; i < this.dataSource.length; i++) {
         if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
           // delete this.dataSource[i]
-          this.selectedChips.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
+          this.dataSource.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
           i = i-1
         }
       }
-      console.log(this.dataSource)
+      // console.log(this.dataSource)
       this.dataSource = new MatTableDataSource(this.dataSource)
       console.log('Banco de dados JSON Services importado para Services Component')
       this.createChipsFilter()

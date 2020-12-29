@@ -329,9 +329,8 @@ tr.cardDetailHiddenRow:hover {
     /* font-size: 0.9rem; */
     font-size: 0.85rem;
     /*   margin: 2.5px 0 5px 10px; */
-    margin: 1.5px 0 5px 10px;
+    margin: 1.5px 10px 5px;
     /* Desktop => padding: 0 10px;*/
-    transform: translateX(-30vw);
   }
 
   .mat-row {
