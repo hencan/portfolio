@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { BlogService } from '../../services/blog/blog.service';
 import { DatabaseService } from '../../services/database/database.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { HighlightsService } from '../../services/highlights/highlights.service';
+
 
 
 @Component({
@@ -39,17 +41,17 @@ export class BlogComponent implements OnInit {
   constructor(
     private router: Router,
     private title: Title,
+    private sanitizer: DomSanitizer,
     private blogService: BlogService,
     private databaseService: DatabaseService,
-    private sanitizer: DomSanitizer,
+    private highlightsService: HighlightsService,
   ) { }
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Artigos');
-    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
-      document.getElementById("navToolbar").classList.remove("hideToolbar")
-      document.getElementById("navToolbar").classList.add("showToolbar")
-    }
+
+    this.highlightsService.navToolBar(3)
+
     if (this.blogService.bdLoaded == false) {
       this.databaseService.getBlog().subscribe(response => {
         this.blogService.BLOG_DATA_SERVICE = response.blog.slice()
@@ -168,7 +170,7 @@ export class BlogComponent implements OnInit {
         document.activeElement.classList.remove("mat-chip-selected")
         if (this.selectedChips.length == 0) {
           document.querySelector('mat-chip').classList.add("mat-chip-selected")
-          document.getElementById("filterBtnBlog").classList.add("mat-chip-selected")
+          document.getElementById("filterBtnBlog").classList.remove("mat-chip-selected")
           this.selectAll()
         } else {
           this.selectFilter()

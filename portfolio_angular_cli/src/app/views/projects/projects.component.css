@@ -279,10 +279,11 @@ tr.cardDetailHiddenRow:hover {
     top: 80px;
   }   */
   .header {
-    font-size: 7.5vw;
-    font-weight: 400;
-    letter-spacing: 5vw;
-    margin: 20px 0 5px 5vw;
+    /* font-size: 7.5vw; */
+    /* font-weight: 400; */
+    /* letter-spacing: 5vw; */
+    /* margin: 20px 0 5px 5vw; */
+    display: none;
   }
   .btnsFilters {
     margin: 10px 0 15px;

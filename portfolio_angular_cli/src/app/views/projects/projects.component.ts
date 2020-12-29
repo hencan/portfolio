@@ -4,10 +4,11 @@ import { Title } from '@angular/platform-browser';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { ProjectsService } from '../../services/projects/projects.service';
 import { DatabaseService } from '../../services/database/database.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { HighlightsService } from '../../services/highlights/highlights.service';
 
 
 @Component({
@@ -48,19 +49,19 @@ export class ProjectsComponent implements OnInit {
   constructor(
     private router: Router,
     private title: Title,
+    private sanitizer: DomSanitizer,
     private projectsService: ProjectsService,
     private databaseService: DatabaseService,
-    private sanitizer: DomSanitizer,
+    private highlightsService: HighlightsService,
   ) { }
 
   // ngAfterViewInit, ngOnInit
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Projetos');
-    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
-      document.getElementById("navToolbar").classList.remove("hideToolbar")
-      document.getElementById("navToolbar").classList.add("showToolbar")
-    }
+
+    this.highlightsService.navToolBar(1)
+
     if (this.projectsService.bdLoaded == false) {
       this.databaseService.getProjects().subscribe(response => {
         this.projectsService.PROJECTS_DATA_SERVICE = response.projects.slice()
@@ -156,7 +157,7 @@ export class ProjectsComponent implements OnInit {
         document.activeElement.classList.remove("mat-chip-selected")
         if (this.selectedChips.length == 0) {
           document.querySelector('mat-chip').classList.add("mat-chip-selected")
-          document.getElementById("filterBtnProjects").classList.add("mat-chip-selected")
+          document.getElementById("filterBtnProjects").classList.remove("mat-chip-selected")
           this.selectAll()
         } else {
           this.selectFilter()

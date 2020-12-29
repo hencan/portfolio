@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { TutorialsService } from '../../services/tutorials/tutorials.service';
 import { DatabaseService } from '../../services/database/database.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { HighlightsService } from '../../services/highlights/highlights.service'
+
 
 @Component({
   selector: 'app-tutorials',
@@ -37,17 +39,17 @@ export class TutorialsComponent implements OnInit {
   constructor(
     private router: Router,
     private title: Title,
+    private sanitizer: DomSanitizer,
     private tutorialsService: TutorialsService,
     private databaseService: DatabaseService,
-    private sanitizer: DomSanitizer,
+    private highlightsService: HighlightsService,
   ) { }
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Tutoriais');
-    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
-      document.getElementById("navToolbar").classList.remove("hideToolbar")
-      document.getElementById("navToolbar").classList.add("showToolbar")
-    }
+
+    this.highlightsService.navToolBar(2)
+
     if (this.tutorialsService.bdLoaded == false) {
       this.databaseService.getTutorials().subscribe(response => {
         this.tutorialsService.TUTORIALS_DATA_SERVICE = response.tutorials.slice()
@@ -160,7 +162,7 @@ export class TutorialsComponent implements OnInit {
         document.activeElement.classList.remove("mat-chip-selected")
         if (this.selectedChips.length == 0) {
           document.querySelector('mat-chip').classList.add("mat-chip-selected")
-          document.getElementById("filterBtnTutorials").classList.add("mat-chip-selected")
+          document.getElementById("filterBtnTutorials").classList.remove("mat-chip-selected")
           this.selectAll()
         } else {
           this.selectFilter()

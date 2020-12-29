@@ -6,6 +6,7 @@ import { DatabaseService } from '../../services/database/database.service';
 import { SnackbarService } from '../../services/snackbar/snackbar.service';
 import { InfoService } from '../../services/info/info.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { HighlightsService } from '../../services/highlights/highlights.service';
 
 @Component({
   selector: 'app-info',
@@ -20,11 +21,12 @@ export class InfoComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private databaseService: DatabaseService,
     private title: Title,
+    private sanitizer: DomSanitizer,
     private snackBarService: SnackbarService,
     private infoService: InfoService,
-    private sanitizer: DomSanitizer,
+    private databaseService: DatabaseService,
+    private highlightsService: HighlightsService,
   ) {
     // javascript: URLs are dangerous if attacker controlled.
     // Angular sanitizes them in data binding, but you can
@@ -37,10 +39,8 @@ export class InfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('Hencan | Info');
-    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
-      document.getElementById("navToolbar").classList.remove("hideToolbar")
-      document.getElementById("navToolbar").classList.add("showToolbar")
-    };
+
+    this.highlightsService.navToolBar(4)
 
     if (this.infoService.bdLoaded == false) {
       this.databaseService.getInfo().subscribe(response => {

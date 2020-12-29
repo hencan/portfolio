@@ -43,28 +43,30 @@
     margin: 0 2%;
 }
 
-#navToolbar a mat-icon {
-    /* font-size: 20px; */
+#navToolbar a mat-icon, a i {
     font-size: 20px;
     text-align: center;
     vertical-align: middle;
-    /* color: rgba(241, 243, 244, 0.5); */
     color: rgba(241, 243, 244, 0.65);
 }
 
-#navToolbar a i {
-    /* font-size: 20px; */
+/* #navToolbar a i {
     font-size: 20px;
     text-align: center;
     vertical-align: middle;
-    /* color: rgba(241, 243, 244, 0.5); */
     color: rgba(241, 243, 244, 0.65);
-}
+} */
 
 #navToolbar a:hover, #navToolbar a i:hover, #navToolbar a mat-icon:hover {
     /* text-decoration: underline; */
     color: rgb(241, 243, 244);
     text-shadow: 1.5px 1.5px 10px rgba(241, 243, 244, 0.35);
+}
+
+.selected {
+    /* color: rgb(255, 255, 255) !important; */
+    color: rgb(241, 243, 244) !important;
+
 }
 
 /* #navToolbar a mat-icon:hover {
@@ -128,11 +130,11 @@
     color: rgba(241, 243, 244, 0.65);
 }
 
-#buttonLogin mat-icon, i {
-    font-size: 20px;
+#buttonLogin mat-icon, #buttonLogin i {
+    font-size: 16px;
 }
 
-#buttonLogin:hover {
+#buttonLogin mat-icon:hover, #buttonLogin i:hover {
     color: rgb(241, 243, 244);
     text-shadow: 1.5px 1.5px 10px rgba(241, 243, 244, 0.35);
 }
@@ -161,11 +163,11 @@
     color: rgba(241, 243, 244, 0.65);
 }
 
-#btnMusicOff mat-icon, i {
-    font-size: 20px;
+#btnMusicOff mat-icon, #btnMusicOff i {
+    font-size: 16px;
 }
 
-#btnMusicOff:hover {
+#btnMusicOff mat-icon:hover, #btnMusicOff i:hover {
     color: rgb(241, 243, 244);
     text-shadow: 1.5px 1.5px 10px rgba(241, 243, 244, 0.35);
 }
