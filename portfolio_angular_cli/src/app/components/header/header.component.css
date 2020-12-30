@@ -74,7 +74,7 @@
 } */
 
 .bgDark {
-    animation: bgDark 0.5s forwards;
+    animation: bgDark 0.25s forwards;
 }
 
 @keyframes bgDark {
@@ -268,19 +268,19 @@
     }
     #navToolbar a {
         margin: 0;
-        font-size: 10px;
+        font-size: 7px;
     }
     #navToolbar a mat-icon {
-        font-size: 20px;
+        font-size: 15px;
     }
     #navToolbar a i {
-        font-size: 20px;
+        font-size: 15px;
     }
     #buttonLogin mat-icon {
-        font-size: 20px;
+        font-size: 15px;
     }
     #btnMusicOff mat-icon {
-        font-size: 20px;
+        font-size: 15px;
     }
 }
 

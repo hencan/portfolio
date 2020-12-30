@@ -6,7 +6,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { ProjectsService } from '../../services/projects/projects.service';
+import { ProjectsService } from '../../services/projects/projects.service'
 import { DatabaseService } from '../../services/database/database.service';
 import { HighlightsService } from '../../services/highlights/highlights.service';
 
@@ -35,7 +35,6 @@ export class ProjectsComponent implements OnInit {
 
   expandedElement: any | null;
 
-  // dataSource: any = new MatTableDataSource(this.projectsService.PROJECTS_DATA_SERVICE) // Objeto de dados do componente
   dataSource: any  // Objeto de dados do componente
 
   dataSourceFiltered: any = []
@@ -50,9 +49,9 @@ export class ProjectsComponent implements OnInit {
     private router: Router,
     private title: Title,
     private sanitizer: DomSanitizer,
-    private projectsService: ProjectsService,
+    private pageService: ProjectsService,
     private databaseService: DatabaseService,
-    private highlightsService: HighlightsService,
+    private highlights: HighlightsService,
   ) { }
 
   // ngAfterViewInit, ngOnInit
@@ -60,72 +59,40 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.title.setTitle('HenCan | Projetos');
 
-    this.highlightsService.navToolBar(1)
+    this.highlights.navToolBar(1)
 
-    if (this.projectsService.bdLoaded == false) {
-      this.databaseService.getProjects().subscribe(response => {
-        this.projectsService.PROJECTS_DATA_SERVICE = response.projects.slice()
-        this.projectsService.bdLoaded = true
-        console.log('Banco de dados JSON Services importado para Services Service')
-        this.dataSource = this.projectsService.PROJECTS_DATA_SERVICE
-        this.dataSource = JSON.parse(JSON.stringify(this.dataSource))
-        for (var i = 0; i < this.dataSource.length; i++) {
-          if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
-            // delete this.dataSource[i]
-            this.dataSource.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
-            i = i - 1
-          }
-        }
-        this.dataSource = new MatTableDataSource(this.dataSource)
-        // Prevent Default Sanitizer in Content Field
-        for (var i = 0; i < this.dataSource.data.length; i++) {
-          this.dataSource.data[i].content = this.sanitizer.bypassSecurityTrustHtml(this.dataSource.data[i].content)
-        }
-        console.log('Banco de dados JSON Services importado para Services Component')
-        this.createChipsFilter()
-        this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
-        this.dataSource.paginator = this.paginator; // Paginação da planilha
-        document.getElementById('countItensFiltersProjects').innerHTML = "Total: " + this.dataSource.data.length + " itens"
-        this.valueProgress = 100
+    if (this.pageService.bdLoaded == false) {
+
+      this.pageService.getData.then(() => {
+        this.init()
       })
-    } else {
-      console.log('Banco de dados JSON Services importado para Services Service')
-      this.dataSource = this.projectsService.PROJECTS_DATA_SERVICE
-      this.dataSource = JSON.parse(JSON.stringify(this.dataSource))
-      for (var i = 0; i < this.dataSource.length; i++) {
-        if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
-          // delete this.dataSource[i]
-          this.dataSource.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
-          i = i - 1
-        }
-      }
-      this.dataSource = new MatTableDataSource(this.dataSource)
-      // Prevent Default Sanitizer in Content Field
-      for (var i = 0; i < this.dataSource.data.length; i++) {
-        this.dataSource.data[i].content = this.sanitizer.bypassSecurityTrustHtml(this.dataSource.data[i].content)
-      }
-      console.log('Banco de dados JSON Services importado para Services Component')
-      this.createChipsFilter()
-      this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
-      this.dataSource.paginator = this.paginator; // Paginação da planilha
-      document.getElementById('countItensFiltersProjects').innerHTML = "Total: " + this.dataSource.data.length + " itens"
-      this.valueProgress = 100
+      
+      } else {
+
+        this.init()
     }
   }
 
-  applyFilter(event: Event) { // filterBtnProjects dinamico na tela da tabela
+
+  init(): void {
+    this.dataSource = this.pageService.dataSource // Atualização do banco de dados da planilha
+    this.createChipsFilter()
+    this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
+    this.dataSource.paginator = this.paginator; // Paginação da planilha
+    document.getElementById('cifp').innerHTML = "Total: " + this.dataSource.data.length + " itens"
+    this.valueProgress = 100  
+  }
+
+  showFilters(): void {
+    this.highlights.showFilters()
+  }
+
+
+  applyFilter(event: Event) { // Filtro dinamico na tela da tabela
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  showFilters(): void {
-    console.log('ShowFilters Functions')
-    if (document.getElementById("filtersProjects").style.display == "flex") {
-      document.getElementById("filtersProjects").style.display = "none"
-    } else {
-      document.getElementById("filtersProjects").style.display = "flex"
-    }
-  }
 
   createChipsFilter(): void {
     for (var i = 0; i < this.dataSource.data.length; i++) {
@@ -140,7 +107,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   selectChips(element): void {
-    // console.log(document.activeElement)
     this.valueProgress = 0
 
     if (element == 'Todos') {
@@ -157,17 +123,15 @@ export class ProjectsComponent implements OnInit {
         document.activeElement.classList.remove("mat-chip-selected")
         if (this.selectedChips.length == 0) {
           document.querySelector('mat-chip').classList.add("mat-chip-selected")
-          document.getElementById("filterBtnProjects").classList.remove("mat-chip-selected")
+          document.querySelector(".filterBtns").classList.remove("mat-chip-selected")
           this.selectAll()
         } else {
           this.selectFilter()
         }
       } else {
         document.activeElement.classList.add("mat-chip-selected")
-        document.getElementById("filterBtnProjects").classList.add("mat-chip-selected")
+        document.querySelector(".filterBtns").classList.add("mat-chip-selected")
         this.selectedChips[this.selectedChips.length] = element
-        console.log(this.selectedChips.length)
-        console.log(this.listChips.length)
         if (this.selectedChips.length == this.listChips.length) {
           this.selectAll()
           var resetSelected = document.querySelectorAll('mat-chip')
@@ -188,7 +152,7 @@ export class ProjectsComponent implements OnInit {
     this.dataSource.paginator = this.paginator; // Paginação da planilha
     this.selectedChips = []
     this.dataSourceFiltered = []
-    document.getElementById('countItensFiltersProjects').innerHTML = "Total: " + this.dataSource.data.length + " itens"
+    document.getElementById('cifp').innerHTML = "Total: " + this.dataSource.data.length + " itens"
   }
 
   selectFilter(): void {
@@ -204,7 +168,7 @@ export class ProjectsComponent implements OnInit {
     this.dataSourceFiltered = new MatTableDataSource(this.dataSourceFiltered)
     this.table.dataSource = this.dataSourceFiltered // Atualização do banco de dados da planilha
     this.dataSourceFiltered.paginator = this.paginator; // Paginação da planilha
-    document.getElementById('countItensFiltersProjects').innerHTML = "Filtro: " + this.dataSourceFiltered.data.length + " de " + this.dataSource.data.length + " itens"
+    document.getElementById('cifp').innerHTML = "Filtro: " + this.dataSourceFiltered.data.length + " de " + this.dataSource.data.length + " itens"
   }
 
 }

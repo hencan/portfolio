@@ -23,7 +23,7 @@ export class BlogAdminComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'imageTitle', 'title', 'categories', 'situation', 'modifiedBy', 'modifiedIn'];
 
-  dataSource: any = new MatTableDataSource(this.blogService.BLOG_DATA_SERVICE) // Objeto de dados do componente
+  dataSource: any = new MatTableDataSource(this.blogService.DATA_SERVICE) // Objeto de dados do componente
 
   posArray: any = ""
 
@@ -45,9 +45,9 @@ export class BlogAdminComponent implements OnInit {
     this.authenticationService.authentication("blogAdmin")   
     if (this.blogService.bdLoaded == false) {
       this.databaseService.getBlog().subscribe(response => {
-        this.blogService.BLOG_DATA_SERVICE = response.blog
+        this.blogService.DATA_SERVICE = response.blog
         console.log('Banco de dados JSON Users importado para Blog Service')
-        this.dataSource = new MatTableDataSource(this.blogService.BLOG_DATA_SERVICE)
+        this.dataSource = new MatTableDataSource(this.blogService.DATA_SERVICE)
         this.blogService.bdLoaded = true
         console.log('Banco de dados JSON Users importado para Users Component')
         this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
@@ -81,8 +81,8 @@ export class BlogAdminComponent implements OnInit {
     console.log('***')
     console.log('Artigos | Botão ver clicado')
     console.log('Início dos processos do botão ver')
-    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-      if (this.blogService.BLOG_DATA_SERVICE[i].id == element.id) {
+    for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+      if (this.blogService.DATA_SERVICE[i].id == element.id) {
         this.posArray = i
         break
       }
@@ -100,8 +100,8 @@ export class BlogAdminComponent implements OnInit {
     console.log('***')
     console.log('Artigos | Botão editar clicado')
     console.log('Início dos processos do botão editar')
-    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-      if (this.blogService.BLOG_DATA_SERVICE[i].id == id) {
+    for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+      if (this.blogService.DATA_SERVICE[i].id == id) {
         this.posArray = i
         break
       }
@@ -118,8 +118,8 @@ export class BlogAdminComponent implements OnInit {
     console.log('***')
     console.log('Artigos | Botão excluir clicado')
     console.log('Início dos processos do botão excluir')
-    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-      if (this.blogService.BLOG_DATA_SERVICE[i].id == element.id) {
+    for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+      if (this.blogService.DATA_SERVICE[i].id == element.id) {
         this.posArray = i
         break
       }

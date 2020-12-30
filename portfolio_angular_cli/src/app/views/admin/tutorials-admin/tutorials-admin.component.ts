@@ -21,7 +21,7 @@ export class TutorialsAdminComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'imageTitle', 'title', 'categories', 'situation', 'modifiedBy', 'modifiedIn'];
 
-  dataSource: any = new MatTableDataSource(this.tutorialsService.TUTORIALS_DATA_SERVICE) // Objeto de dados do componente
+  dataSource: any = new MatTableDataSource(this.tutorialsService.DATA_SERVICE) // Objeto de dados do componente
 
   posArray: any = ""
 
@@ -43,9 +43,9 @@ export class TutorialsAdminComponent implements OnInit {
     this.authenticationService.authentication("tutorialsAdmin")   
     if (this.tutorialsService.bdLoaded == false) {
       this.databaseService.getTutorials().subscribe(response => {
-        this.tutorialsService.TUTORIALS_DATA_SERVICE = response.tutorials
+        this.tutorialsService.DATA_SERVICE = response.tutorials
         console.log('Banco de dados JSON importado para Tutotials Service')
-        this.dataSource = new MatTableDataSource(this.tutorialsService.TUTORIALS_DATA_SERVICE)
+        this.dataSource = new MatTableDataSource(this.tutorialsService.DATA_SERVICE)
         this.tutorialsService.bdLoaded = true
         console.log('Banco de dados JSON Users importado para Tutotials Component')
         this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
@@ -79,8 +79,8 @@ export class TutorialsAdminComponent implements OnInit {
     console.log('***')
     console.log('Tutorials | Botão ver clicado')
     console.log('Início dos processos do botão ver')
-    for (var i = 0; i < this.tutorialsService.TUTORIALS_DATA_SERVICE.length; i++) {
-      if (this.tutorialsService.TUTORIALS_DATA_SERVICE[i].id == element.id) {
+    for (var i = 0; i < this.tutorialsService.DATA_SERVICE.length; i++) {
+      if (this.tutorialsService.DATA_SERVICE[i].id == element.id) {
         this.posArray = i
         break
       }
@@ -98,8 +98,8 @@ export class TutorialsAdminComponent implements OnInit {
     console.log('***')
     console.log('Blog | Botão editar clicado')
     console.log('Início dos processos do botão editar')
-    for (var i = 0; i < this.tutorialsService.TUTORIALS_DATA_SERVICE.length; i++) {
-      if (this.tutorialsService.TUTORIALS_DATA_SERVICE[i].id == id) {
+    for (var i = 0; i < this.tutorialsService.DATA_SERVICE.length; i++) {
+      if (this.tutorialsService.DATA_SERVICE[i].id == id) {
         this.posArray = i
         break
       }
@@ -116,8 +116,8 @@ export class TutorialsAdminComponent implements OnInit {
     console.log('***')
     console.log('Blog | Botão excluir clicado')
     console.log('Início dos processos do botão excluir')
-    for (var i = 0; i < this.tutorialsService.TUTORIALS_DATA_SERVICE.length; i++) {
-      if (this.tutorialsService.TUTORIALS_DATA_SERVICE[i].id == element.id) {
+    for (var i = 0; i < this.tutorialsService.DATA_SERVICE.length; i++) {
+      if (this.tutorialsService.DATA_SERVICE[i].id == element.id) {
         this.posArray = i
         break
       }

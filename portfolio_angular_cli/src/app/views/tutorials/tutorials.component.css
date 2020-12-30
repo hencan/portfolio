@@ -1,3 +1,5 @@
+/* Some styles is in global file style.css */
+
 .tutorials {
   position: absolute;
   top: 90px;
@@ -43,46 +45,6 @@
     filter: opacity(0);
     transform: scale(1, 0.8) translateY(200px);
   }
-}
-
-.btnsFilters {
-  display: flex;
-  flex-direction: row;
-  margin: 10px 24px;
-}
-
-.btnsFilters mat-chip mat-icon {
-  font-size: 1.15rem;
-  padding-top: 5px;
-}
-
-#filtersTutorials {
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 48px);
-  height: auto;
-  overflow: hidden;
-  margin: 0 24px 20px;
-  display: none;
-}
-
-.btnsFilters mat-chip-list mat-chip {
-  font-size: 1rem;
-}
-
-#countItensFiltersTutorials {
-  display: flex;
-  flex-direction: row;
-  margin: 2.5px 0 10px;
-  padding: 0 30px;
-  font-size: 0.75rem;
-  font-weight: 100;
-  color: rgb(86, 86, 86);
-}
-
-.search {
-  margin: 0;
-  padding: 0 24px;
 }
 
 table {
@@ -143,65 +105,6 @@ table {
   flex-direction: column;
 }
 
-.title {
-  cursor: default;
-  margin: 5px 0 0;
-  font-size: 1rem;
-  font-weight: 500;
-  color: rgb(31, 31, 31);
-  padding: 0 30px 0 10px;
-    
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
-}
-
-.subtitle {
-  margin: 2.5px 0 0;
-  font-size: 1rem;
-  font-weight: 100;
-  color: rgb(31, 31, 31);
-  padding: 5px 10px;
-    
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
-}
-
-.dateAndBy {
-  margin: 2.5px 0 0;
-  color: rgb(31, 31, 31);
-  font-size: 0.9rem;
-  font-weight: 100;
-  padding: 0 10px;
-}
-
-.category {
-  display: flex;
-  flex-direction: row;
-  margin: 2.5px 0 5px 10px;
-    
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
-}
-
-.categoryChips {
-  cursor: default;
-  /* color: rgb(31, 31, 31); */
-  color: rgb(224, 224, 224);
-  background-color: rgba(0, 0, 0, .87);
-  font-size: 0.75rem;
-  font-weight: 100;
-  /* padding: 0 10px; */
-  padding: 2px 8px;
-  border-radius: 16px;
-  margin: 10px 2.5px 5px 0;
-}
-
 .paginator {
   margin: 0;
   padding: 10px 24px 20px;
@@ -223,52 +126,9 @@ table {
     /* margin: 20px 0 5px 5vw; */
     display: none;
   }
-  .btnsFilters {
-    margin: 10px 0 15px;
-    padding: 0 2.5vw;
-  }
-  #countItensFiltersTutorials {
-    padding: 0 3vw;
-  }
-  .search {
-    margin: 0;
-    padding: 0 2.5vw;
-  }
   .capa {
     width: calc(98% - 20px);
     margin: 0 10px;
-  }
-  .title {
-    /* font-size: 1rem; */
-    font-size: 0.85rem;
-    /* Desktop =>  margin: 5px 0 0; */
-    margin: 5px 0 0;
-    /* Desktop => padding: 0 30px 0 10px; */
-    padding: 0 0 0 10px;
-  }
-
-  .subtitle {
-    margin: 2.5px 0 0;
-    font-size: 1rem;
-    padding: 5px 10px;
-  }
-
-  .dateAndBy {
-    /* font-size: 0.9rem; */
-    font-size: 0.75rem;
-    /* margin: 2.5px 0 0; */
-    margin: 1.5px 0 0;
-    /* Desktop => padding: 0 10px;*/
-    padding: 0 0 0 10px;
-  }
-
-  .category {
-    /* font-size: 0.9rem; */
-    font-size: 0.85rem;
-    /*   margin: 2.5px 0 5px 10px; */
-    margin: 1.5px 0 5px 10px;
-    /* Desktop => padding: 0 10px;*/
-    /* transform: translateX(-30vw); */
   }
   .mat-row {
     display: flex;

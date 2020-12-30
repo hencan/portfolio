@@ -67,7 +67,7 @@ export class BlogAdminDeleteComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.authentication("blogAdminDelete")   
-    this.storeData = this.blogService.BLOG_READ_UPDATE
+    this.storeData = this.blogService.READ_UPDATE
     this.photoBase64 = this.storeData.imageTitle
     // document.getElementById('paragraf1').innerHTML = this.storeData.paragraf1
     console.log(this.storeData.paragraf1)
@@ -88,8 +88,8 @@ export class BlogAdminDeleteComponent implements OnInit {
   delete(id): void {
     this.storeData.modifiedBy = this.loginService.loggedAs.fname.toString()
     this.storeData.modifiedIn = new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
-    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-      if (this.blogService.BLOG_DATA_SERVICE[i].id == id) {
+    for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+      if (this.blogService.DATA_SERVICE[i].id == id) {
         this.posArray = i
         break
       }

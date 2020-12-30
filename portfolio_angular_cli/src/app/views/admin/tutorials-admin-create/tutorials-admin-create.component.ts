@@ -105,7 +105,7 @@ export class TutorialsAdminCreateComponent implements OnInit {
     console.log('Botão Salvar Rascunho clicado')
     console.log('Início dos processos do botão Salvar Rascunho')
     console.log('Atribuição de dados ao registro')
-    this.storeData.id = this.tutorialsService.TUTORIALS_DATA_SERVICE.length + 1
+    this.storeData.id = this.tutorialsService.DATA_SERVICE.length + 1
     this.storeData.situation = 'Rascunho'
     console.log('Atribuição do Usuário e Data')
     this.storeData.createdBy = this.loginService.loggedAs.username.toString()
@@ -136,7 +136,7 @@ export class TutorialsAdminCreateComponent implements OnInit {
     console.log('Botão Postar clicado')
     console.log('Início dos processos do botão Postar')
     console.log('Atribuição de dados ao registro')
-    this.storeData.id = this.tutorialsService.TUTORIALS_DATA_SERVICE.length + 1
+    this.storeData.id = this.tutorialsService.DATA_SERVICE.length + 1
     this.storeData.situation = 'Postado'
     console.log('Atribuição do Usuário e Data')
     this.storeData.createdBy = this.loginService.loggedAs.username.toString()

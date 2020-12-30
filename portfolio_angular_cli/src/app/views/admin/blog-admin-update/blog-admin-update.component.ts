@@ -16,9 +16,9 @@ import { AuthenticationService } from '../../../services/authentication/authenti
 })
 export class BlogAdminUpdateComponent implements OnInit {
 
-  storeData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '', paragraf1: '', paragraf2: '', paragraf3: '', paragraf4: '', paragraf5: '', situation: '', status: "Ativo", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: ''  }
+  storeData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '', paragraf1: '', paragraf2: '', paragraf3: '', paragraf4: '', paragraf5: '', situation: '', status: "Ativo", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: '' }
 
-  backupData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '', paragraf1: '', paragraf2: '', paragraf3: '', paragraf4: '', paragraf5: '', situation: '', status: "Ativo", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: ''  }
+  backupData: any = { id: '', imageTitle: '', title: '', subtitle: '', categories: '', paragraf1: '', paragraf2: '', paragraf3: '', paragraf4: '', paragraf5: '', situation: '', status: "Ativo", createdBy: '', createdIn: '', modifiedBy: '', modifiedIn: '', date: '', author: '' }
 
   photoBase64: any = ''
 
@@ -40,10 +40,10 @@ export class BlogAdminUpdateComponent implements OnInit {
     defaultFontSize: '',
     sanitize: false,
     fonts: [
-      {class: 'Roboto', name: 'Roboto'},
-      {class: 'arial', name: 'Arial'},
-      {class: 'times-new-roman', name: 'Times New Roman'},
-      {class: 'calibri', name: 'Calibri'},
+      { class: 'Roboto', name: 'Roboto' },
+      { class: 'arial', name: 'Arial' },
+      { class: 'times-new-roman', name: 'Times New Roman' },
+      { class: 'calibri', name: 'Calibri' },
     ],
     outline: false,
     uploadWithCredentials: false,
@@ -100,9 +100,9 @@ export class BlogAdminUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.authenticationService.authentication("blogAdminUpdate")   
-    this.storeData = this.blogService.BLOG_READ_UPDATE
-    this.backupData = JSON.parse(JSON.stringify(this.blogService.BLOG_READ_UPDATE))
+    this.authenticationService.authentication("blogAdminUpdate")
+    this.storeData = this.blogService.READ_UPDATE
+    this.backupData = JSON.parse(JSON.stringify(this.blogService.READ_UPDATE))
     this.photoBase64 = this.storeData.imageTitle
   }
 
@@ -113,8 +113,8 @@ export class BlogAdminUpdateComponent implements OnInit {
     this.storeData.situation = 'Postado'
     // console.log(this.storeData)
     var posArray = 0
-    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-      if (this.blogService.BLOG_DATA_SERVICE[i].id == this.storeData.id) {
+    for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+      if (this.blogService.DATA_SERVICE[i].id == this.storeData.id) {
         posArray = i
         break
       }
@@ -131,8 +131,8 @@ export class BlogAdminUpdateComponent implements OnInit {
     this.storeData.situation = 'Rascunho'
     // console.log(this.storeData)
     var posArray = 0
-    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-      if (this.blogService.BLOG_DATA_SERVICE[i].id == this.storeData.id) {
+    for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+      if (this.blogService.DATA_SERVICE[i].id == this.storeData.id) {
         posArray = i
         break
       }
@@ -145,7 +145,7 @@ export class BlogAdminUpdateComponent implements OnInit {
   cancel(): void {
     console.log('Botão cancelar clicado')
     console.log('Início dos processos do botão cancelar')
-    this.blogService.BLOG_READ_UPDATE = this.backupData
+    this.blogService.READ_UPDATE = this.backupData
     this.snackBarService.showMassage('Operação cancelada!')
     console.log('-> Snackbar da mensagem de sucesso')
     this.router.navigate(['admin/articles'])

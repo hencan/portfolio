@@ -1,169 +1,185 @@
 <div id="tutorialsAdminCreate">
-    <app-admin></app-admin>
-  
-    <div class="tutorialsAdminCreate">
-      <mat-card class="card">
-  
-        <!-- Title Card Form -->
-        <mat-card-subtitle>Criar Post Tutoriais</mat-card-subtitle>
-  
-        <!-- Buttons Header -->
-        <div class="cardBtnHeader">
+  <app-admin></app-admin>
+
+  <div class="tutorialsAdminCreate">
+    <mat-card class="card">
+
+      <!-- Title Card Form -->
+      <mat-card-subtitle>Criar Post Tutoriais</mat-card-subtitle>
+
+      <!-- Buttons Header -->
+      <div class="cardBtnHeader">
+        <button mat-raised-button (click)="cancel()">Cancelar</button>
+        <button mat-raised-button class="primaryBtnBlue" (click)="saveDraft()">Salvar Rascunho</button>
+        <button mat-raised-button class="primaryBtnGreen" (click)="post()">Postar</button>
+      </div>
+      <form class="cardForm">
+
+        <!-- Image Capa Field -->
+        <mat-label>Imagem da Capa</mat-label>
+        <mat-card id="createPhotoChange" class="fadeIn">
+          <div class="createPhotoChangeBox">
+            <h4 class="createFormImageRaw">Original</h4>
+            <!-- <h4>Preview</h4> -->
+          </div>
+          <div class="createPhotoChangeBox">
+            <image-cropper class="createFormImageRaw" [imageChangedEvent]="imageChangedEvent"
+              [maintainAspectRatio]="true" [aspectRatio]="13 / 6" [resizeToWidth]="450" format="png"
+              (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+              (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+            <!-- <img class="createFormImageWaited" [src]="croppedImage" /> -->
+          </div>
+          <div class="createFormImageBtn">
+            <button mat-stroked-button color="primary" (click)="saveImageCroppie()">
+              <mat-icon>done</mat-icon>
+            </button>
+            <button mat-stroked-button color="warn" (click)="cancelImageCroppie()">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </div>
+        </mat-card>
+        <div id="createPhotoFinal" class="fadeIn">
+          <img id="createFormImageID" class="createFormImageFinal" [src]="photoBase64"> <br />
+          <input id="createFormImageINPUT" type="file" (change)="fileChangeEvent($event)" />
+        </div>
+
+        <!-- Title Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Título</mat-label>
+          <textarea matInput #input1 maxlength="200" placeholder="Digite o título aqui" id="title" name="title"
+            [(ngModel)]="storeData.title"></textarea>
+          <mat-hint align="end">{{input1.value?.length || 0}}/200</mat-hint>
+        </mat-form-field>
+
+        <!-- Subtitle Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Subtitulo</mat-label>
+          <textarea matInput #input2 maxlength="400" placeholder="Digite o Subtítulo aqui" id="subtitle" name="subtitle"
+            [(ngModel)]="storeData.subtitle"></textarea>
+          <mat-hint align="end">{{input1.value?.length || 0}}/400</mat-hint>
+        </mat-form-field>
+
+        <!-- Categories Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Categoria</mat-label>
+          <mat-select placeholder="Informe a categoria" id="categories" name="categories"
+            [(ngModel)]="storeData.categories" multiple>
+            <mat-option value="-" selected>-</mat-option>
+            <mat-option value=".NET">.NET</mat-option>
+            <mat-option value="3D_Web">3D_Web</mat-option>
+            <mat-option value="Ajax">Ajax</mat-option>
+            <mat-option value="Android_Studio">Android_Studio</mat-option>
+            <mat-option value="Animação">Animação</mat-option>
+            <mat-option value="Angular">Angular</mat-option>
+            <mat-option value="ASP.NET">ASP.NET</mat-option>
+            <mat-option value="Audio">Audio</mat-option>
+            <mat-option value="Bootstrap">Bootstrap</mat-option>
+            <mat-option value="C++">C++</mat-option>
+            <mat-option value="C#">C#</mat-option>
+            <mat-option value="Componentes">Componentes</mat-option>
+            <mat-option value="Css">Css</mat-option>
+            <mat-option value="Curiosidades">Curiosidades</mat-option>
+            <mat-option value="Desafios">Desafios</mat-option>
+            <mat-option value="Educação">Educação</mat-option>
+            <mat-option value="Electron">Electron</mat-option>
+            <mat-option value="Estilos">Estilos</mat-option>
+            <mat-option value="Express">Express</mat-option>
+            <mat-option value="Ferramentas">Ferramentas</mat-option>
+            <mat-option value="Firebase">Firebase</mat-option>
+            <mat-option value="Fonts">Fonts</mat-option>
+            <mat-option value="Framework">Framework</mat-option>
+            <mat-option value="Funcionalidades">Funcionalidades</mat-option>
+            <mat-option value="Git">Git</mat-option>
+            <mat-option value="Github">Github</mat-option>
+            <mat-option value="Gulp">Gulp</mat-option>
+            <mat-option value="Html">Html</mat-option>
+            <mat-option value="Imagens">Imagens</mat-option>
+            <mat-option value="Javascript">Javascript</mat-option>
+            <mat-option value="JQuery">JQuery</mat-option>
+            <mat-option value="Less">Less</mat-option>
+            <mat-option value="Magento">Magento</mat-option>
+            <mat-option value="Material_Design">Material_Design</mat-option>
+            <mat-option value="MongoDB">MongoDB</mat-option>
+            <mat-option value="MySQL">MySQL</mat-option>
+            <mat-option value="Node_Js">Node_Js</mat-option>
+            <mat-option value="NPM_Modules">NPM_Modules</mat-option>
+            <mat-option value="PHP">PHP</mat-option>
+            <mat-option value="React_Native">React_Native</mat-option>
+            <mat-option value="React_Web">React_Web</mat-option>
+            <mat-option value="Reactive_X">Reactive_X</mat-option>
+            <mat-option value="Ruby">Ruby</mat-option>
+            <mat-option value="Ruby_on_Rails">Ruby_on_Rails</mat-option>
+            <mat-option value="PMBOK">PMBOK</mat-option>
+            <mat-option value="PostgreSQL">PostgreSQL</mat-option>
+            <mat-option value="Projetos">Projetos</mat-option>
+            <mat-option value="Social">Social</mat-option>
+            <mat-option value="Sass">Sass</mat-option>
+            <mat-option value="Scrum">Scrum</mat-option>
+            <mat-option value="Vue_Js">Vue_Js</mat-option>
+            <mat-option value="Webpack">Webpack</mat-option>
+            <mat-option value="Three.JS">Three.JS</mat-option>
+          </mat-select>
+          <mat-hint align="end">Selecione uma Opção ^</mat-hint>
+        </mat-form-field>
+
+        <mat-list>
+          <mat-divider></mat-divider>
+        </mat-list>
+
+        <!-- Paragraf1 Field -->
+        <br>
+        <mat-label>Paragrafo 1</mat-label>
+        <angular-editor #input3 id="paragraf1" [(ngModel)]="storeData.paragraf1" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+        <!-- Paragraf2 Field -->
+        <br>
+        <mat-label>Paragrafo 2</mat-label>
+        <angular-editor #input4 id="paragraf2" [(ngModel)]="storeData.paragraf2" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+        <!-- Paragraf3 Field -->
+        <br>
+        <mat-label>Paragrafo 3</mat-label>
+        <angular-editor #input5 id="paragraf3" [(ngModel)]="storeData.paragraf3" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+        <!-- Paragraf4 Field -->
+        <br>
+        <mat-label>Paragrafo 4</mat-label>
+        <angular-editor #input6 id="paragraf4" [(ngModel)]="storeData.paragraf4" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+        <!-- Paragraf5 Field -->
+        <br>
+        <mat-label>Paragrafo 5</mat-label>
+        <angular-editor #input7 id="paragraf5" [(ngModel)]="storeData.paragraf5" [config]="editorConfig"
+          [ngModelOptions]="{standalone: true}"></angular-editor>
+
+
+        <mat-list>
+          <mat-divider></mat-divider>
+        </mat-list>
+
+        <!-- Status Field -->
+        <br>
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Status</mat-label>
+          <mat-select disabled placeholder="Status Inicial" id="status" name="status" [(ngModel)]="storeData.status">
+            <mat-option value="Ativo">Ativo</mat-option>
+          </mat-select>
+          <mat-hint align="end">Selecione uma Opção ^</mat-hint>
+        </mat-form-field>
+
+        <!-- Buttons Footer -->
+        <div class="cardBtnFooter">
           <button mat-raised-button (click)="cancel()">Cancelar</button>
           <button mat-raised-button class="primaryBtnBlue" (click)="saveDraft()">Salvar Rascunho</button>
           <button mat-raised-button class="primaryBtnGreen" (click)="post()">Postar</button>
         </div>
-        <form class="cardForm">
-  
-          <!-- Image Capa Field -->
-          <mat-label>Imagem da Capa</mat-label>
-          <mat-card id="createPhotoChange" class="fadeIn">
-            <div class="createPhotoChangeBox">
-              <h4 class="createFormImageRaw">Original</h4>
-              <!-- <h4>Preview</h4> -->
-            </div>
-            <div class="createPhotoChangeBox">
-              <image-cropper class="createFormImageRaw" [imageChangedEvent]="imageChangedEvent"
-              [maintainAspectRatio]="true" [aspectRatio]="13 / 6" [resizeToWidth]="450" 
-                format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
-                (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
-  
-              <!-- <img class="createFormImageWaited" [src]="croppedImage" /> -->
-            </div>
-            <div class="createFormImageBtn">
-              <button mat-stroked-button color="primary" (click)="saveImageCroppie()">
-                <mat-icon>done</mat-icon>
-              </button>
-              <button mat-stroked-button color="warn" (click)="cancelImageCroppie()">
-                <mat-icon>clear</mat-icon>
-              </button>
-            </div>
-          </mat-card>
-          <div id="createPhotoFinal" class="fadeIn">
-            <img id="createFormImageID" class="createFormImageFinal" [src]="photoBase64"> <br />
-            <input id="createFormImageINPUT" type="file" (change)="fileChangeEvent($event)" />
-          </div>
-  
-          <!-- Title Field -->
-          <mat-form-field appearance="outline" hintLabel="">
-            <mat-label>Título</mat-label>
-            <textarea matInput #input1 maxlength="200" placeholder="Digite o título aqui" id="title" name="title"
-              [(ngModel)]="storeData.title"></textarea>
-            <mat-hint align="end">{{input1.value?.length || 0}}/200</mat-hint>
-          </mat-form-field>
-  
-          <!-- Subtitle Field -->
-          <mat-form-field appearance="outline" hintLabel="">
-            <mat-label>Subtitulo</mat-label>
-            <textarea matInput #input2 maxlength="400" placeholder="Digite o Subtítulo aqui" id="subtitle" name="subtitle"
-              [(ngModel)]="storeData.subtitle"></textarea>
-            <mat-hint align="end">{{input1.value?.length || 0}}/400</mat-hint>
-          </mat-form-field>
-  
-          <!-- Categories Field -->
-          <mat-form-field appearance="outline" hintLabel="">
-            <mat-label>Categoria</mat-label>
-            <mat-select placeholder="Informe a categoria" id="categories" name="categories"
-              [(ngModel)]="storeData.categories" multiple>
-              <mat-option value="Angular" selected>Angular</mat-option>
-              <mat-option value="Bootstrap">Bootstrap</mat-option>
-              <mat-option value="Css">Css</mat-option>
-              <mat-option value="Electron">Electron</mat-option>
-              <mat-option value="Git">Git</mat-option>
-              <mat-option value="Github">Github</mat-option>
-              <mat-option value="Html">Html</mat-option>
-              <mat-option value="Javascript">Javascript</mat-option>
-              <mat-option value="JQuery">JQuery</mat-option>
-              <mat-option value="Magento">Magento</mat-option>
-              <mat-option value="Material_Design">Material_Design</mat-option>
-              <mat-option value="MongoDB">MongoDB</mat-option>
-              <mat-option value="MySQL">MySQL</mat-option>
-              <mat-option value="Node_Js">Node_Js</mat-option>
-              <mat-option value="NPM_Modules">NPM_Modules</mat-option>
-              <mat-option value="PHP">PHP</mat-option>
-              <mat-option value="React_Native">React_Native</mat-option>
-              <mat-option value="React_Web">React_Web</mat-option>
-              <mat-option value="Reactive_X">Reactive_X</mat-option>
-              <mat-option value="Ruby">Ruby</mat-option>
-              <mat-option value="Ruby_on_Rails">Ruby_on_Rails</mat-option>
-              <mat-option value="Vue_Js">Vue_Js</mat-option>
-              <mat-option value="Webpack">Webpack</mat-option>
-              <mat-option value="3D_Web">3D_Web</mat-option>
-              <mat-option value="Animação">Animação</mat-option>
-              <mat-option value="Audio">Audio</mat-option>
-              <mat-option value="Curiosidades">Curiosidades</mat-option>
-              <mat-option value="Educação">Educação</mat-option>
-              <mat-option value="Estilos">Estilos</mat-option>
-              <mat-option value="Ferramentas">Ferramentas</mat-option>
-              <mat-option value="Fonts">Fonts</mat-option>
-              <mat-option value="Framework">Framework</mat-option>
-              <mat-option value="Imagens">Imagens</mat-option>
-              <mat-option value="Scrum">Scrum</mat-option>
-              <mat-option value="PMBOK">PMBOK</mat-option>
-              <mat-option value="Projetos">Projetos</mat-option>
-              <mat-option value="Social">Social</mat-option>
-                  <!-- <mat-option value="Projetos">Projetos</mat-option> -->
-            </mat-select>
-            <mat-hint align="end">Selecione uma Opção ^</mat-hint>
-          </mat-form-field>
-  
-          <mat-list>
-            <mat-divider></mat-divider>
-          </mat-list>
-  
-          <!-- Paragraf1 Field -->
-          <br>
-          <mat-label>Paragrafo 1</mat-label>
-          <angular-editor #input3 id="paragraf1" [(ngModel)]="storeData.paragraf1" [config]="editorConfig"
-            [ngModelOptions]="{standalone: true}"></angular-editor>
-  
-          <!-- Paragraf2 Field -->
-          <br>
-          <mat-label>Paragrafo 2</mat-label>
-          <angular-editor #input4 id="paragraf2" [(ngModel)]="storeData.paragraf2" [config]="editorConfig"
-            [ngModelOptions]="{standalone: true}"></angular-editor>
-  
-          <!-- Paragraf3 Field -->
-          <br>
-          <mat-label>Paragrafo 3</mat-label>
-          <angular-editor #input5 id="paragraf3" [(ngModel)]="storeData.paragraf3" [config]="editorConfig"
-            [ngModelOptions]="{standalone: true}"></angular-editor>
-  
-          <!-- Paragraf4 Field -->
-          <br>
-          <mat-label>Paragrafo 4</mat-label>
-          <angular-editor #input6 id="paragraf4" [(ngModel)]="storeData.paragraf4" [config]="editorConfig"
-            [ngModelOptions]="{standalone: true}"></angular-editor>
-  
-          <!-- Paragraf5 Field -->
-          <br>
-          <mat-label>Paragrafo 5</mat-label>
-          <angular-editor #input7 id="paragraf5" [(ngModel)]="storeData.paragraf5" [config]="editorConfig"
-            [ngModelOptions]="{standalone: true}"></angular-editor>
-  
-  
-          <mat-list>
-            <mat-divider></mat-divider>
-          </mat-list>
-  
-          <!-- Status Field -->
-          <br>
-          <mat-form-field appearance="outline" hintLabel="">
-            <mat-label>Status</mat-label>
-            <mat-select disabled placeholder="Status Inicial" id="status" name="status" [(ngModel)]="storeData.status">
-              <mat-option value="Ativo">Ativo</mat-option>
-            </mat-select>
-            <mat-hint align="end">Selecione uma Opção ^</mat-hint>
-          </mat-form-field>
-  
-          <!-- Buttons Footer -->
-          <div class="cardBtnFooter">
-            <button mat-raised-button (click)="cancel()">Cancelar</button>
-            <button mat-raised-button class="primaryBtnBlue" (click)="saveDraft()">Salvar Rascunho</button>
-            <button mat-raised-button class="primaryBtnGreen" (click)="post()">Postar</button>
-          </div>
-        </form>
-      </mat-card>
-    </div>
-  
+      </form>
+    </mat-card>
   </div>
+
+</div>

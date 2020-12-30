@@ -26,7 +26,17 @@ export class HighlightsService {
           iconHiglight[1].classList.remove('selected')      
         }
       }
-    }
-    
+    }    
   }
+
+  showFilters(): void {
+    if (document.querySelector(".filtersItems").classList.contains('fiShow')) {
+      document.querySelector(".filtersItems").classList.remove('fiShow')
+      document.querySelector(".filtersItems").classList.add('fiHide')
+    } else {
+      document.querySelector(".filtersItems").classList.remove('fiHide')
+      document.querySelector(".filtersItems").classList.add('fiShow')
+    }
+  }
+
 }

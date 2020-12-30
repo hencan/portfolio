@@ -104,7 +104,7 @@ export class ProjectsAdminCreateComponent implements OnInit {
     console.log('Botão Salvar Rascunho clicado')
     console.log('Início dos processos do botão Salvar Rascunho')
     console.log('Atribuição de dados ao registro')
-    this.storeData.id = this.projectService.PROJECTS_DATA_SERVICE.length + 1
+    this.storeData.id = this.projectService.DATA_SERVICE.length + 1
     console.log('-> Atribuição do nº de ID conforme tamanho do array')
     this.storeData.situation = 'Rascunho'
     console.log('Atribuição do Usuário e Data')
@@ -135,7 +135,7 @@ export class ProjectsAdminCreateComponent implements OnInit {
     console.log('Botão Postar clicado')
     console.log('Início dos processos do botão Postar')
     console.log('Atribuição de dados ao registro')
-    this.storeData.id = this.projectService.PROJECTS_DATA_SERVICE.length + 1
+    this.storeData.id = this.projectService.DATA_SERVICE.length + 1
     console.log('-> Atribuição do nº de ID conforme tamanho do array')
     this.storeData.situation = 'Postado'
     console.log('Atribuição do Usuário e Data')

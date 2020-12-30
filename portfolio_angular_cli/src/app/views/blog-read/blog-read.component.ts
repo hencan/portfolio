@@ -7,7 +7,7 @@ import { BlogService } from '../../services/blog/blog.service';
 import { MembersService } from '../../services/members/members.service';
 import { DatabaseService } from '../../services/database/database.service';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { HighlightsService } from '../../services/highlights/highlights.service';
 
 
 @Component({
@@ -39,16 +39,14 @@ export class BlogReadComponent implements OnInit {
     private membersService: MembersService,
     private databaseService: DatabaseService,
     private sanitizer: DomSanitizer,
+    private highlights: HighlightsService,
   ) { }
 
   ngOnInit(): void {
-    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
-      document.getElementById("navToolbar").classList.remove("hideToolbar")
-      document.getElementById("navToolbar").classList.add("showToolbar")
-    }
+
+    this.highlights.navToolBar(3)
+
     this.postResq = location.search
-    console.log(this.postResq)
-    console.log(this.postResq.slice(0, 4))
     
     if (this.postResq != "") {
       if (this.postResq.slice(0, 4) == "?id=") {
@@ -116,8 +114,8 @@ export class BlogReadComponent implements OnInit {
 
   getData(): void {
     this.databaseService.getTutorials().subscribe(response => {
-      this.blogService.BLOG_DATA_SERVICE = response.tutorials.slice()
-      console.log(this.blogService.BLOG_DATA_SERVICE)
+      this.blogService.DATA_SERVICE = response.tutorials.slice()
+      console.log(this.blogService.DATA_SERVICE)
       this.blogService.bdLoaded = true
       console.log(this.blogService.bdLoaded)
 
@@ -143,8 +141,8 @@ export class BlogReadComponent implements OnInit {
   findPosArray(): void {
     console.log("Procurando posição no array do id: " + this.postId)
 
-    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-      if (this.blogService.BLOG_DATA_SERVICE[i].id == this.postId) {
+    for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+      if (this.blogService.DATA_SERVICE[i].id == this.postId) {
         this.posArray = i
         console.log(this.posArray)
         break
@@ -154,7 +152,7 @@ export class BlogReadComponent implements OnInit {
 
   findCopyPost(): void {
 
-    this.storeData = this.blogService.BLOG_READ_UPDATE
+    this.storeData = this.blogService.READ_UPDATE
     this.storeData = JSON.parse(JSON.stringify(this.storeData))
     this.storeData.paragraf1 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf1)
     this.storeData.paragraf2 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf2)

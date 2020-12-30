@@ -25,7 +25,7 @@ export class BlogComponent implements OnInit {
 
   expandedElement: any | null;
 
-  // dataSource: any = new MatTableDataSource(this.blogService.BLOG_DATA_SERVICE) // Objeto de dados do componente
+  // dataSource: any = new MatTableDataSource(this.blogService.DATA_SERVICE) // Objeto de dados do componente
   dataSource: any  // Objeto de dados do componente
 
   dataSourceFiltered: any = []
@@ -42,79 +42,47 @@ export class BlogComponent implements OnInit {
     private router: Router,
     private title: Title,
     private sanitizer: DomSanitizer,
-    private blogService: BlogService,
+    private pageService: BlogService,
     private databaseService: DatabaseService,
-    private highlightsService: HighlightsService,
+    private highlights: HighlightsService,
   ) { }
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Artigos');
 
-    this.highlightsService.navToolBar(3)
+    this.highlights.navToolBar(3)
 
-    if (this.blogService.bdLoaded == false) {
-      this.databaseService.getBlog().subscribe(response => {
-        this.blogService.BLOG_DATA_SERVICE = response.blog.slice()
-        this.blogService.bdLoaded = true
-        console.log('Banco de dados JSON Services importado para Services Service')
-        this.dataSource = this.blogService.BLOG_DATA_SERVICE
-        this.dataSource = JSON.parse(JSON.stringify(this.dataSource))
-        for (var i = 0; i < this.dataSource.length; i++) {
-          if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
-            // delete this.dataSource[i]
-            this.dataSource.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
-            i = i-1
-          }
-        }
-        this.dataSource = new MatTableDataSource(this.dataSource)
-        console.log('Banco de dados JSON Services importado para Services Component')
-        this.createChipsFilter()
-        this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
-        this.applyFilterOnInitTable() // Aplicação do filtro inicial da visualização inicial da planilha
-        this.dataSource.paginator = this.paginator; // Paginação da planilha
-        document.getElementById('countItensFiltersBlog').innerHTML = "Total: " + this.dataSource.data.length + " itens"
-        this.valueProgress = 100
+    if (this.pageService.bdLoaded == false) {
+
+      this.pageService.getData.then(() => {
+        this.init()
       })
-    } else {
-      console.log('Banco de dados JSON Services importado para Services Service')
-      this.dataSource = this.blogService.BLOG_DATA_SERVICE
-      this.dataSource = JSON.parse(JSON.stringify(this.dataSource))
-      for (var i = 0; i < this.dataSource.length; i++) {
-        if (this.dataSource[i].status == "Excluído" || this.dataSource[i].situation == "Rascunho") {
-          // delete this.dataSource[i]
-          this.dataSource.splice(this.dataSource.indexOf(this.dataSource[i]), 1)
-          i = i-1
-        }
-      }
-      // console.log(this.dataSource)
-      this.dataSource = new MatTableDataSource(this.dataSource)
-      console.log('Banco de dados JSON Services importado para Services Component')
-      this.createChipsFilter()
-      this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
-      this.applyFilterOnInitTable() // Aplicação do filtro inicial da visualização inicial da planilha
-      this.dataSource.paginator = this.paginator; // Paginação da planilha
-      document.getElementById('countItensFiltersBlog').innerHTML = "Total: " + this.dataSource.data.length + " itens"
-      this.valueProgress = 100
+      
+      } else {
+
+        this.init()
     }
+
   }
 
-  applyFilter(event: Event) { // Filtro dinamico na tela da tabela
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  init(): void {
+    this.dataSource = this.pageService.dataSource // Atualização do banco de dados da planilha
+    this.createChipsFilter()
+    this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
+    this.dataSource.paginator = this.paginator; // Paginação da planilha
+    document.getElementById('cifa').innerHTML = "Total: " + this.dataSource.data.length + " itens"
+    this.valueProgress = 100  
   }
 
-  applyFilterOnInitTable() { // Filtro estatico para gerar visualização inicial da tabela
-    const filterValue = "Ativo"
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+
 
   buttonRead(element): void {
     console.log('***')
     console.log('Blog | Botão ver clicado')
     console.log('Início dos processos do botão ver')
-    // console.log(this.blogService.BLOG_DATA_SERVICE)
-    for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-      if (this.blogService.BLOG_DATA_SERVICE[i].id == element.id) {
+    // console.log(this.blogService.DATA_SERVICE)
+    for (var i = 0; i < this.pageService.DATA_SERVICE.length; i++) {
+      if (this.pageService.DATA_SERVICE[i].id == element.id) {
         this.posArray = i
         break
       }
@@ -122,7 +90,7 @@ export class BlogComponent implements OnInit {
     // console.log(element.id)
     // console.log(this.posArray)
     console.log('-> Atribuição do nº de ID na variável PosArray')
-    this.blogService.readData(this.posArray)
+    this.pageService.readData(this.posArray)
     console.log('-> Chamada função readUpdateData no Blog Service')
     this.router.navigate(['articles/read'])
     window.scrollTo(0, 0)
@@ -131,13 +99,13 @@ export class BlogComponent implements OnInit {
     console.log('***')
   }
 
+  applyFilter(event: Event) { // Filtro dinamico na tela da tabela
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   showFilters(): void {
-    console.log('ShowFilters Functions')
-    if (document.getElementById("filtersBlog").style.display == "flex") {
-      document.getElementById("filtersBlog").style.display = "none"
-    } else {
-      document.getElementById("filtersBlog").style.display = "flex"
-    }
+    this.highlights.showFilters()
   }
 
   createChipsFilter(): void {
@@ -153,7 +121,6 @@ export class BlogComponent implements OnInit {
   }
 
   selectChips(element): void {
-    // console.log(document.activeElement)
     this.valueProgress = 0
 
     if (element == 'Todos') {
@@ -170,17 +137,15 @@ export class BlogComponent implements OnInit {
         document.activeElement.classList.remove("mat-chip-selected")
         if (this.selectedChips.length == 0) {
           document.querySelector('mat-chip').classList.add("mat-chip-selected")
-          document.getElementById("filterBtnBlog").classList.remove("mat-chip-selected")
+          document.querySelector(".filterBtns").classList.remove("mat-chip-selected")
           this.selectAll()
         } else {
           this.selectFilter()
         }
       } else {
         document.activeElement.classList.add("mat-chip-selected")
-        document.getElementById("filterBtnBlog").classList.add("mat-chip-selected")
+        document.querySelector(".filterBtns").classList.add("mat-chip-selected")
         this.selectedChips[this.selectedChips.length] = element
-        console.log(this.selectedChips.length)
-        console.log(this.listChips.length)
         if (this.selectedChips.length == this.listChips.length) {
           this.selectAll()
           var resetSelected = document.querySelectorAll('mat-chip')
@@ -201,7 +166,7 @@ export class BlogComponent implements OnInit {
     this.dataSource.paginator = this.paginator; // Paginação da planilha
     this.selectedChips = []
     this.dataSourceFiltered = []
-    document.getElementById('countItensFiltersBlog').innerHTML = "Total: " + this.dataSource.data.length + " itens"
+    document.getElementById('cifa').innerHTML = "Total: " + this.dataSource.data.length + " itens"
   }
 
   selectFilter(): void {
@@ -217,7 +182,7 @@ export class BlogComponent implements OnInit {
     this.dataSourceFiltered = new MatTableDataSource(this.dataSourceFiltered)
     this.table.dataSource = this.dataSourceFiltered // Atualização do banco de dados da planilha
     this.dataSourceFiltered.paginator = this.paginator; // Paginação da planilha
-    document.getElementById('countItensFiltersBlog').innerHTML = "Filtro: " + this.dataSourceFiltered.data.length + " de " + this.dataSource.data.length + " itens"
+    document.getElementById('cifa').innerHTML = "Filtro: " + this.dataSourceFiltered.data.length + " de " + this.dataSource.data.length + " itens"
   }
 
 }

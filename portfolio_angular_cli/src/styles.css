@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
 /* Tipos de Fonts: opentype   |   truetype */
 
 @font-face {
   font-family: Neoneon;
   src: url(./assets/fonts/neoneon/Neoneon.otf) format("opentype");
 }
+
 @font-face {
   font-family: Kompakt;
   src: url(./assets/fonts/kompact/kompakt-Regular.otf) format("opentype");
@@ -17,26 +17,228 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* ######################################################################################### */
+
+/* ################################# Estilo do Scrollbar 👇 ################################ */
+
+/* ######################################################################################### */
 
 /* width */
+
 ::-webkit-scrollbar {
-    width: 1px;
+  width: 1px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background-color: rgb(44, 55, 66);
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(55, 66, 77);
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(29, 116, 245);
+}
+
+/* ######################################################################################### */
+/* ################################# Estilo do Scrollbar ☝ ################################ */
+/* ######################################################################################### */
+
+/* ######################################################################################### */
+/* ######################### Interface e Operadores de Filtros 👇 ########################## */
+/* ######################################################################################### */
+
+.btnsFilters {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 24px;
+}
+
+.btnsFilters mat-chip mat-icon {
+  font-size: 1.15rem;
+  padding-top: 5px;
+}
+
+.btnsFilters mat-chip-list mat-chip {
+  font-size: 1rem;
+}
+
+.filtersItems {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 48px);
+  height: auto;
+  overflow: hidden;
+  margin: 0 24px 20px;
+}
+
+.fiHide {
+  display: none;
+}
+
+.fiShow {
+  display: flex;
+}
+
+.countItensFilters {
+  display: flex;
+  flex-direction: row;
+  margin: 2.5px 0 10px;
+  padding: 0 30px;
+  font-size: 0.75rem;
+  font-weight: 100;
+  color: rgb(86, 86, 86);
+}
+
+.search {
+  margin: 0;
+  padding: 0 24px;
+}
+
+/* Visualização Desktop */
+
+@media(min-width: 450.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 450px) {
+  .filtersItems {
+    width: calc(100% - 48px);
+    height: auto;
+    margin: 0 24px 20px;
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background-color: rgb(44, 55, 66); 
+  .btnsFilters {
+    width: calc(100% - 5vw);
+    margin: 5px 0;
+    padding: 0 2.5vw;
   }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background-color: rgb(55, 66, 77);
+  .btnsFilters mat-chip mat-icon {
+    font-size: 12px;
+    padding: 10px 0 0 2px;
   }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(29, 116, 245);
+  .btnsFilters mat-chip-list mat-chip {
+    font-size: 10px;
   }
+  .countItensFilters {
+    font-size: 10px;
+    padding: 0 3vw;
+    margin: 1.5px 0 10px;
+  }
+  .search {
+    margin: 0;
+    padding: 0 2.5vw;
+  }
+}
+
+/* ######################################################################################### */
+/* ######################### Interface e Operadores de Filtros ☝ ########################## */
+/* ######################################################################################### */
+
+/* ######################################################################################### */
+/* ######################## Padrão de colunas e Linhas Especiais 👇 ######################## */
+/* ######################################################################################### */
+
+.title {
+  cursor: default;
+  margin: 5px 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(31, 31, 31);
+  padding: 0 30px 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.subtitle {
+  margin: 2.5px 0 0;
+  font-size: 1rem;
+  font-weight: 100;
+  color: rgb(31, 31, 31);
+  padding: 5px 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dateAndBy {
+  margin: 2.5px 0 0;
+  color: rgb(31, 31, 31);
+  font-size: 0.9rem;
+  font-weight: 100;
+  padding: 0 10px;
+}
+
+.category {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  margin: 2.5px 0 5px 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.categoryChips {
+  cursor: default;
+  color: rgb(224, 224, 224);
+  background-color: rgba(0, 0, 0, .87);
+  font-size: 0.75rem;
+  font-weight: 100;
+  /* padding: 0 10px; */
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin: 10px 2.5px 5px 0;
+}
+
+@media(max-width: 450px) {
+  .title {
+    font-size: 10px;
+    margin: 5px 0 0;
+    padding: 0 0 0 10px;
+    line-height: normal;
+  }
+  .subtitle {
+    margin: 1.5px 0 0;
+    font-size: 10px;
+    padding: 0 10px;
+    line-height: normal;
+  }
+  .dateAndBy {
+    font-size: 9px;
+    margin: 1.5px 0 0;
+    padding: 0 10px;
+  }
+  .category {
+    margin: 1.5px 10px 5px;
+  }
+  .categoryChips {
+    font-size: 9px;
+    margin: 0 2.5px 5px 0;
+  }
+}
+
+/* ######################################################################################### */
+/* ######################## Padrão de colunas e Linhas Especiais ☝ ######################## */
+/* ######################################################################################### */
+

@@ -101,8 +101,8 @@ export class ProjectsAdminUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.authentication("projectAdminUpdate")   
-    this.storeData = this.projectsService.PROJECTS_READ_UPDATE
-    this.backupData = JSON.parse(JSON.stringify(this.projectsService.PROJECTS_READ_UPDATE))
+    this.storeData = this.projectsService.READ_UPDATE
+    this.backupData = JSON.parse(JSON.stringify(this.projectsService.READ_UPDATE))
     this.photoBase64 = this.storeData.imageTitle
   }
 
@@ -113,8 +113,8 @@ export class ProjectsAdminUpdateComponent implements OnInit {
     this.storeData.situation = 'Postado'
     // console.log(this.storeData)
     var posArray = 0
-    for (var i = 0; i < this.projectsService.PROJECTS_DATA_SERVICE.length; i++) {
-      if (this.projectsService.PROJECTS_DATA_SERVICE[i].id == this.storeData.id) {
+    for (var i = 0; i < this.projectsService.DATA_SERVICE.length; i++) {
+      if (this.projectsService.DATA_SERVICE[i].id == this.storeData.id) {
         posArray = i
         break
       }
@@ -131,8 +131,8 @@ export class ProjectsAdminUpdateComponent implements OnInit {
     this.storeData.situation = 'Rascunho'
     // console.log(this.storeData)
     var posArray = 0
-    for (var i = 0; i < this.projectsService.PROJECTS_DATA_SERVICE.length; i++) {
-      if (this.projectsService.PROJECTS_DATA_SERVICE[i].id == this.storeData.id) {
+    for (var i = 0; i < this.projectsService.DATA_SERVICE.length; i++) {
+      if (this.projectsService.DATA_SERVICE[i].id == this.storeData.id) {
         posArray = i
         break
       }
@@ -145,7 +145,7 @@ export class ProjectsAdminUpdateComponent implements OnInit {
   cancel(): void {
     console.log('Botão cancelar clicado')
     console.log('Início dos processos do botão cancelar')
-    this.projectsService.PROJECTS_READ_UPDATE = this.backupData
+    this.projectsService.READ_UPDATE = this.backupData
     this.snackBarService.showMassage('Operação cancelada!')
     console.log('-> Snackbar da mensagem de sucesso')
     this.router.navigate(['admin/projects'])

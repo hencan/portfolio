@@ -67,7 +67,7 @@ export class ProjectsAdminReadComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.authentication("projectAdminRead")   
-    this.storeData = this.projectsService.PROJECTS_READ_UPDATE
+    this.storeData = this.projectsService.READ_UPDATE
     this.photoBase64 = this.storeData.imageTitle
   }
 

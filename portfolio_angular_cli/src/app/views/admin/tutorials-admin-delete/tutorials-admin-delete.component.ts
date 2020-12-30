@@ -66,7 +66,7 @@ export class TutorialsAdminDeleteComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.authentication("tutorialsAdminDelete")   
-    this.storeData = this.tutorialsService.TUTORIALS_READ_UPDATE
+    this.storeData = this.tutorialsService.READ_UPDATE
     this.photoBase64 = this.storeData.imageTitle
     // document.getElementById('paragraf1').innerHTML = this.storeData.paragraf1
     console.log(this.storeData.paragraf1)
@@ -87,8 +87,8 @@ export class TutorialsAdminDeleteComponent implements OnInit {
   delete(id): void {
     this.storeData.modifiedBy = this.loginService.loggedAs.fname.toString()
     this.storeData.modifiedIn = new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
-    for (var i = 0; i < this.tutorialsService.TUTORIALS_DATA_SERVICE.length; i++) {
-      if (this.tutorialsService.TUTORIALS_DATA_SERVICE[i].id == id) {
+    for (var i = 0; i < this.tutorialsService.DATA_SERVICE.length; i++) {
+      if (this.tutorialsService.DATA_SERVICE[i].id == id) {
         this.posArray = i
         break
       }

@@ -21,7 +21,7 @@ export class ProjectsAdminComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'imageTitle', 'title', 'categories', 'situation', 'modifiedBy', 'modifiedIn'];
 
-  dataSource: any = new MatTableDataSource(this.projectsService.PROJECTS_DATA_SERVICE) // Objeto de dados do componente
+  dataSource: any = new MatTableDataSource(this.projectsService.DATA_SERVICE) // Objeto de dados do componente
 
   posArray: any = ""
 
@@ -43,9 +43,9 @@ export class ProjectsAdminComponent implements OnInit {
     this.authenticationService.authentication("projectsAdmin")   
     if (this.projectsService.bdLoaded == false) {
       this.databaseService.getProjects().subscribe(response => {
-        this.projectsService.PROJECTS_DATA_SERVICE = response.projects
+        this.projectsService.DATA_SERVICE = response.projects
         console.log('Banco de dados JSON Projects importado para Projects Service')
-        this.dataSource = new MatTableDataSource(this.projectsService.PROJECTS_DATA_SERVICE)
+        this.dataSource = new MatTableDataSource(this.projectsService.DATA_SERVICE)
         this.projectsService.bdLoaded = true
         console.log('Banco de dados JSON Projects importado para Projects Component')
         this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
@@ -78,8 +78,8 @@ export class ProjectsAdminComponent implements OnInit {
     console.log('***')
     console.log('Blog | Botão ver clicado')
     console.log('Início dos processos do botão ver')
-    for (var i = 0; i < this.projectsService.PROJECTS_DATA_SERVICE.length; i++) {
-      if (this.projectsService.PROJECTS_DATA_SERVICE[i].id == element.id) {
+    for (var i = 0; i < this.projectsService.DATA_SERVICE.length; i++) {
+      if (this.projectsService.DATA_SERVICE[i].id == element.id) {
         this.posArray = i
         break
       }
@@ -97,8 +97,8 @@ export class ProjectsAdminComponent implements OnInit {
     console.log('***')
     console.log('Blog | Botão editar clicado')
     console.log('Início dos processos do botão editar')
-    for (var i = 0; i < this.projectsService.PROJECTS_DATA_SERVICE.length; i++) {
-      if (this.projectsService.PROJECTS_DATA_SERVICE[i].id == id) {
+    for (var i = 0; i < this.projectsService.DATA_SERVICE.length; i++) {
+      if (this.projectsService.DATA_SERVICE[i].id == id) {
         this.posArray = i
         break
       }
@@ -115,8 +115,8 @@ export class ProjectsAdminComponent implements OnInit {
     console.log('***')
     console.log('Blog | Botão excluir clicado')
     console.log('Início dos processos do botão excluir')
-    for (var i = 0; i < this.projectsService.PROJECTS_DATA_SERVICE.length; i++) {
-      if (this.projectsService.PROJECTS_DATA_SERVICE[i].id == element.id) {
+    for (var i = 0; i < this.projectsService.DATA_SERVICE.length; i++) {
+      if (this.projectsService.DATA_SERVICE[i].id == element.id) {
         this.posArray = i
         break
       }

@@ -114,8 +114,8 @@ export class TutorialsReadComponent implements OnInit {
 
   getData(): void {
     this.databaseService.getTutorials().subscribe(response => {
-      this.tutorialsService.TUTORIALS_DATA_SERVICE = response.tutorials.slice()
-      console.log(this.tutorialsService.TUTORIALS_DATA_SERVICE)
+      this.tutorialsService.DATA_SERVICE = response.tutorials.slice()
+      console.log(this.tutorialsService.DATA_SERVICE)
       this.tutorialsService.bdLoaded = true
       console.log(this.tutorialsService.bdLoaded)
 
@@ -141,8 +141,8 @@ export class TutorialsReadComponent implements OnInit {
   findPosArray(): void {
     console.log("Procurando posição no array do id: " + this.postId)
 
-    for (var i = 0; i < this.tutorialsService.TUTORIALS_DATA_SERVICE.length; i++) {
-      if (this.tutorialsService.TUTORIALS_DATA_SERVICE[i].id == this.postId) {
+    for (var i = 0; i < this.tutorialsService.DATA_SERVICE.length; i++) {
+      if (this.tutorialsService.DATA_SERVICE[i].id == this.postId) {
         this.posArray = i
         console.log(this.posArray)
         break
@@ -152,7 +152,7 @@ export class TutorialsReadComponent implements OnInit {
 
   findCopyPost(): void {
 
-    this.storeData = this.tutorialsService.TUTORIALS_READ_UPDATE
+    this.storeData = this.tutorialsService.READ_UPDATE
     this.storeData = JSON.parse(JSON.stringify(this.storeData))
     this.storeData.paragraf1 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf1)
     this.storeData.paragraf2 = this.sanitizer.bypassSecurityTrustHtml(this.storeData.paragraf2)

@@ -100,8 +100,8 @@ export class TutorialsAdminUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.authentication("tutorialsAdminUpdate")   
-    this.storeData = this.tutorialsService.TUTORIALS_READ_UPDATE
-    this.backupData = JSON.parse(JSON.stringify(this.tutorialsService.TUTORIALS_READ_UPDATE))
+    this.storeData = this.tutorialsService.READ_UPDATE
+    this.backupData = JSON.parse(JSON.stringify(this.tutorialsService.READ_UPDATE))
     this.photoBase64 = this.storeData.imageTitle
   }
 
@@ -112,8 +112,8 @@ export class TutorialsAdminUpdateComponent implements OnInit {
     this.storeData.situation = 'Postado'
     // console.log(this.storeData)
     var posArray = 0
-    for (var i = 0; i < this.tutorialsService.TUTORIALS_DATA_SERVICE.length; i++) {
-      if (this.tutorialsService.TUTORIALS_DATA_SERVICE[i].id == this.storeData.id) {
+    for (var i = 0; i < this.tutorialsService.DATA_SERVICE.length; i++) {
+      if (this.tutorialsService.DATA_SERVICE[i].id == this.storeData.id) {
         posArray = i
         break
       }
@@ -130,8 +130,8 @@ export class TutorialsAdminUpdateComponent implements OnInit {
     this.storeData.situation = 'Rascunho'
     // console.log(this.storeData)
     var posArray = 0
-    for (var i = 0; i < this.tutorialsService.TUTORIALS_DATA_SERVICE.length; i++) {
-      if (this.tutorialsService.TUTORIALS_DATA_SERVICE[i].id == this.storeData.id) {
+    for (var i = 0; i < this.tutorialsService.DATA_SERVICE.length; i++) {
+      if (this.tutorialsService.DATA_SERVICE[i].id == this.storeData.id) {
         posArray = i
         break
       }
@@ -144,7 +144,7 @@ export class TutorialsAdminUpdateComponent implements OnInit {
   cancel(): void {
     console.log('Botão cancelar clicado')
     console.log('Início dos processos do botão cancelar')
-    this.tutorialsService.TUTORIALS_READ_UPDATE = this.backupData
+    this.tutorialsService.READ_UPDATE = this.backupData
     this.snackBarService.showMassage('Operação cancelada!')
     console.log('-> Snackbar da mensagem de sucesso')
     this.router.navigate(['admin/tutorials'])

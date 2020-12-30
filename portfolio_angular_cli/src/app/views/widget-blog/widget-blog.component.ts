@@ -19,7 +19,7 @@ export class WidgetBlogComponent implements OnInit {
 
   blog: any
 
-  // dataSource: any = new MatTableDataSource(this.widgetsService.LASTEST_BLOG_DATA_SERVICE) // Objeto de dados do componente
+  // dataSource: any = new MatTableDataSource(this.widgetsService.LASTEST_DATA_SERVICE) // Objeto de dados do componente
 
   posArray: any = ""
   
@@ -37,7 +37,7 @@ export class WidgetBlogComponent implements OnInit {
       this.databaseService.getLastestBlog().subscribe(response => {
         this.widgetsService.LASTEST_BLOG_DATA_SERVICE = response.blog.slice()
         console.log('Banco de dados JSON Blog importado para Blog Service')
-        // this.dataSource = new MatTableDataSource(this.widgetsService.LASTEST_BLOG_DATA_SERVICE)
+        // this.dataSource = new MatTableDataSource(this.widgetsService.LASTEST_DATA_SERVICE)
         this.widgetsService.lastest_blog_Loaded = true
         console.log('Banco de dados JSON Lastest Blog importado para Widget Component')
         // this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
@@ -62,11 +62,11 @@ export class WidgetBlogComponent implements OnInit {
     // console.log(element.id)
     if (this.blogService.bdLoaded == false) {
       this.databaseService.getBlog().subscribe(response => {
-        this.blogService.BLOG_DATA_SERVICE = response.blog.slice()
+        this.blogService.DATA_SERVICE = response.blog.slice()
         console.log('Banco de dados JSON Blog importado para Blog Service')
         this.blogService.bdLoaded = true
-        for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-          if (this.blogService.BLOG_DATA_SERVICE[i].id == element.id) {
+        for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+          if (this.blogService.DATA_SERVICE[i].id == element.id) {
             this.posArray = i
             this.blogService.readData(this.posArray)
             this.router.navigate(['blog/read'])
@@ -79,8 +79,8 @@ export class WidgetBlogComponent implements OnInit {
     } else {
       console.log('Utilizando BD do Blog Service')
       this.valueProgress = 100
-      for (var i = 0; i < this.blogService.BLOG_DATA_SERVICE.length; i++) {
-        if (this.blogService.BLOG_DATA_SERVICE[i].id == element.id) {
+      for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
+        if (this.blogService.DATA_SERVICE[i].id == element.id) {
           this.posArray = i
           this.blogService.readData(this.posArray)
           this.router.navigate(['blog/read'])

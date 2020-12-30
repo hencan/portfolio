@@ -61,16 +61,16 @@ export class ConfigComponent implements OnInit {
               text_users.users = this.usersService.USERS_DATA_SERVICE
     
               text_tutorials.info = this.infoCreator
-              text_tutorials.tutorials = this.tutorialsService.TUTORIALS_DATA_SERVICE
+              text_tutorials.tutorials = this.tutorialsService.DATA_SERVICE
 
               text_profile.info = this.infoCreator
               text_profile.profile = this.infoService.INFO_DATA_SERVICE
     
               text_projects.info = this.infoCreator
-              text_projects.projects = this.projectService.PROJECTS_DATA_SERVICE
+              text_projects.projects = this.projectService.DATA_SERVICE
     
               text_blog.info = this.infoCreator
-              text_blog.blog = this.blogService.BLOG_DATA_SERVICE
+              text_blog.blog = this.blogService.DATA_SERVICE
               
     
               const newtext1 = JSON.stringify(text_users)
@@ -103,9 +103,9 @@ export class ConfigComponent implements OnInit {
               const txtBlob5 = new Blob([newtext5], { type: fileType5 });
               this.fileSaverService.save(txtBlob5, fileName5);
     
-              const temp_proj = this.projectService.PROJECTS_DATA_SERVICE
+              const temp_proj = this.projectService.DATA_SERVICE
     
-              const temp_blog = this.blogService.BLOG_DATA_SERVICE
+              const temp_blog = this.blogService.DATA_SERVICE
     
               for (var i = 0; i < temp_proj; i++) {
                 if (temp_proj[i].status == "Excluído") {

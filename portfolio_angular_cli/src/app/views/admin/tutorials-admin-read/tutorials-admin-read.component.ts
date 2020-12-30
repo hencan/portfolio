@@ -66,7 +66,7 @@ export class TutorialsAdminReadComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.authentication("tutorialsAdminRead")   
-    this.storeData = this.tutorialsService.TUTORIALS_READ_UPDATE
+    this.storeData = this.tutorialsService.READ_UPDATE
     this.photoBase64 = this.storeData.imageTitle
     // document.getElementById('paragraf1').innerHTML = this.storeData.paragraf1
   }

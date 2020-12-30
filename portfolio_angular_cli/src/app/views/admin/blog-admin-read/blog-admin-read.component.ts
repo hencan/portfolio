@@ -67,7 +67,7 @@ export class BlogAdminReadComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.authentication("blogAdminRead")   
-    this.storeData = this.blogService.BLOG_READ_UPDATE
+    this.storeData = this.blogService.READ_UPDATE
     this.photoBase64 = this.storeData.imageTitle
     // document.getElementById('paragraf1').innerHTML = this.storeData.paragraf1
   }
