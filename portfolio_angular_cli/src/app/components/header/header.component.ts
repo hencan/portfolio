@@ -29,9 +29,9 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    window.addEventListener('scroll', (event) => {
-      this.changeStyleHeader()
-    })
+    // window.addEventListener('scroll', (event) => {
+    //   this.changeStyleHeader()
+    // })
     this.databaseService.getMusic().subscribe(response => {
       this.music = new Audio(response.audio);
     })
@@ -68,19 +68,9 @@ export class HeaderComponent implements OnInit {
 
   changeStyleHeader(): void {
     if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-      // console.log("Ativar class")
       document.getElementById("header").classList.add("bgDark")
-      // document.getElementById("toolbar").classList.remove("toolbar")
-      // document.getElementById("toolbar").classList.add("toolbar2")
-      // document.getElementById("buttonsNav").classList.remove("buttonsNav1")
-      // document.getElementById("buttonsNav").classList.add("buttonsNav2")
     } else {
-      // console.log("Desativar class")
       document.getElementById("header").classList.remove("bgDark")
-      // document.getElementById("toolbar").classList.remove("toolbar2")
-      // document.getElementById("toolbar").classList.add("toolbar")
-      // document.getElementById("buttonsNav").classList.remove("buttonsNav2")
-      // document.getElementById("buttonsNav").classList.add("buttonsNav1")
     }
   }
 

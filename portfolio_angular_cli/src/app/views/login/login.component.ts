@@ -6,6 +6,8 @@ import { SnackbarService } from '../../services/snackbar/snackbar.service';
 import { UsersService } from '../../services/users/users.service';
 import { LoginService } from '../../services/login/login.service';
 import { DatabaseService } from '../../services/database/database.service';
+import { HighlightsService } from '../../services/highlights/highlights.service';
+
 
 
 @Component({
@@ -30,14 +32,14 @@ export class LoginComponent implements OnInit {
     private usersService: UsersService,
     private loginService: LoginService,
     private databaseService: DatabaseService,
+    private highlights: HighlightsService,
   ) { }
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Login');
-    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
-      document.getElementById("navToolbar").classList.remove("hideToolbar")
-      document.getElementById("navToolbar").classList.add("showToolbar")
-    }
+
+    this.highlights.navToolBar('login')
+
     this.isLogged()
     document.getElementById("user").focus()
 

@@ -94,8 +94,9 @@ button:hover {
     right: 1.5%;
     /* background-color: rgba(224, 224, 224); */
     /* color: rgb(31, 31, 31); */
-    background-color: rgba(16, 16, 16, 0.9);
-    color: rgb(241, 243, 244);
+    /* background-color: rgba(16, 16, 16, 0.9); */
+    background-color: rgb(51, 51, 51);
+    color: rgb(245, 245, 245);
     padding-left: 6px;
     z-index: 10;
 }
@@ -110,8 +111,9 @@ button:hover {
     right: 1.5%;
     /* background-color: rgba(224, 224, 224); */
     /* color: rgb(31, 31, 31); */
-    background-color: rgba(16, 16, 16, 0.9);
-    color: rgb(241, 243, 244);
+    /* background-color: rgba(16, 16, 16, 0.9); */
+    background-color: rgb(51, 51, 51);
+    color: rgb(245, 245, 245);
     z-index: 10;
 }
 
@@ -206,14 +208,14 @@ button:hover {
         margin: 15px 5px 10px;
     }
     .subtitle {
-        font-size: 12px;
+        font-size: 13px;
         letter-spacing: initial;
         line-height: initial;
         font-weight: 200;
         margin: 10px 5px 20px;
     }
     .paragraf {
-        font-size: 10px;
+        font-size: 11px;
         line-height: normal;
         margin: 10px 5px;
     }

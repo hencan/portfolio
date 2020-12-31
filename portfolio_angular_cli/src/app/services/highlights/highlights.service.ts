@@ -8,12 +8,23 @@ export class HighlightsService {
   constructor() { }
 
   navToolBar(id): void {
-    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
-      document.getElementById("navToolbar").classList.remove("hideToolbar")
-      document.getElementById("navToolbar").classList.add("showToolbar")
-    }
+    // if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
+    //   document.getElementById("navToolbar").classList.remove("hideToolbar")
+    //   document.getElementById("navToolbar").classList.add("showToolbar")
+    // }
+
+    var login = document.getElementById('buttonLogin').children
 
     var navs = document.querySelectorAll('.navToolbar a')
+
+    if (id == 'login') {
+      login[0].classList.add('selected')
+      login[1].classList.add('selected')
+    } else {
+      login[0].classList.remove('selected')
+      login[1].classList.remove('selected')
+    }
+    
     for (var i = 0; i < navs.length; i++) {
       if (i == id) {
         var iconHiglight = navs[i].children

@@ -17,6 +17,7 @@
         <div id="btnsLoginBox">
             <a id="buttonLogin" (click)='goTo2("login")' matTooltip="Login">
                 <i class="fas fa-sign-in-alt"></i>
+                <span></span>
                 <!-- <mat-icon>login</mat-icon> -->
             </a>
             <a id="buttonLogged" matTooltip="Perfil, Admin e Logoff" [matMenuTriggerFor]="menu">
@@ -55,9 +56,11 @@
         </div>
     </div>
     <div id="navToolbar" class="navToolbar">
-        <a (click)='goTo("")' matTooltip="Home">
-            <i class="fas fa-arrow-left"></i>
+        <a (click)='goTo("")'>
+            <!-- <i class="fas fa-arrow-left"></i> -->
             <!-- <mat-icon>arrow_back</mat-icon> -->
+            <i class="fas fa-home"></i>
+            <span>ÍNICIO</span>
         </a>
         <!-- | -->
         <a (click)='goTo("projects")'>

@@ -98,9 +98,9 @@
         display: none;
     }
     .subtitle {
-        font-size: 0.7rem;
+        font-size: 15px;
     }
     .description {
-        font-size: 0.9rem;
+        font-size: 11px;
     }
 }

@@ -65,7 +65,7 @@ export class BlogReadComponent implements OnInit {
 
           } else {
             console.log('ID não encontrado')
-            this.router.navigate(['tutorials'])
+            this.router.navigate(['articles'])
             window.scrollTo(0, 0)      
           }
       
@@ -77,7 +77,7 @@ export class BlogReadComponent implements OnInit {
         }
       } else {
         // Sintaxe incorreta
-        this.router.navigate(['tutorials'])
+        this.router.navigate(['articles'])
         window.scrollTo(0, 0)  
       }
     } else {
@@ -88,17 +88,17 @@ export class BlogReadComponent implements OnInit {
         this.valueProgress = 100
 
       } else {
-        // Retornando a Tutoriais
-        this.router.navigate(['tutorials'])
+        // Retornando a Artigos
+        this.router.navigate(['articles'])
         window.scrollTo(0, 0)  
       }
     }
   }
 
   cancel(): void {
-    // Retornando a Tutorials
+    // Retornando a Artigos
     // this.snackBarService.showMassage('Voltando')
-    this.router.navigate(['tutorials'])
+    this.router.navigate(['articles'])
     window.scrollTo(0, 0)
   }
 
@@ -110,8 +110,8 @@ export class BlogReadComponent implements OnInit {
   }
 
   getData(): void {
-    this.databaseService.getTutorials().subscribe(response => {
-      this.blogService.DATA_SERVICE = response.tutorials.slice()
+    this.databaseService.getBlog().subscribe(response => {
+      this.blogService.DATA_SERVICE = response.blog.slice()
       this.blogService.bdLoaded = true
 
       // Banco de dados JSON Services importado para Services Service
@@ -126,7 +126,7 @@ export class BlogReadComponent implements OnInit {
       } else {
         console.log('ID não encontrado')
         // Retornando a Tutoriais
-        this.router.navigate(['tutorials'])
+        this.router.navigate(['articles'])
         window.scrollTo(0, 0)      
       }
 
@@ -157,7 +157,7 @@ export class BlogReadComponent implements OnInit {
 
     this.photoBase64 = this.storeData.imageTitle
 
-    this.title.setTitle('HenCan | Tutoriais - Nº ' + this.storeData.id + ' - ' + this.storeData.title);
+    this.title.setTitle('HenCan | Artigo - Nº ' + this.storeData.id + ' - ' + this.storeData.title);
     // document.getElementById('paragraf1').innerHTML = this.storeData.paragraf1
   }
 

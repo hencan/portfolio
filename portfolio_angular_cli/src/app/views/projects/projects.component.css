@@ -195,20 +195,20 @@ tr.cardDetailHiddenRow:hover {
     margin: 0 1vw 0 2.5vw;
   }
   .label {
-    font-size: 10px;
+    font-size: 11px;
     padding: 5px 10px;
     margin: 0;
   }
   .content {
-    font-size: 10px;
+    font-size: 11px;
     padding: 2.5px 10px 5px;
   }
   .btnsGoto div button, a {
-    font-size: 10px;
+    font-size: 11px;
     margin: 10px auto;
   }
   .btnsGoto div a mat-icon {
-    font-size: 12px;
+    font-size: 13px;
   }
   .mat-row {
     /* display: flex;
@@ -227,9 +227,6 @@ tr.cardDetailHiddenRow:hover {
     padding-left: 0;
   }
   .cardDetailExpanded {
-    padding: 20px 10px;
-  }
-  .content {
-    font-size: 10px;
+    padding: 10px;
   }
 }

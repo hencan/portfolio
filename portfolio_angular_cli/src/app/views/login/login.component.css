@@ -87,12 +87,18 @@
 
 /* Visualização Desktop */
 
-@media(min-width: 650.5px) {}
+@media(min-width: 450.5px) {}
 
 /* Visualização Mobile */
 
-@media(max-width: 650px) {
+@media(max-width: 450px) {
     .login, .logged {
         padding-top: 25%;
+    }
+    mat-card-title {
+        font-size: 15px;
+    }
+    button {
+        font-size: 15px;
     }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { DatabaseService } from '../../services/database/database.service';
+import { HighlightsService } from '../../services/highlights/highlights.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private title: Title,
     private databaseService: DatabaseService,
+    private highlights: HighlightsService,
   ) { }
 
   ngOnInit(): void {
@@ -25,10 +27,9 @@ export class HomeComponent implements OnInit {
     this.databaseService.getLogos().subscribe(response => {
       this.logos = response
     })
-    if (document.getElementById("navToolbar").classList.contains("showToolbar")) {
-      document.getElementById("navToolbar").classList.remove("showToolbar")
-      document.getElementById("navToolbar").classList.add("hideToolbar")
-    }
+
+    this.highlights.navToolBar(0)
+
   }
 
   goTo(route: string): void {
