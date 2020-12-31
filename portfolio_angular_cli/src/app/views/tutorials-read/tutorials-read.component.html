@@ -59,10 +59,10 @@
     <div class="authorship">
       <img class="imgAuthor" [src]="authorData.photo" alt="">
       <div class="dateAndBy">
-        <span>Por {{storeData.author}}</span>
-        <span>Em {{storeData.date}}</span>
+        <span>{{storeData.author}}</span>
+        <span>{{storeData.date}}</span>
       </div>
-      <div class="category">
+      <div class="category right">
         <span class="categoryChips" *ngFor="let category of storeData.categories">
           {{ category.toString() | uppercase }}
         </span>

@@ -47,9 +47,14 @@ export class BlogAdminCreateComponent implements OnInit {
     toolbarPosition: 'top',
     customClasses: [
       {
-        name: "titleText",
+        name: "Título",
         class: "titleText",
         tag: "h1",
+      },
+      {
+        name: "Código",
+        class: "codeText",
+        tag: "code",
       },
     ],
     toolbarHiddenButtons: [

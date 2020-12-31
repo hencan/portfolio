@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { SnackbarService } from '../../services/snackbar/snackbar.service';
 import { TutorialsService } from '../../services/tutorials/tutorials.service';
 import { MembersService } from '../../services/members/members.service';
 import { DatabaseService } from '../../services/database/database.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { HighlightsService } from '../../services/highlights/highlights.service';
+
 
 @Component({
   selector: 'app-tutorials-read',
@@ -37,24 +39,21 @@ export class TutorialsReadComponent implements OnInit {
     private membersService: MembersService,
     private databaseService: DatabaseService,
     private sanitizer: DomSanitizer,
+    private highlights: HighlightsService,
   ) { }
 
   ngOnInit(): void {
-    if (document.getElementById("navToolbar").classList.contains("showToolbar") == false) {
-      document.getElementById("navToolbar").classList.remove("hideToolbar")
-      document.getElementById("navToolbar").classList.add("showToolbar")
-    }
+
+    this.highlights.navToolBar(2)
+
     this.postResq = location.search
-    console.log(this.postResq)
-    console.log(this.postResq.slice(0, 4))
     
     if (this.postResq != "") {
       if (this.postResq.slice(0, 4) == "?id=") {
-        console.log('Sintaxe correta')
+        // Sintaxe correta
         this.postId = this.postResq.slice(4)
-        console.log(this.postId)
         if (this.tutorialsService.bdLoaded) {
-          console.log('tutorialsService.bdLoaded is true')
+          // tutorialsService.bdLoaded is true
 
           this.findPosArray()
 
@@ -63,23 +62,21 @@ export class TutorialsReadComponent implements OnInit {
             this.findCopyPost()
             this.findAuthor()
             this.valueProgress = 100
-
+        
           } else {
             console.log('ID não encontrado')
-            console.log('Retornando a Tutoriais')
             this.router.navigate(['tutorials'])
             window.scrollTo(0, 0)      
           }
       
         } else {
-          console.log('tutorialsService.bdLoaded is false')
+          // tutorialsService.bdLoaded is false
           this.getData()
           this.valueProgress = 100
 
         }
       } else {
-        console.log('Sintaxe incorreta')
-        console.log('Retornando a Tutoriais')
+        // Sintaxe incorreta
         this.router.navigate(['tutorials'])
         window.scrollTo(0, 0)  
       }
@@ -91,7 +88,7 @@ export class TutorialsReadComponent implements OnInit {
         this.valueProgress = 100
 
       } else {
-        console.log('Retornando a Tutoriais')
+        // Retornando a Tutoriais
         this.router.navigate(['tutorials'])
         window.scrollTo(0, 0)  
       }
@@ -99,14 +96,14 @@ export class TutorialsReadComponent implements OnInit {
   }
 
   cancel(): void {
-    console.log('Retornando a Tutorials')
+        // Retornando a Tutoriais
     // this.snackBarService.showMassage('Voltando')
     this.router.navigate(['tutorials'])
     window.scrollTo(0, 0)
   }
 
   share(): void {
-    console.log('Compartilhando o post')
+    // Compartilhando o post
     this.snackBarService.showMassage('Funcionamento não disponível, botão em construção!')
     // this.router.navigate(['blog'])
     // window.scrollTo(0, 0)
@@ -115,11 +112,9 @@ export class TutorialsReadComponent implements OnInit {
   getData(): void {
     this.databaseService.getTutorials().subscribe(response => {
       this.tutorialsService.DATA_SERVICE = response.tutorials.slice()
-      console.log(this.tutorialsService.DATA_SERVICE)
       this.tutorialsService.bdLoaded = true
-      console.log(this.tutorialsService.bdLoaded)
 
-      console.log('Banco de dados JSON Services importado para Services Service')
+      // Banco de dados JSON Services importado para Services Service
 
       this.findPosArray()
 
@@ -130,7 +125,7 @@ export class TutorialsReadComponent implements OnInit {
 
       } else {
         console.log('ID não encontrado')
-        console.log('Retornando a Tutoriais')
+        // Retornando a Tutoriais
         this.router.navigate(['tutorials'])
         window.scrollTo(0, 0)      
       }
@@ -139,12 +134,12 @@ export class TutorialsReadComponent implements OnInit {
   }
 
   findPosArray(): void {
-    console.log("Procurando posição no array do id: " + this.postId)
+    // Procurando posição no array
 
     for (var i = 0; i < this.tutorialsService.DATA_SERVICE.length; i++) {
       if (this.tutorialsService.DATA_SERVICE[i].id == this.postId) {
         this.posArray = i
-        console.log(this.posArray)
+        // console.log(this.posArray)
         break
       }
     }

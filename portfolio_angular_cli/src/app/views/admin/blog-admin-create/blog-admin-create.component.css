@@ -95,12 +95,12 @@ button {
 }
 
 /* Visualização Desktop */
-@media(min-width: 650.5px) {
+@media(min-width: 450.5px) {
     
 }
 
 /* Visualização Mobile */
-@media(max-width: 650px) {
+@media(max-width: 450px) {
     .blogAdminCreate {
         padding: 5px;
     }

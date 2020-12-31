@@ -50,11 +50,10 @@ export class BlogReadComponent implements OnInit {
     
     if (this.postResq != "") {
       if (this.postResq.slice(0, 4) == "?id=") {
-        console.log('Sintaxe correta')
+        // Sintaxe correta
         this.postId = this.postResq.slice(4)
-        console.log(this.postId)
         if (this.blogService.bdLoaded) {
-          console.log('blogService.bdLoaded is true')
+          // blogService.bdLoaded is true
 
           this.findPosArray()
 
@@ -66,20 +65,18 @@ export class BlogReadComponent implements OnInit {
 
           } else {
             console.log('ID não encontrado')
-            console.log('Retornando a Tutoriais')
             this.router.navigate(['tutorials'])
             window.scrollTo(0, 0)      
           }
       
         } else {
-          console.log('blogService.bdLoaded is false')
+          // blogService.bdLoaded is false
           this.getData()
           this.valueProgress = 100
 
         }
       } else {
-        console.log('Sintaxe incorreta')
-        console.log('Retornando a Tutoriais')
+        // Sintaxe incorreta
         this.router.navigate(['tutorials'])
         window.scrollTo(0, 0)  
       }
@@ -91,7 +88,7 @@ export class BlogReadComponent implements OnInit {
         this.valueProgress = 100
 
       } else {
-        console.log('Retornando a Tutoriais')
+        // Retornando a Tutoriais
         this.router.navigate(['tutorials'])
         window.scrollTo(0, 0)  
       }
@@ -99,14 +96,14 @@ export class BlogReadComponent implements OnInit {
   }
 
   cancel(): void {
-    console.log('Retornando a Tutorials')
+    // Retornando a Tutorials
     // this.snackBarService.showMassage('Voltando')
     this.router.navigate(['tutorials'])
     window.scrollTo(0, 0)
   }
 
   share(): void {
-    console.log('Compartilhando o post')
+    // Compartilhando o post
     this.snackBarService.showMassage('Funcionamento não disponível, botão em construção!')
     // this.router.navigate(['blog'])
     // window.scrollTo(0, 0)
@@ -115,11 +112,9 @@ export class BlogReadComponent implements OnInit {
   getData(): void {
     this.databaseService.getTutorials().subscribe(response => {
       this.blogService.DATA_SERVICE = response.tutorials.slice()
-      console.log(this.blogService.DATA_SERVICE)
       this.blogService.bdLoaded = true
-      console.log(this.blogService.bdLoaded)
 
-      console.log('Banco de dados JSON Services importado para Services Service')
+      // Banco de dados JSON Services importado para Services Service
 
       this.findPosArray()
 
@@ -130,7 +125,7 @@ export class BlogReadComponent implements OnInit {
 
       } else {
         console.log('ID não encontrado')
-        console.log('Retornando a Tutoriais')
+        // Retornando a Tutoriais
         this.router.navigate(['tutorials'])
         window.scrollTo(0, 0)      
       }
@@ -139,7 +134,7 @@ export class BlogReadComponent implements OnInit {
   }
 
   findPosArray(): void {
-    console.log("Procurando posição no array do id: " + this.postId)
+    // Procurando posição no array
 
     for (var i = 0; i < this.blogService.DATA_SERVICE.length; i++) {
       if (this.blogService.DATA_SERVICE[i].id == this.postId) {

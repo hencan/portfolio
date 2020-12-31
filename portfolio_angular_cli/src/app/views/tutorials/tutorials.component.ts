@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { TutorialsService } from '../../services/tutorials/tutorials.service';
 import { DatabaseService } from '../../services/database/database.service';
-import { HighlightsService } from '../../services/highlights/highlights.service'
+import { HighlightsService } from '../../services/highlights/highlights.service';
 
 
 @Component({
