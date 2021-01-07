@@ -73,7 +73,7 @@
 .boxBottom a:hover {
   /* text-decoration: underline; */
   color: rgb(241, 243, 244);
-  text-shadow: 1.5px 1.5px 10px rgba(241, 243, 244, 0.35);
+  /* text-shadow: 1.5px 1.5px 10px rgba(241, 243, 244, 0.35); */
 }
 
 @media(min-width: 450.5px) {}
@@ -94,18 +94,18 @@
     letter-spacing: 2.9vw;
   }
   .boxBottom {
-    /* padding: 0 4%;
-    width: 92%; */
-    justify-content: space-around;
+    padding: 0 4%;
+    width: 92%;
+    justify-content: space-between;
   }
   .boxBottom a {
     font-size: 10px;
     font-weight: 100;
   }
   .boxBottom a i {
-    font-size: 17.5px;
+    font-size: 20px;
   }
   .boxBottom a mat-icon {
-    font-size: 17.5px;
+    font-size: 20px;
   }
 }

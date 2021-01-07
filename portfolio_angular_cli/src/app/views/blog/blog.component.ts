@@ -70,7 +70,7 @@ export class BlogComponent implements OnInit {
     this.createChipsFilter()
     this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
     this.dataSource.paginator = this.paginator; // Paginação da planilha
-    document.getElementById('cifa').innerHTML = "Total: " + this.dataSource.data.length + " itens"
+    document.getElementById('cifa').innerHTML = "TOTAL: " + this.dataSource.data.length + " ITEM(NS)"
     this.valueProgress = 100  
   }
 
@@ -166,7 +166,7 @@ export class BlogComponent implements OnInit {
     this.dataSource.paginator = this.paginator; // Paginação da planilha
     this.selectedChips = []
     this.dataSourceFiltered = []
-    document.getElementById('cifa').innerHTML = "Total: " + this.dataSource.data.length + " itens"
+    document.getElementById('cifa').innerHTML = "TOTAL: " + this.dataSource.data.length + " ITEM(NS)"
   }
 
   selectFilter(): void {
@@ -182,7 +182,7 @@ export class BlogComponent implements OnInit {
     this.dataSourceFiltered = new MatTableDataSource(this.dataSourceFiltered)
     this.table.dataSource = this.dataSourceFiltered // Atualização do banco de dados da planilha
     this.dataSourceFiltered.paginator = this.paginator; // Paginação da planilha
-    document.getElementById('cifa').innerHTML = "Filtro: " + this.dataSourceFiltered.data.length + " de " + this.dataSource.data.length + " itens"
+    document.getElementById('cifa').innerHTML = "FILTRO: " + this.dataSourceFiltered.data.length + " DE " + this.dataSource.data.length + " ITEM(NS)"
   }
 
 }

@@ -88,11 +88,14 @@ table {
 
 @media(max-width: 450px) {
   .header {
-    /* font-size: 7.5vw; */
-    /* font-weight: 400; */
-    /* letter-spacing: 5vw; */
-    /* margin: 20px 0 5px 5vw; */
-    display: none;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 2.5vw;
+    margin: 7.5px 10px;
+    transform: scale(1, 1);
+    filter: opacity(1);
+    animation: none;
+    animation-delay: 0;
   }
   .capa {
     width: calc(98% - 20px);
