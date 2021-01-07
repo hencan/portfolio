@@ -12,29 +12,7 @@
     background-color: rgba(241, 243, 244);
     padding: 10px 0;
     margin: 0 1% 0;
-}
-
-.showInfo {
-    /* width: 90%;
-    padding: 20px 5%;
-    background-color: rgba(241, 243, 244, 0.85);
-    border-radius: 2.5px; */
-    animation: showInfo 0.75s forwards;
-}
-
-@keyframes showInfo {
-    0% {
-        filter: opacity(0);
-        transform: translateY(100vh);
-    }
-    50% {
-        filter: opacity(1);
-    }
-    100% {
-        filter: opacity(1);
-        transform: translateY(0);
-    }
-}
+}  
 
 .header {
     text-align: center;
@@ -45,20 +23,8 @@
     margin: 50px 0 25px 5vw;
     transform: scale(1, 0.2);
     filter: opacity(0.05);
-    animation: growHeader 1s forwards;
+    animation: animeHeader 1s forwards;
     animation-delay: 0.5s;
-}
-
-@keyframes growHeader {
-    0% {
-        transform: translateY(0);
-        transform: scale(1, 0.25);
-    }
-    100% {
-        transform: scale(1, 0.85);
-        filter: opacity(1);
-        text-shadow: 5px 5px 20px rgba(3, 2, 1, 0.2);
-    }
 }
 
 .subtitle {

@@ -10,24 +10,6 @@
   margin: 0 1% 0;
 }
 
-.showBlog {
-  animation: showBlog 1s forwards;
-}
-
-@keyframes showBlog {
-  0% {
-    filter: opacity(0);
-    transform: translateY(100vh);
-  }
-  50% {
-    filter: opacity(1);
-  }
-  100% {
-    filter: opacity(1);
-    transform: translateY(0);
-  }
-}
-
 .hideBlog {
   animation: hideBlog 1.5s forwards;
 }
@@ -66,20 +48,8 @@ table {
   margin: 50px 0 25px 5vw;
   transform: scale(1, 0.2);
   filter: opacity(0.05);
-  animation: growHeader 1s forwards;
+  animation: animeHeader 1s forwards;
   animation-delay: 0.5s;
-}
-
-@keyframes growHeader {
-  0% {
-    transform: translateY(0);
-    transform: scale(1, 0.25);
-  }
-  100% {
-    transform: scale(1, 0.85);
-    filter: opacity(1);
-    text-shadow: 5px 5px 20px rgba(3, 2, 1, 0.2);
-  }
 }
 
 .capa {

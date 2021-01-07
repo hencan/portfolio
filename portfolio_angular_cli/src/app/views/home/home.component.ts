@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 
 import { DatabaseService } from '../../services/database/database.service';
 import { HighlightsService } from '../../services/highlights/highlights.service';
+import { SnackbarService } from '../../services/snackbar/snackbar.service';
 
 
 @Component({
@@ -20,12 +21,14 @@ export class HomeComponent implements OnInit {
     private title: Title,
     private databaseService: DatabaseService,
     private highlights: HighlightsService,
+    private snackBarService: SnackbarService,
   ) { }
 
   ngOnInit(): void {
     this.title.setTitle('HenCan | Portfolio');
     this.databaseService.getLogos().subscribe(response => {
       this.logos = response
+      // console.log(this.logos)
     })
 
     this.highlights.navToolBar(0)
@@ -56,6 +59,10 @@ export class HomeComponent implements OnInit {
     goTo2(route: string): void {
       this.router.navigate([route])
       window.scrollTo(0, 0)
+    }
+
+    inConstruction(): void {
+      this.snackBarService.showMassage('Desculpe, ainda estou trabalhando no meu Instagram.')
     }
   
 

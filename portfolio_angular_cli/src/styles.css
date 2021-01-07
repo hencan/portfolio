@@ -3,15 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 /* Tipos de Fonts: opentype   |   truetype */
 
-@font-face {
+/* @font-face {
   font-family: Neoneon;
   src: url(./assets/fonts/neoneon/Neoneon.otf) format("opentype");
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: Kompakt;
   src: url(./assets/fonts/kompact/kompakt-Regular.otf) format("opentype");
-}
+} */
 
 :host {
   -webkit-font-smoothing: antialiased;
@@ -70,6 +70,10 @@ body {
   flex-direction: row;
   margin: 10px 24px;
 }
+
+/* mat-chip {
+  background-color: rgba(241, 243, 244) !important;
+} */
 
 .btnsFilters mat-chip mat-icon {
   font-size: 1.15rem;
@@ -242,3 +246,42 @@ body {
 /* ######################## Padrão de colunas e Linhas Especiais ☝ ######################## */
 /* ######################################################################################### */
 
+/* ######################################################################################### */
+/* ######################## Animações 👇 ######################## */
+/* ######################################################################################### */
+
+.showInLoading {
+  animation: showInLoading 1s forwards;
+}
+
+@keyframes showInLoading {
+  0% {
+    filter: opacity(0);
+    transform: translateY(100vh);
+  }
+  50% {
+    filter: opacity(1);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateY(0);
+  }
+}
+
+@keyframes animeHeader {
+  0% {
+      transform: translateY(0);
+      transform: scale(1, 0.25);
+  }
+  100% {
+      transform: scale(1, 0.85);
+      filter: opacity(1);
+      text-shadow: 5px 5px 20px rgba(3, 2, 1, 0.2);
+  }
+}
+
+
+
+/* ######################################################################################### */
+/* ######################## Animações ☝ ######################## */
+/* ######################################################################################### */
