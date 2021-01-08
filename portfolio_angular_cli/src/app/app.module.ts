@@ -55,6 +55,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatBadgeModule } from '@angular/material/badge';
 
 // Imports para funcionar os formulários Angular/Material
 import { FormsModule } from '@angular/forms';
@@ -154,6 +155,7 @@ import { TutorialsReadComponent } from './views/tutorials-read/tutorials-read.co
     MatProgressSpinnerModule,
     MatButtonToggleModule,
     MatChipsModule,
+    MatBadgeModule,
 
     FormsModule,
     ReactiveFormsModule,
