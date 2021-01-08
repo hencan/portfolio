@@ -82,7 +82,7 @@ body {
 }
 
 .btnsFilters mat-chip-list mat-chip mat-icon {
-  padding-top: 4px;
+  padding-top: 2px;
   font-size: 1.15rem;
   text-align: left;
   width: 20px;
@@ -145,11 +145,12 @@ body {
   }
   .btnsFilters mat-chip-list mat-chip {
     font-size: 11px;
+    height: 10px;
   }
   .btnsFilters mat-chip-list mat-chip mat-icon {
-    padding-top: 5.5px;
+    padding-top: 4.5px;
     font-size: 15px;
-    text-align: left;
+    /* text-align: left; */
     width: 20px;
   }
   .countItensFilters {
@@ -233,51 +234,43 @@ body {
 }
 
 .categoryChips {
-  cursor: default;
-  color: rgb(242, 242, 242);
-  /* color: rgb(40, 40, 40); */
-  /* background-color: rgb(76, 76, 76); */
-  background-color: rgb(40, 40, 40);
-  /* border: solid 1px rgb(40, 40, 40); */
   font-size: 0.75rem;
   font-weight: 100;
-  padding: 4px 8px;
-  margin: 10px 2.5px 5px 0;
+  margin: 0 2.5px 5px 0;
 }
 
 @media(max-width: 450px) {
   .header {
     text-align: left;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 2.5vw;
-    margin: 5px 10px 7.5px;
+    margin: 5px 12px 7.5px;
     transform: scale(1, 1);
     filter: opacity(1);
     animation: none;
   }
   .title {
-    font-size: 11px;
+    font-size: 12px;
     margin: 5px 0 0;
-    padding: 0 0 0 10px;
+    padding: 0 0 0 14px;
     line-height: normal;
   }
   .subtitle {
     margin: 1.5px 0 0;
-    font-size: 11px;
-    padding: 0 10px;
+    font-size: 12px;
+    padding: 0 0 0 14px;
     line-height: normal;
   }
   .dateAndBy {
-    font-size: 9px;
+    font-size: 10px;
     margin: 1.5px 0 0;
-    padding: 0 10px;
+    padding: 0 0 0 14px;
   }
   .category {
     margin: 1.5px 10px 5px;
   }
   .categoryChips {
-    font-size: 9px;
-    margin: 0 2.5px 5px 0;
+    font-size: 11px;
   }
 }
 

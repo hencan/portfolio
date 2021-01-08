@@ -46,7 +46,7 @@ export class ProjectsComponent implements OnInit {
   selectedChips: any = []
 
   badge_1: any = 0
-  badge_1_disable: any = "false" 
+  badge_1_disable: any = "true" 
 
   badge_2: any = 0
   badge_2_disable: any = "true"
@@ -167,7 +167,7 @@ export class ProjectsComponent implements OnInit {
     this.selectedChips = []
     this.dataSourceFiltered = []
     this.badge_2 = 0
-    this.badge_1_disable = "false" 
+    this.badge_1_disable = "true" 
     this.badge_2_disable = "true" 
   }
 

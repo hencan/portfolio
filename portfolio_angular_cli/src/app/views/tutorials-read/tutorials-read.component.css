@@ -213,20 +213,20 @@ button:hover {
         margin: 15px 5px 10px;
     }
     .subtitle {
-        font-size: 13px;
+        font-size: 14px;
         letter-spacing: initial;
         line-height: initial;
         font-weight: 200;
         margin: 10px 5px 20px;
     }
     .paragraf {
-        font-size: 11px;
+        font-size: 12px;
         line-height: normal;
         margin: 10px 5px;
     }
     .authorship {
         margin-top: 20px;
-        font-size: 9px;
+        font-size: 10px;
     }
     .imgAuthor {
         height: 25px;
@@ -234,6 +234,6 @@ button:hover {
         margin-top: 6px;
     }
     .dateAndBy {
-        font-size: 9px;
+        font-size: 10px;
     }
 }

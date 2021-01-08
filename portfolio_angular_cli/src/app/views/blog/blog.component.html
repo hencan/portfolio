@@ -9,17 +9,17 @@
   <!-- Filters Code -->
   <div class="btnsFilters">
     <mat-chip-list aria-label="Filter selection">
-      <mat-chip selected (click)="selectChips('Todos')">TODOS
+      <mat-chip selected (click)="selectChips('Todos')" style="background-color: rgba(241, 243, 244);">TODOS
         <span style="color: transparent;">-----</span>
         <span matBadge="{{badge_1}}" matBadgeDisabled={{badge_1_disable}}></span>
         <span style="color: transparent;">--</span>
       </mat-chip>
-      <mat-chip class="filterBtns" (click)="showFilters()">
+      <mat-chip class="filterBtns" (click)="showFilters()" style="background-color: rgba(241, 243, 244);">
         <mat-icon>{{expand_icon}}</mat-icon>
         FILTRO
         <mat-icon>filter_alt</mat-icon>
         <span style="color: transparent;">---</span>
-        <span (click)="selectChips('Todos')" matBadge="{{badge_2}}" matBadgeDisabled={{badge_2_disable}}></span>
+        <span (click)="selectChips('Todos')" matBadge="{{badge_2}}" matBadgeColor="warn" matBadgeDisabled={{badge_2_disable}}></span>
         <span style="color: transparent;">--</span>
       </mat-chip>
     </mat-chip-list>
@@ -72,7 +72,7 @@
             {{element.date}}
           </span>
           <div class="category">
-            <span class="categoryChips" *ngFor="let category of element.categories">
+            <span class="badge rounded-pill bg-dark fw-normal categoryChips" *ngFor="let category of element.categories">
               {{ category.toString() | uppercase }}
             </span>
           </div>

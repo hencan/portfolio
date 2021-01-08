@@ -140,15 +140,15 @@ tr.cardDetailHiddenRow:hover {
 /* Visualização Mobile */
 
 @media(max-width: 450px) {
-  /* .projects {
-    top: 80px;
-  }   */
-  tr>td:nth-child(1) {
+  .projects {}
+  /* tr>td:nth-child(1) {
     vertical-align: text-top;
-  }
+  } */
   .capa {
-    width: 26vw;
-    margin: 5px 1vw 0 2.5vw;
+    /* width: 26vw;
+    margin: 5px 1vw 0 2.5vw; */
+    width: calc(100% - 20px);
+    margin: 0 10px;
   }
   .label {
     font-size: 11px;
@@ -167,8 +167,11 @@ tr.cardDetailHiddenRow:hover {
     font-size: 13px;
   }
   .mat-row {
-    /* display: flex;
-    flex-direction: column; */
+    /* height: auto; */
+    /* padding-bottom: 20px; */
+    /* border-radius: 2.5px; */
+    display: flex;
+    flex-direction: column;
     height: auto;
     padding-bottom: 20px;
     border-radius: 2.5px;
@@ -176,11 +179,14 @@ tr.cardDetailHiddenRow:hover {
   .mat-cell:first-of-type {
     padding-left: 0;
   }
-  .mat-cell:last-of-type {
-    padding-right: 2.5vw;
-  }
   .mat-cell {
     padding-left: 0;
+  }
+  .mat-cell:first-of-type {
+    padding-left: 0;
+  }
+  .mat-cell:last-of-type {
+    padding-right: 2.5vw;
   }
   .cardDetailExpanded {
     padding: 5px;
