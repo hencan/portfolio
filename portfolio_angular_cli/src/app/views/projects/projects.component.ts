@@ -17,7 +17,7 @@ import { HighlightsService } from '../../services/highlights/highlights.service'
   styleUrls: ['./projects.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('collapsed', style({ height: '0px', minHeight: '0px' })),
       state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
@@ -44,6 +44,15 @@ export class ProjectsComponent implements OnInit {
   listChips: any = []
 
   selectedChips: any = []
+
+  badge_1: any = 0
+  badge_1_disable: any = "false" 
+
+  badge_2: any = 0
+  badge_2_disable: any = "true"
+  
+  expand_icon: any = "chevron_right"
+
 
   constructor(
     private router: Router,
@@ -79,12 +88,17 @@ export class ProjectsComponent implements OnInit {
     this.createChipsFilter()
     this.table.dataSource = this.dataSource // Atualização do banco de dados da planilha
     this.dataSource.paginator = this.paginator; // Paginação da planilha
-    document.getElementById('cifp').innerHTML = "TOTAL: " + this.dataSource.data.length + " ITEM(NS)"
+    this.badge_1 = this.dataSource.data.length
     this.valueProgress = 100  
   }
 
   showFilters(): void {
     this.highlights.showFilters()
+    if (this.expand_icon == "chevron_right") {
+      this.expand_icon = "expand_more"
+    } else {
+      this.expand_icon = "chevron_right"
+    }
   }
 
 
@@ -152,7 +166,9 @@ export class ProjectsComponent implements OnInit {
     this.dataSource.paginator = this.paginator; // Paginação da planilha
     this.selectedChips = []
     this.dataSourceFiltered = []
-    document.getElementById('cifp').innerHTML = "TOTAL: " + this.dataSource.data.length + " ITEM(NS)"
+    this.badge_2 = 0
+    this.badge_1_disable = "false" 
+    this.badge_2_disable = "true" 
   }
 
   selectFilter(): void {
@@ -168,7 +184,9 @@ export class ProjectsComponent implements OnInit {
     this.dataSourceFiltered = new MatTableDataSource(this.dataSourceFiltered)
     this.table.dataSource = this.dataSourceFiltered // Atualização do banco de dados da planilha
     this.dataSourceFiltered.paginator = this.paginator; // Paginação da planilha
-    document.getElementById('cifp').innerHTML = "FILTRO: " + this.dataSourceFiltered.data.length + " DE " + this.dataSource.data.length + " ITEM(NS)"
+    this.badge_2 = this.dataSourceFiltered.data.length
+    this.badge_1_disable = "true" 
+    this.badge_2_disable = "false" 
   }
 
 }

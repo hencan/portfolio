@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class HighlightsService {
 
+
   constructor() { }
 
   navToolBar(id): void {

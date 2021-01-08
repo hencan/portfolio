@@ -39,19 +39,6 @@ table {
   /* background-color: rgba(241, 243, 244, 0.85); */
 }
 
-.header {
-  text-align: center;
-  color: rgb(7, 19, 33);
-  font-size: 5vw;
-  font-weight: 100;
-  letter-spacing: 5vw;
-  margin: 50px 0 25px 5vw;
-  transform: scale(1, 0.2);
-  filter: opacity(0.05);
-  animation: animeHeader 1s forwards;
-  animation-delay: 0.5s;
-}
-
 .capa {
   /* width: 300px; */
   cursor: default;
@@ -87,16 +74,6 @@ table {
 /* Visualização Mobile */
 
 @media(max-width: 450px) {
-  .header {
-    text-align: left;
-    font-size: 12px;
-    letter-spacing: 2.5vw;
-    margin: 7.5px 10px;
-    transform: scale(1, 1);
-    filter: opacity(1);
-    animation: none;
-    animation-delay: 0;
-  }
   .capa {
     width: calc(98% - 20px);
     margin: 0 10px;
