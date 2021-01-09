@@ -13,6 +13,62 @@
   src: url(./assets/fonts/kompact/kompakt-Regular.otf) format("opentype");
 } */
 
+/* ######################################################################################### */
+
+/* ################################# Estilo do Scrollbar 👇 ################################ */
+
+/* ######################################################################################### */
+
+:root {
+  --font_family_standard: 'Lato', sans-serif;
+  /*  */
+  --font_size_header_desktop: 3.5vw;
+  --font_size_header_mobile: 12px;
+  /*  */
+  --image_size_desktop: 25vw;
+  --image_size_mobile: calc(100% - 20px);
+  /*  */
+  /* --font_size_title_desktop: 1.2rem; */
+  --font_size_title_desktop: 16px;
+  --font_size_title_mobile: 14px;
+  /*  */
+  /* --font_size_subtitle_desktop: 1.1rem; */
+  --font_size_subtitle_desktop: 16px;
+  --font_size_subtitle_mobile: 13px;
+  /*  */
+  /* --font_size_paragraf_desktop: 1rem; */
+  --font_size_paragraf_desktop: 15px;
+  --font_size_paragraf_mobile: 12px;
+  /*  */
+  /* --font_size_date_desktop: 0.9rem; */
+  --font_size_date_desktop: 12px;
+  --font_size_date_mobile: 10px;
+  /*  */
+  /* --font_size_categoryChips_desktop: 0.9rem; */
+  --font_size_categoryChips_desktop: 12px;
+  --font_size_categoryChips_mobile: 10px;
+  /*  */
+  /* --font_size_matChip_desktop: 1rem; */
+  --font_size_matChip_desktop: 14px;
+  --font_size_matChip_mobile: 12px;
+  /*  */
+  /* --font_size_matChipIcon_desktop: 1.2rem; */
+  --font_size_matChipIcon_desktop: 17px;
+  --font_size_matChipIcon_mobile: 15px;
+  /*  */
+  --font_size_btns_desktop: 1rem;
+  --font_size_btns_mobile: 12px;
+  /*  */
+  --font_size_btnsIcons_desktop: 1rem;
+  --font_size_btnsIcons_mobile: 12px;
+}
+
+/* ######################################################################################### */
+
+/* ################################# Estilo do Scrollbar ☝ ################################ */
+
+/* ######################################################################################### */
+
 :host {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,7 +80,8 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+  font-family: var(--font_family_standard);
 }
 
 /* ######################################################################################### */
@@ -76,17 +133,16 @@ body {
 }
 
 .btnsFilters mat-chip-list mat-chip {
-  font-size: 1rem;
+  font-size: var(--font_size_matChip_desktop);
   font-weight: 400;
   background-color: rgb(76, 76, 76);
 }
 
 .btnsFilters mat-chip-list mat-chip mat-icon {
-  padding-top: 2px;
-  font-size: 1.15rem;
+  padding-top: 5px;
+  font-size: var(--font_size_matChipIcon_desktop);
   text-align: left;
   width: 20px;
-
 }
 
 .mat-chip-selected {
@@ -111,16 +167,6 @@ body {
   display: flex;
 }
 
-.countItensFilters {
-  display: flex;
-  flex-direction: row;
-  margin: 2.5px 0 10px;
-  padding: 0 30px;
-  font-size: 0.75rem;
-  font-weight: 100;
-  color: rgb(86, 86, 86);
-}
-
 .search {
   margin: 0;
   padding: 0 24px;
@@ -139,24 +185,23 @@ body {
     margin: 0 24px 20px;
   }
   .btnsFilters {
-    width: calc(100% - 5vw);
-    margin: 5px 0 10px;
-    padding: 0 2.5vw;
+    width: calc(100% - 20px);
+    margin: 5px 10px;
+  }
+  .btnsFilters mat-chip-list {
+    width: 100%;
+  }
+  .btnsFilters mat-chip-list .mat-chip-list-wrapper {
+    justify-content: center;
   }
   .btnsFilters mat-chip-list mat-chip {
-    font-size: 11px;
+    font-size: var(--font_size_matChip_mobile);
     height: 10px;
   }
   .btnsFilters mat-chip-list mat-chip mat-icon {
-    padding-top: 4.5px;
-    font-size: 15px;
-    /* text-align: left; */
+    padding-top: 6px;
+    font-size: var(--font_size_matChipIcon_mobile);
     width: 20px;
-  }
-  .countItensFilters {
-    font-size: 11px;
-    padding: 0 3vw;
-    margin: 1.5px 0 10px;
   }
   .search {
     margin: 0;
@@ -179,20 +224,28 @@ body {
 .header {
   text-align: center;
   color: rgb(7, 19, 33);
-  font-size: 5vw;
+  font-size: var(--font_size_header_desktop);
   font-weight: 100;
-  letter-spacing: 5vw;
-  margin: 50px 0 25px 5vw;
+  letter-spacing: var(--font_size_header_desktop);
+  margin: 50px 0 25px var(--font_size_header_desktop);
   transform: scale(1, 0.2);
   filter: opacity(0.05);
   animation: animeHeader 1s forwards;
   animation-delay: 0.5s;
 }
 
+.imageCapa {
+  cursor: default;
+  width: var(--image_size_desktop);
+  margin: 5px 10px 5px 0;
+  border: solid 1px rgb(66, 66, 78);
+  border-radius: 2.5px;
+}
+
 .title {
   cursor: default;
   margin: 10px 0 0;
-  font-size: 1rem;
+  font-size: var(--font_size_title_desktop);
   font-weight: 500;
   color: rgb(40, 40, 40);
   padding: 0 30px 0 10px;
@@ -204,20 +257,29 @@ body {
 
 .subtitle {
   margin: 2.5px 0 0;
-  font-size: 1rem;
+  font-size: var(--font_size_subtitle_desktop);
   font-weight: 100;
   color: rgb(31, 31, 31);
-  padding: 5px 10px;
+  padding: 5px 10px 10px;
+  line-height: normal;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1.8;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.content {
+  font-size: var(--font_size_paragraf_desktop);
+  font-weight: 200;
+  color: rgb(31, 31, 31);
+  padding: 10px 10px 20px;
+  line-height: normal;
 }
 
 .dateAndBy {
   margin: 2.5px 0 0;
   color: rgb(31, 31, 31);
-  font-size: 0.9rem;
+  font-size: var(--font_size_date_desktop);
   font-weight: 100;
   padding: 0 10px;
 }
@@ -234,43 +296,76 @@ body {
 }
 
 .categoryChips {
-  font-size: 0.75rem;
+  font-size: var(--font_size_categoryChips_desktop);
   font-weight: 100;
   margin: 0 2.5px 5px 0;
+  border-radius: 50rem!important;
+  background-color: #212529!important;
+  font-weight: 400!important;
+  display: inline-block;
+  padding: .35em .65em;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  cursor: default;
+  border-spacing: 0;
+}
+
+.titleColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.paginator {
+  margin: 0;
+  padding: 10px 24px 20px;
+  color: rgb(31, 31, 31);
+  background-color: transparent;
 }
 
 @media(max-width: 450px) {
   .header {
-    text-align: left;
-    font-size: 12px;
+    text-align: center;
+    font-size: var(--font_size_header_mobile);
     letter-spacing: 2.5vw;
     margin: 5px 12px 7.5px;
     transform: scale(1, 1);
     filter: opacity(1);
     animation: none;
   }
+  .imageCapa {
+    width: var(--image_size_mobile);
+    margin: 0 10px;
+  }
   .title {
-    font-size: 12px;
+    font-size: var(--font_size_title_mobile);
     margin: 5px 0 0;
     padding: 0 0 0 14px;
     line-height: normal;
   }
   .subtitle {
     margin: 1.5px 0 0;
-    font-size: 12px;
+    font-size: var(--font_size_subtitle_mobile);
     padding: 0 0 0 14px;
     line-height: normal;
   }
+  .content {
+    font-size: var(--font_size_paragraf_mobile);
+    padding: 2.5px 10px 5px;
+  }
   .dateAndBy {
-    font-size: 10px;
-    margin: 1.5px 0 0;
+    font-size: var(--font_size_date_mobile);
+    margin: 5px 0 0;
     padding: 0 0 0 14px;
   }
   .category {
     margin: 1.5px 10px 5px;
   }
   .categoryChips {
-    font-size: 11px;
+    font-size: var(--font_size_categoryChips_mobile);
   }
 }
 
@@ -313,6 +408,30 @@ body {
     transform: scale(1, 0.85);
     filter: opacity(1);
     text-shadow: 5px 5px 20px rgba(3, 2, 1, 0.2);
+  }
+}
+
+.showReaderCard {
+  width: calc(100% - 40px);
+  background-color: rgba(241, 243, 244);
+  padding: 20px;
+  border-radius: 2.5px;
+  animation: showReaderCard 0.75s forwards;
+}
+
+@keyframes showReaderCard {
+  0% {
+    filter: opacity(0);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
+
+@media(max-width: 450px) {
+  .showReaderCard {
+    width: calc(100% - 20px);
+    padding: 10px;
   }
 }
 

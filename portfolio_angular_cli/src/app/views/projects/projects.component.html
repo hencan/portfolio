@@ -12,14 +12,15 @@
       <mat-chip selected (click)="selectChips('Todos')" style="background-color: rgba(241, 243, 244);">TODOS
         <span style="color: transparent;">-----</span>
         <span matBadge="{{badge_1}}" matBadgeDisabled={{badge_1_disable}}></span>
-        <span style="color: transparent;">--</span> 
+        <span style="color: transparent;">--</span>
       </mat-chip>
       <mat-chip class="filterBtns" (click)="showFilters()" style="background-color: rgba(241, 243, 244);">
         <mat-icon>{{expand_icon}}</mat-icon>
         FILTRO
         <mat-icon>filter_alt</mat-icon>
         <span style="color: transparent;">---</span>
-        <span (click)="selectChips('Todos')" matBadge="{{badge_2}}" matBadgeColor="warn" matBadgeDisabled={{badge_2_disable}}></span>
+        <span (click)="selectChips('Todos')" matBadge="{{badge_2}}" matBadgeColor="warn"
+          matBadgeDisabled={{badge_2_disable}}></span>
         <span style="color: transparent;">--</span>
       </mat-chip>
     </mat-chip-list>
@@ -42,7 +43,7 @@
         {{chip | uppercase}}
       </mat-chip>
     </mat-chip-list>
-    <br>  
+    <br>
   </div>
   <mat-list>
     <mat-divider></mat-divider>
@@ -64,7 +65,7 @@
     <ng-container matColumnDef="imageTitle">
       <th mat-header-cell *matHeaderCellDef>Imagem Capa</th>
       <td mat-cell *matCellDef="let element">
-        <img [src]="element.imageTitle" class="capa" />
+        <img [src]="element.imageTitle" class="imageCapa" />
       </td>
     </ng-container>
 
@@ -84,7 +85,7 @@
             {{element.date}}
           </span>
           <div class="category">
-            <span class="badge rounded-pill bg-dark fw-normal categoryChips" *ngFor="let category of element.categories">
+            <span class="categoryChips" *ngFor="let category of element.categories">
               {{ category.toString() | uppercase }}
             </span>
           </div>

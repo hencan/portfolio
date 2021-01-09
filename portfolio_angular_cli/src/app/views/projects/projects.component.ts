@@ -168,7 +168,7 @@ export class ProjectsComponent implements OnInit {
     this.dataSourceFiltered = []
     this.badge_2 = 0
     this.badge_1_disable = "true" 
-    this.badge_2_disable = "true" 
+    this.badge_2_disable = "true"
   }
 
   selectFilter(): void {

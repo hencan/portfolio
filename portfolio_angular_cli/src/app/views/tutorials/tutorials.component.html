@@ -51,7 +51,7 @@
     <!-- ImageTitle Column -->
     <ng-container matColumnDef="imageTitle">
       <th mat-header-cell *matHeaderCellDef> Imagem Capa </th>
-      <td mat-cell *matCellDef="let element"> <img [src]="element.imageTitle" class="capa"
+      <td mat-cell *matCellDef="let element"> <img [src]="element.imageTitle" class="imageCapa"
           (click)="buttonRead(this.element)">
       </td>
     </ng-container>
@@ -72,7 +72,7 @@
             {{element.date}}
           </span>
           <div class="category">
-            <span class="badge rounded-pill bg-dark fw-normal categoryChips" *ngFor="let category of element.categories">
+            <span class="categoryChips" *ngFor="let category of element.categories">
               {{ category.toString() | uppercase }}
             </span>
           </div>

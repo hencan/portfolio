@@ -11,7 +11,7 @@
     <mat-icon>share</mat-icon>
   </button>
 
-  <div class="showTutorial">
+  <div class="showReaderCard">
     <!-- Title Card Form -->
     <mat-card-subtitle>Tutorial nº {{storeData.id}}</mat-card-subtitle>
 
@@ -32,23 +32,23 @@
 
     <!-- Paragraf1 Field -->
 
-    <div class="paragraf" *ngIf="storeData.paragraf1" [innerHtml]='storeData.paragraf1'></div>
+    <div class="content" *ngIf="storeData.paragraf1" [innerHtml]='storeData.paragraf1'></div>
 
     <!-- Paragraf2 Field -->
 
-    <div class="paragraf" *ngIf="storeData.paragraf2" [innerHtml]='storeData.paragraf2'></div>
+    <div class="content" *ngIf="storeData.paragraf2" [innerHtml]='storeData.paragraf2'></div>
 
     <!-- Paragraf3 Field -->
 
-    <div class="paragraf" *ngIf="storeData.paragraf3" [innerHtml]='storeData.paragraf3'></div>
+    <div class="content" *ngIf="storeData.paragraf3" [innerHtml]='storeData.paragraf3'></div>
 
     <!-- Paragraf4 Field -->
 
-    <div class="paragraf" *ngIf="storeData.paragraf4" [innerHtml]='storeData.paragraf4'></div>
+    <div class="content" *ngIf="storeData.paragraf4" [innerHtml]='storeData.paragraf4'></div>
 
     <!-- Paragraf5 Field -->
 
-    <div class="paragraf" *ngIf="storeData.paragraf5" [innerHtml]='storeData.paragraf5'></div>
+    <div class="content" *ngIf="storeData.paragraf5" [innerHtml]='storeData.paragraf5'></div>
 
     <mat-list>
       <mat-divider></mat-divider>
@@ -59,10 +59,10 @@
     <div class="authorship">
       <img class="imgAuthor" [src]="authorData.photo" alt="">
       <div class="dateAndBy">
-        <span>{{storeData.author}}</span>
+        <span>{{storeData.author}} | </span>
         <span>{{storeData.date}}</span>
       </div>
-      <div class="category right">
+      <div class="category">
         <span class="categoryChips" *ngFor="let category of storeData.categories">
           {{ category.toString() | uppercase }}
         </span>
