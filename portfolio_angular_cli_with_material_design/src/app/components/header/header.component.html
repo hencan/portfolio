@@ -89,16 +89,16 @@
             <mat-icon>home</mat-icon>
         </button>
         <button mat-icon-button aria-label="Projetos" [matMenuTriggerFor]="menuNav"
-            aria-label="Example icon-button with a menu" class="mobile">
+            aria-label="icon-button with a menu" class="mobile">
             <mat-icon>more_vert</mat-icon>
             <!-- <mat-icon>more_horiz</mat-icon> -->
             <!-- <br><span>menu</span> -->
         </button>
         <mat-menu #menuNav>
-            <button mat-menu-item (click)='goTo("")'>
+            <!-- <button mat-menu-item (click)='goTo("")'>
                 <mat-icon>home</mat-icon>
                 <span>Home</span>
-            </button>
+            </button> -->
             <button mat-menu-item (click)='goTo("projects")'>
                 <mat-icon>laptop_windows</mat-icon>
                 <span>Projetos</span>
