@@ -82,7 +82,7 @@
 
 @media(max-width: 450px) {
   #fullName {
-    margin: 30vh 5% 10px;
+    margin: 35vh 5% 10px;
     width: 90%;
     font-size: 5.8vw;
     letter-spacing: 1.9vw;
@@ -94,7 +94,7 @@
     letter-spacing: 2.9vw;
   }
   .boxBottom {
-    height: 112px;
+    height: 70px;
     padding: 0 8%;
     width: 84%;
     justify-content: space-between;

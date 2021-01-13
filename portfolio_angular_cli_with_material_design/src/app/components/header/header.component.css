@@ -15,14 +15,11 @@ mat-toolbar-row {
 
 mat-toolbar-row.first {
     justify-content: space-between;
+    height: 40px;
 }
 
 mat-toolbar-row.second {
     justify-content: flex-end;
-}
-
-mat-toolbar-row.third {
-    display: none;
 }
 
 mat-toolbar-row.second::-webkit-scrollbar {
@@ -40,10 +37,6 @@ mat-toolbar-row::-webkit-scrollbar-thumb {
 mat-toolbar-row span {
     font-size: 10px;
     font-weight: 100;
-}
-
-mat-toolbar-row.first {
-    height: 40px;
 }
 
 mat-toolbar-row.first button mat-icon {
@@ -105,6 +98,14 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
     border-radius: 10px;
 }
 
+.title-mobile {
+    display: none;
+}
+
+.mobile {
+    display: none;
+}
+
 /* Animations */
 
 /* Visualização Desktop */
@@ -114,31 +115,42 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
 /* Visualização Mobile */
 
 @media(max-width: 450px) {
-    mat-toolbar-row.second {
-        display: none;
-    }
-    mat-toolbar-row.third {
-        /* display: block; */
-        display: flex;
+
+    mat-toolbar-row.first {
         justify-content: flex-end;
+        height: 70px;
     }
-    mat-toolbar-row.third span.title-mobile {
+
+    mat-toolbar-row.first button {
+        margin: 0 2.5%;
+    }
+
+    mat-toolbar-row.first button:first-of-type {
+        margin-right: auto;
+    }
+    
+    mat-toolbar-row.first span.title-mobile {
+        display: block;
         position: absolute;
-        top: 30px;
+        top: 20px;
         left: 0;
         width: 100vw;
         text-align: center;
-        font-size: 25px;
+        font-size: 20px;
         font-weight: 900;
-        color: rgb(20, 20, 20);
+        color: rgb(22, 22, 22);
     }
-    mat-toolbar-row.third button {
+    mat-toolbar-row.second {
+        display: none;
+    }
+    .mobile {
+        display: block;
         line-height: 20px;
         margin: 0;
-        background-color: rgb(20, 20, 20);
+        /* background-color: rgb(20, 20, 20); */
         /* border: solid 1px rgba(117, 117, 117, 0.5); */
     }
-    mat-toolbar-row.third button mat-icon {
+    .mobile mat-icon {
         margin-top: 2.5px;
         font-size: 25px;
     }
