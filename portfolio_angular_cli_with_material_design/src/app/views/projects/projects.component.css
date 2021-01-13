@@ -1,0 +1,125 @@
+/* Some styles is in global file style.css */
+
+.projects {
+  /* position: absolute; */
+  /* top: 90px; */
+  width: 98%;
+  min-height: calc(70vh);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 243, 244);
+  /* background-color: #fafafa; */
+  padding: 10px 0;
+  margin: 0 1% 0;
+}
+
+table {
+  margin: 0;
+}
+
+.mat-table, .mat-row, .mat-cell {
+  background-color: transparent;
+}
+
+.mat-cell {
+  cursor: default;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  margin: 10px 0;
+  line-height: normal;
+}
+
+.btnsGoto {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+}
+
+.btnsGoto div button, a {
+  font-size: 0.9rem;
+  color: rgb(25, 26, 31);
+  margin: 10px auto;
+}
+
+.btnsGoto div a mat-icon {
+  font-size: 1rem;
+  vertical-align: baseline;
+}
+
+/* Animação da tabela */
+
+.cardDetailHiddenRow {
+  height: 0;
+}
+
+.cardDetailHiddenRow td {
+  border-bottom-width: 0;
+}
+
+.cardDetailRow {
+  height: 0;
+}
+
+.cardDetailHidden {
+  overflow: hidden;
+  display: flex;
+}
+
+.cardDetailExpanded {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  width: 100%;
+}
+
+tr.cardDetailHiddenRow:hover {
+  background-color: rgb(201, 203, 204);
+}
+
+/* Visualização Desktop */
+
+@media(min-width: 450.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 450px) {
+  .label {
+    font-size: 13px;
+    padding: 5px 10px;
+    margin: 0;
+  }
+  .btnsGoto div button, a {
+    font-size: 12px;
+    margin: 10px auto;
+  }
+  .btnsGoto div a mat-icon {
+    font-size: 14px;
+  }
+  .mat-row {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 20px;
+    border-radius: 2.5px;
+  }
+  .mat-cell:first-of-type {
+    padding-left: 0;
+  }
+  .mat-cell {
+    padding-left: 0;
+  }
+  .mat-cell:first-of-type {
+    padding-left: 0;
+  }
+  .mat-cell:last-of-type {
+    padding-right: 2.5vw;
+  }
+  .cardDetailExpanded {
+    padding: 5px;
+  }
+}

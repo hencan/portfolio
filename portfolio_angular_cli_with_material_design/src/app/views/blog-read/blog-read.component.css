@@ -1,0 +1,160 @@
+#blogRead {
+    /* display: none; */
+}
+
+.blogRead {
+    /* position: absolute; */
+    /* top: 90px; */
+    width: 98%;
+    min-height: calc(70vh);
+    display: flex;
+    flex-direction: column;
+    margin: 0 1% 20px;
+    /* padding: 20px 5%; */
+}
+
+.capa {
+    margin-left: calc((100% - 452px)/2);
+    border: solid 1px rgb(116, 116, 116);
+    border-radius: 2.5px;
+}
+
+.title {
+    line-height: 35px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(31, 31, 31);
+    padding: 0;
+    margin: 30px 0;
+}
+
+.subtitle {
+    line-height: 30px;
+    font-weight: 200;
+    padding: 0;
+    margin: 50px 0 20px;
+}
+
+.content {
+    word-break: break-all;
+}
+
+/* Botões */
+
+button {}
+
+button:hover {
+    background-color: rgb(53, 68, 153);
+    color: rgb(241, 243, 244);
+}
+
+.buttonBack {
+    position: fixed;
+    top: 100px;
+    right: 1.5%;
+    background-color: rgb(51, 51, 51);
+    color: rgb(245, 245, 245);
+    padding-left: 6px;
+    z-index: 10;
+}
+
+.buttonBack mat-icon, .buttonShare mat-icon {
+    font-size: 20px;
+}
+
+.buttonShare {
+    position: fixed;
+    top: 150px;
+    right: 1.5%;
+    background-color: rgb(51, 51, 51);
+    color: rgb(245, 245, 245);
+    z-index: 10;
+}
+
+/* Fotter */
+
+.authorship {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: rgb(87, 87, 87);
+}
+
+.imgAuthor {
+    width: 30px;
+    border-radius: 25px;
+    border: solid 2px rgb(76, 76, 76);
+}
+.dateAndBy, .category {
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+
+/* .right {
+    margin-left: auto;
+    margin-right: 0;
+} */
+
+/* Visualização Desktop */
+
+@media(min-width: 450.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 550px) {
+    .capa {
+        width: 100%;
+        margin-left: auto;
+    }
+}
+
+@media(max-width: 450px) {
+    .buttonBack {
+        position: initial;
+        position: fixed;
+        top: 95px;
+        right: 2.9%;
+        width: 9vw;
+        height: 9vw;
+    }
+    .buttonShare {
+        position: initial;
+        position: fixed;
+        top: 95px;
+        right: calc(2.9% + 40px);
+        width: 9vw;
+        height: 9vw;
+    }
+    .buttonBack mat-icon, .buttonShare mat-icon {
+        font-size: 4.5vw;
+    }
+    .capa {
+        width: 100%;
+        margin-left: auto;
+    }
+    .title {
+        letter-spacing: initial;
+        line-height: normal;
+        text-align: left;
+        margin: 15px 5px 10px;
+    }
+    .subtitle {
+        letter-spacing: initial;
+        line-height: initial;
+        margin: 10px 5px 20px;
+    }
+    .content {
+        line-height: normal;
+    }
+    .authorship {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+    .imgAuthor {
+        height: 25px;
+        border-radius: 25px;
+        margin-top: 6px;
+    }
+}

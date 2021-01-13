@@ -1,0 +1,115 @@
+#projectAdminUpdate {
+    display: none;
+}
+.projectAdminUpdate {
+    padding: 2.5% 5%;
+}
+.card {
+    /* width: 95%; */
+}
+
+/* Botões */
+button {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+.cardBtnHeader {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+}
+.cardBtnFooter {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 10px;
+}
+.cardForm {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+}
+.primaryGreen {
+    color: rgb(1, 229, 137);
+}
+.primaryBtnGreen {
+    background-color: rgb(1, 229, 137);
+}
+.primaryBtnBlue {
+    background-color: rgba(65, 105, 225, 0.75);
+}
+
+/* Classes da Image Cropper */
+#createPhotoChange {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding: 20px;
+    border-radius: 5px;
+    border: solid 1px gray;
+    display: none;
+}
+#createPhotoFinal {
+    display: flex;
+    flex-direction: column;
+    width: 290px;
+    padding: 20px;
+}
+.createPhotoChangeBox {
+    display: flex;
+    flex-direction: row;
+}
+.createFormImageRaw {
+    width: 350px;
+    /* margin-right: 0 15px; */
+}
+.createFormImageWaited {
+    /* margin-left: auto; */
+    width: 100px;
+}
+.createFormImageFinal {
+    width: 290px;
+    border-radius: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    /* height: 250px; */
+}
+.createFormImageBtn {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    width: 290px;
+    margin-left: 150px;
+}
+#createFormImageINPUT {
+    margin-bottom: 10px;
+}
+
+/* Info Created / Modifided */
+.infoCreate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Animações */
+.fadeIn {
+    animation:opac 0.8s
+}
+
+@keyframes opac{
+    from{opacity:0} 
+    to{opacity:1}
+}
+
+/* Visualização Desktop */
+@media(min-width: 650.5px) {
+    
+}
+
+/* Visualização Mobile */
+@media(max-width: 650px) {
+    .projectAdminUpdate {
+        padding: 5px;
+    }
+
+}

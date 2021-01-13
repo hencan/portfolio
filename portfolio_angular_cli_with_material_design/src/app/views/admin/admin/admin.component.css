@@ -1,0 +1,56 @@
+#admin {
+}
+.admin {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 2.5% 5% 0;
+    
+}
+.adminHeader {
+    display: flex;
+    flex-direction: row;
+}
+.adminHeader img {
+    height: 75px;
+    background-color: white;
+    border: solid 1px whitesmoke;
+    border-radius: 50px;
+    margin: 10px 20px 5px 0;
+}
+.adminHeaderDetails {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+.adminHeaderDetails mat-icon {
+    color: whitesmoke;
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+.adminNav {
+    display: flex;
+    justify-content: flex-end;
+}
+.adminNav button {
+    margin-left: 2.5px;
+    height: 35px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+}
+
+/* Visualização Desktop */
+@media(min-width: 650.5px) {
+    
+}
+
+/* Visualização Mobile */
+@media(max-width: 650px) {
+    .adminNav {
+        display: none;
+    }
+    .adminHeader img {
+        height: 50px;
+    }
+}

@@ -1,0 +1,124 @@
+<div id="projectAdminDelete">
+    <app-admin></app-admin>
+  
+    <div class="projectAdminDelete">
+      <mat-card class="card">
+  
+        <!-- Title Card Form -->
+        <mat-card-subtitle>Excluir Post</mat-card-subtitle>
+  
+        <!-- Buttons Header -->
+        <div class="cardBtnHeader">
+          <button mat-raised-button (click)="cancel()">Voltar</button>
+          <button mat-raised-button color="warn" (click)="delete(storeData.id)">Excluir</button>
+        </div>
+        <form class="cardForm">
+  
+          <!-- Image Field -->
+          <div id="createPhotoFinal">
+            <img id="createFormImageID" class="createFormImageFinal" [src]="photoBase64"> <br />
+          </div>
+  
+  
+          <!-- Title Field -->
+          <mat-form-field appearance="outline" hintLabel="">
+            <mat-label>Título</mat-label>
+            <textarea matInput readonly="readonly" #input1 maxlength="200" placeholder="Digite o título aqui" id="title" name="title"
+              [(ngModel)]="storeData.title" ></textarea>
+            <mat-hint align="end">{{input1.value?.length || 0}}/200</mat-hint>
+          </mat-form-field>
+  
+          <!-- Subtitle Field -->
+          <mat-form-field appearance="outline" hintLabel="">
+            <mat-label>Subtitulo</mat-label>
+            <textarea matInput readonly="readonly" #input2 maxlength="400" placeholder="Digite o Subtítulo aqui" id="subtitle"
+              name="subtitle" [(ngModel)]="storeData.subtitle" ></textarea>
+            <mat-hint align="end">{{input2.value?.length || 0}}/400</mat-hint>
+          </mat-form-field>
+  
+          <!-- Categories Field -->
+          <mat-form-field appearance="outline" hintLabel="">
+            <mat-label>Categoria</mat-label>
+            <input matInput readonly="readonly" placeholder="" id="categories" name="categories"
+              [(ngModel)]="storeData.categories">
+          </mat-form-field>
+
+          <!-- LinkLive Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Link Live</mat-label>
+          <input matInput readonly="readonly" placeholder="Insira o link de acesso Live do projeto" id="linkLive" name="linkLive"
+            [(ngModel)]="storeData.linkLive">
+        </mat-form-field>
+
+        <!-- LinkGithub Field -->
+        <mat-form-field appearance="outline" hintLabel="">
+          <mat-label>Link Github</mat-label>
+          <input matInput readonly="readonly" placeholder="Insira o link de acesso do Github do projeto" id="linkGithub" name="linkGithub"
+            [(ngModel)]="storeData.linkGithub">
+        </mat-form-field>
+  
+          <mat-list>
+            <mat-divider></mat-divider>
+          </mat-list>
+  
+          <!-- Content Field -->
+          <br>
+          <mat-label>Descrição</mat-label>
+          <!-- <div [innerHtml]='storeData.paragraf1'></div> -->
+          <angular-editor id="content" [(ngModel)]="storeData.content" [config]="editorConfig"
+            [ngModelOptions]="{standalone: true}"></angular-editor>
+  
+          <mat-list>
+            <mat-divider></mat-divider>
+          </mat-list>
+  
+          <!-- Status Field -->
+          <br>
+          <mat-form-field appearance="outline" hintLabel="">
+            <mat-label>Status</mat-label>
+            <input matInput readonly="readonly" maxlength="400" placeholder="" id="status" name="status"
+              [(ngModel)]="storeData.status" >
+          </mat-form-field>
+  
+          <div class="infoCreate">
+            <!-- createdBy Field -->
+            <mat-form-field appearance="legacy" hintLabel="">
+              <mat-label>Criado Por</mat-label>
+              <input matInput readonly="readonly" placeholder="Criado Por" id="createdBy" name="createdBy"
+                [(ngModel)]="storeData.createdBy" >
+            </mat-form-field>
+  
+            <!-- createdIn Field -->
+            <mat-form-field appearance="legacy" hintLabel="">
+              <mat-label>Criado Em</mat-label>
+              <input matInput readonly="readonly" placeholder="Criado em" id="createdIn" name="createdIn"
+                [(ngModel)]="storeData.createdIn" >
+            </mat-form-field>
+  
+            <!-- modifiedBy Field -->
+            <mat-form-field appearance="legacy" hintLabel="">
+              <mat-label>Modificado Por</mat-label>
+              <input matInput readonly="readonly" placeholder="Modificado Por" id="modifiedBy" name="modifiedBy"
+                [(ngModel)]="storeData.modifiedBy" >
+            </mat-form-field>
+  
+            <!-- modifiedIn Field -->
+            <mat-form-field appearance="legacy" hintLabel="">
+              <mat-label>Modificado Em</mat-label>
+              <input matInput readonly="readonly" placeholder="Modificado em" id="modifiedIn" name="modifiedIn"
+                [(ngModel)]="storeData.modifiedIn" >
+            </mat-form-field>
+          </div>
+  
+          <!-- Buttons Footer -->
+          <div class="cardBtnFooter">
+            <button mat-raised-button (click)="cancel()">Voltar</button>
+            <button mat-raised-button color="warn" (click)="delete(storeData.id)">Excluir</button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  
+  
+  
+  </div>
