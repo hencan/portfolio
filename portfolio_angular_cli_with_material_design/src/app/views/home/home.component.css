@@ -76,6 +76,10 @@
   /* text-shadow: 1.5px 1.5px 10px rgba(241, 243, 244, 0.35); */
 }
 
+.transparent {
+  background-color: transparent;
+}
+
 @media(min-width: 450.5px) {}
 
 /* Visualização Mobile */

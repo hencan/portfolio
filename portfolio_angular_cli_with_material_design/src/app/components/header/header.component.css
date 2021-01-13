@@ -2,6 +2,7 @@
 
 mat-toolbar {
     background-color: rgb(16, 16, 16);
+    transition: background-color 1s;
     /* color: rgb(117, 117, 117); */
     color: rgba(241, 243, 244, 0.65);
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
@@ -115,6 +116,12 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
     display: none;
 }
 
+.transparent {
+    background-color: transparent;
+    box-shadow: none;
+    transition: background-color 1s;
+}
+
 /* Animations */
 
 /* Visualização Desktop */
@@ -146,7 +153,8 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
         text-align: center;
         font-size: 20px;
         font-weight: 900;
-        color: rgb(22, 22, 22);
+        /* color: rgb(22, 22, 22); */
+        color: rgba(241, 243, 244, 0.05);
         z-index: 0;
     }
     mat-toolbar-row.second {

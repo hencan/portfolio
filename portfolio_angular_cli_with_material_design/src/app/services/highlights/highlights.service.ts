@@ -26,6 +26,12 @@ export class HighlightsService {
       // login[1].classList.remove('selected')
     }
 
+    if (id == 0) {
+      document.getElementById('mat-toolbar-id').classList.add('transparent')
+    } else {
+      document.getElementById('mat-toolbar-id').classList.remove('transparent')
+    }
+
     for (var i = 0; i < navs.length; i++) {
       if (i == id) {
         // var iconHiglight = navs[i].children
