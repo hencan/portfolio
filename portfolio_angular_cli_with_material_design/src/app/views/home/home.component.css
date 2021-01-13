@@ -44,7 +44,7 @@
   justify-content: center;
 }
 
-.boxBottom a {
+.boxBottom a, .boxBottom button {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -59,18 +59,18 @@
   text-decoration: none;
 }
 
-.boxBottom a i {
+.boxBottom a i, .boxBottom button i {
   /* font-size: 1.75vw; */
   font-size: 22.5px;
   margin-bottom: 5px;
 }
 
-.boxBottom a mat-icon {
+.boxBottom a mat-icon, .boxBottom button mat-icon {
   /* font-size: 1.75vw; */
   font-size: 22.5px;
 }
 
-.boxBottom a:hover {
+.boxBottom a:hover, .boxBottom button:hover {
   /* text-decoration: underline; */
   color: rgb(241, 243, 244);
   /* text-shadow: 1.5px 1.5px 10px rgba(241, 243, 244, 0.35); */
