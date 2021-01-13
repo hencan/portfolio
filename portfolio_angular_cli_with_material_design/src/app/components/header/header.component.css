@@ -39,6 +39,10 @@ mat-toolbar-row span {
     font-weight: 100;
 }
 
+app-music-player {
+    z-index: 1;
+}
+
 mat-toolbar-row.first button mat-icon {
     font-size: 20px;
     font-weight: 100;
@@ -139,6 +143,7 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
         font-size: 20px;
         font-weight: 900;
         color: rgb(22, 22, 22);
+        z-index: 0;
     }
     mat-toolbar-row.second {
         display: none;

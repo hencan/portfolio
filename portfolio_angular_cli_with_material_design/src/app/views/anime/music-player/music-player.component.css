@@ -1,3 +1,8 @@
+#btnsMusic {
+    width: 40px;
+    height: 40px;
+}
+
 #btnMusicOff mat-icon {
     font-size: 20px;
 }
@@ -9,7 +14,8 @@
     align-items: baseline;
     cursor: pointer;
     display: none;
-    margin-left: 10px;
+    justify-content: center;
+    padding-top: 11px;
 }
 
 #bar_0 {
