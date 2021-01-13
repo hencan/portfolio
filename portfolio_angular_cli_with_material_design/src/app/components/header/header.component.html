@@ -79,26 +79,18 @@
 
 <mat-toolbar>
     <mat-toolbar-row class="first">
-        <app-music-player></app-music-player>
-
-        <!-- <button mat-icon-button aria-label="Botão de Login" id="buttonLogin" (click)='goTo2("login")'>
-            <mat-icon>login</mat-icon>
-        </button> -->
-        <span class="title-mobile">HENCAN</span>
-        <button mat-icon-button (click)='goTo("")' class="mobile">
-            <mat-icon>home</mat-icon>
-        </button>
-        <button mat-icon-button aria-label="Projetos" [matMenuTriggerFor]="menuNav"
-            aria-label="icon-button with a menu" class="mobile">
-            <mat-icon>more_vert</mat-icon>
+        <button mat-icon-button aria-label="Projetos" [matMenuTriggerFor]="menuNav" aria-label="icon-button with a menu"
+            class="mobile">
+            <mat-icon style="font-size: 25px;">menu</mat-icon>
+            <!-- <mat-icon>more_vert</mat-icon> -->
             <!-- <mat-icon>more_horiz</mat-icon> -->
             <!-- <br><span>menu</span> -->
         </button>
         <mat-menu #menuNav>
-            <!-- <button mat-menu-item (click)='goTo("")'>
+            <button mat-menu-item (click)='goTo("")'>
                 <mat-icon>home</mat-icon>
                 <span>Home</span>
-            </button> -->
+            </button>
             <button mat-menu-item (click)='goTo("projects")'>
                 <mat-icon>laptop_windows</mat-icon>
                 <span>Projetos</span>
@@ -115,15 +107,42 @@
                 <mat-icon>account_circle</mat-icon>
                 <span>Info</span>
             </button>
-            <!-- <mat-list>
+            <mat-list>
                 <mat-divider></mat-divider>
             </mat-list>
-            <button mat-menu-item disabled>
-                <mat-icon>business</mat-icon>
-                <span>Empresas</span>
-            </button> -->
+            <a mat-menu-item href='https://github.com/hencan' target="_blank">
+                <i class="fab fa-github"></i>
+                <span> Github Hencan</span>
+            </a>
+            <a mat-menu-item href='https://codepen.io/hencan' target="_blank">
+                <i class="fab fa-codepen"></i>
+                <span> CodePen Hencan</span>
+            </a>
+            <a mat-menu-item href='https://www.linkedin.com/in/hencan/' target="_blank">
+                <i class="fab fa-linkedin"></i>
+                <span> LinkedIn Hencan</span>
+            </a>
+            <a mat-flat-button disabled>
+                <i class="fab fa-instagram"></i>
+                <span> Instagran Hencan</span>
+            </a>
+            <!-- <button mat-menu-item disabled>
+            <mat-icon>business</mat-icon>
+            <span>Empresas</span>
+        </button> -->
+
 
         </mat-menu>
+
+        <app-music-player></app-music-player>
+
+        <!-- <button mat-icon-button aria-label="Botão de Login" id="buttonLogin" (click)='goTo2("login")'>
+            <mat-icon>login</mat-icon>
+        </button> -->
+        <span class="title-mobile" (click)='goTo("")'>HENCAN</span>
+        <!-- <button mat-icon-button (click)='goTo("")' class="mobile">
+            <mat-icon>home</mat-icon>
+        </button> -->
 
         <div id="btnsLoginBox">
             <button mat-icon-button aria-label="Botão de Login" id="buttonLogin" (click)='goTo2("login")'>

@@ -14,8 +14,13 @@ mat-toolbar-row {
 }
 
 mat-toolbar-row.first {
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 40px;
+}
+
+app-music-player {
+    z-index: 1;
+    margin-right: auto;
 }
 
 mat-toolbar-row.second {
@@ -119,20 +124,19 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
 /* Visualização Mobile */
 
 @media(max-width: 450px) {
-
     mat-toolbar-row.first {
         justify-content: flex-end;
         height: 70px;
     }
-
+    app-music-player {
+        margin-right: 0;
+    }
     mat-toolbar-row.first button {
         margin: 0 2.5%;
     }
-
     mat-toolbar-row.first button:first-of-type {
         margin-right: auto;
     }
-    
     mat-toolbar-row.first span.title-mobile {
         display: block;
         position: absolute;
@@ -152,6 +156,7 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
         display: block;
         line-height: 20px;
         margin: 0;
+        z-index: 1;
         /* background-color: rgb(20, 20, 20); */
         /* border: solid 1px rgba(117, 117, 117, 0.5); */
     }
