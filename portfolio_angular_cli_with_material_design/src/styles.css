@@ -237,8 +237,8 @@ body {
   margin: 50px 0 25px var(--font_size_header_desktop);
   transform: scale(1, 0.2);
   filter: opacity(0.05);
-  animation: animeHeader 1s forwards;
-  animation-delay: 0.5s;
+  animation: animeHeader 0.5s forwards;
+  animation-delay: 0.25s;
 }
 
 .imageCapa {
