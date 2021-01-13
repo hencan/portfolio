@@ -2,7 +2,6 @@
     <div id="btnsHeader">
         <div id="btnsMusic">
             <a id="btnMusicOff" (click)='activeMusic()' matTooltip="Ligar música">
-                <!-- <mat-icon>music_off</mat-icon> -->
                 <i class="fas fa-volume-mute"></i>
             </a>
             <div id="btnMusicOn" (click)='activeMusic()' matTooltip="Desligar música">
@@ -18,7 +17,6 @@
             <a id="buttonLogin" (click)='goTo2("login")' matTooltip="Login">
                 <i class="fas fa-sign-in-alt"></i>
                 <span></span>
-                <!-- <mat-icon>login</mat-icon> -->
             </a>
             <a id="buttonLogged" matTooltip="Perfil, Admin e Logoff" [matMenuTriggerFor]="menu">
                 <img id="buttonLogged_Img" [src]="loggedAs.photo" alt="">
@@ -57,30 +55,21 @@
     </div>
     <div id="navToolbar" class="navToolbar">
         <a (click)='goTo("")'>
-            <!-- <i class="fas fa-arrow-left"></i> -->
-            <!-- <mat-icon>arrow_back</mat-icon> -->
             <i class="fas fa-home"></i>
             <span >ÍNICIO</span>
         </a>
-        <!-- | -->
         <a (click)='goTo("projects")'>
             <i class="fas fa-laptop-code"></i>
-            <!-- <i class="fas fa-archive"></i> -->
-            <!-- <i class="fas fa-jedi"></i> -->
             <span>PROJETOS</span>
         </a>
-        <!-- | -->
         <a (click)='goTo("tutorials")'>
             <i class="fas fa-book"></i>
             <span>TUTORIAIS</span>
         </a>
-        <!-- | -->
         <a (click)='goTo("articles")'>
             <i class="fas fa-archive"></i>
-            <!-- <i class="far fa-newspaper"></i> -->
             <span>ARTIGOS</span>
         </a>
-        <!-- | -->
         <a (click)='goTo("info")'>
             <i class="fas fa-user-astronaut"></i>
             <span>INFO</span>
