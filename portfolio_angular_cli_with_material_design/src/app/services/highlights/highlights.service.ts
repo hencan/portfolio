@@ -15,36 +15,37 @@ export class HighlightsService {
     // }
 
     var login = document.getElementById('buttonLogin')
-
+    var logo = document.getElementById('logo')
     var navs = document.querySelectorAll('mat-toolbar-row.second button')
 
-    if (id == 'login') {
-      login.classList.add('selected')
-      // login[1].classList.add('selected')
-    } else {
-      login.classList.remove('selected')
-      // login[1].classList.remove('selected')
-    }
-
+    
+    // Deixa o header transparente somente quando em home e login e deixa o ícone do login com highlight
     if (id == 0) {
       document.getElementById('mat-toolbar-id').classList.add('transparent')
+      logo.classList.add('hidden')
+    } else if (id == 'login') {
+      document.getElementById('mat-toolbar-id').classList.add('transparent')
+      login.classList.add('selected')
+      logo.classList.add('hidden')
     } else {
       document.getElementById('mat-toolbar-id').classList.remove('transparent')
+      login.classList.remove('selected')
+      logo.classList.remove('hidden')
     }
 
     for (var i = 0; i < navs.length; i++) {
       if (i == id) {
-        // var iconHiglight = navs[i].children
-        // iconHiglight[0].classList.add('selected')
-        // iconHiglight[1].classList.add('selected')
-        navs[i].classList.add('selected')
+        if (i == 0) {
+          navs[i].classList.add('selected_color_white')
+        } else {
+          navs[i].classList.add('selected_color_black')
+        }
       } else {
-        navs[i].classList.remove('selected')
-        // var iconHiglight = navs[i].children
-        // if (iconHiglight[0].classList.contains('selected')) {
-        //   iconHiglight[0].classList.remove('selected')
-        //   iconHiglight[1].classList.remove('selected')      
-        // }
+        if (i == 0) {
+          navs[i].classList.remove('selected_color_white')
+        } else {
+          navs[i].classList.remove('selected_color_black')
+        }
       }
     }
   }

@@ -5,12 +5,13 @@
 .tutorialsRead {
     /* position: absolute; */
     /* top: 90px; */
-    width: 98%;
+    /* width: 98%; */
+    width: 100%;
     min-height: calc(100vh - 104px);
     display: flex;
     flex-direction: column;
     height: auto;
-    margin: 0 1%;
+    /* margin: 0 1%; */
     padding-bottom: 20px;
 }
 

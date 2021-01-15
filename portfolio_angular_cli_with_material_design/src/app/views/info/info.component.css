@@ -5,14 +5,15 @@
 .info {
     /* position: absolute; */
     /* top: 90px; */
-    width: 98%;
+    /* width: 98%; */
+    width: 100%;
     min-height: calc(70vh);
     height: auto;
     display: flex;
     flex-direction: column;
     background-color: rgba(241, 243, 244);
     padding: 10px 0;
-    margin: 0 1%;
+    /* margin: 0 1%; */
 }
 
 .subtitleInfo {

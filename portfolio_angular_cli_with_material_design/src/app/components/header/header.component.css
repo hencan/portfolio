@@ -1,19 +1,29 @@
 * {}
 
 mat-toolbar {
-    /* background-color: rgb(16, 16, 16); */
-    background-color: rgb(31, 31, 31);
-    transition: background-color 1s;
-    /* color: rgb(117, 117, 117); */
-    /* color: rgba(241, 243, 244, 0.65); */
+    background-color: rgba(241, 243, 244);
     color: rgb(136, 136, 136);
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 
 mat-toolbar-row {
     display: flex;
-    /* overflow: hidden; */
-    /* overflow-x: auto; */
+}
+
+.logo {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.logo img {
+    width: 24px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.logo img:hover {
+    opacity: 1;
 }
 
 mat-toolbar-row.first {
@@ -29,18 +39,6 @@ app-music-player {
 mat-toolbar-row.second {
     justify-content: flex-end;
 }
-
-/* mat-toolbar-row.second::-webkit-scrollbar {
-    height: 5px;
-}
-
-mat-toolbar-row::-webkit-scrollbar-track {
-    background-color: rgb(16, 16, 16);
-}
-
-mat-toolbar-row::-webkit-scrollbar-thumb {
-    background-color: rgb(36, 36, 36);
-} */
 
 mat-toolbar-row span {
     font-size: 10px;
@@ -65,8 +63,11 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
     font-size: 22.5px;
 }
 
-.selected, .selected span, .selected mat-icon {
+.selected_color_white, .selected_color_white span, .selected_color_white mat-icon {
     color: white;
+}
+.selected_color_black, .selected_color_black span, .selected_color_black mat-icon {
+    color: black;
 }
 
 /* #navToolbar a mat-icon:hover {
@@ -80,20 +81,14 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
 
 #buttonLogin {
     background-color: transparent;
-    /* color: rgba(241, 243, 244, 0.65); */
-    color: rgb(136, 136, 136);
 }
 
 #buttonLogin mat-icon:hover, #buttonLogin i:hover {
-    color: rgb(241, 243, 244);
-    /* text-shadow: 1.5px 1.5px 10px rgba(241, 243, 244, 0.35); */
 }
 
 #buttonLogged {
     display: none;
     background-color: transparent;
-    /* color: rgb(117, 117, 117); */
-    color: rgb(136, 136, 136);
 }
 
 #buttonLogged img {
@@ -111,8 +106,12 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
 
 .transparent {
     background-color: transparent;
+    color: rgb(136, 136, 136);
     box-shadow: none;
-    transition: background-color 1s;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 /* Animations */
@@ -124,6 +123,9 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
 /* Visualização Mobile */
 
 @media(max-width: 450px) {
+    .logo img {
+        margin-top: 13px;    
+    }    
     mat-toolbar-row.first {
         justify-content: flex-end;
         height: 70px;

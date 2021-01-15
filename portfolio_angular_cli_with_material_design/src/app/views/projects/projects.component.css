@@ -1,17 +1,15 @@
 /* Some styles is in global file style.css */
 
 .projects {
-  /* position: absolute; */
-  /* top: 90px; */
-  width: 98%;
+  /* width: 98%; */
+  width: 100%;
   min-height: calc(100vh - 104px);
   height: auto;
   display: flex;
   flex-direction: column;
   background-color: rgb(241, 243, 244);
-  /* background-color: #fafafa; */
   padding: 10px 0;
-  margin: 0 1% 0;
+  /* margin: 0 1% 0; */
 }
 
 table {

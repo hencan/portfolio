@@ -1,96 +1,23 @@
-<!-- <div id="navHeader" class="navHeader">
-    <div id="btnsHeader">
-        <div id="btnsMusic">
-            <a id="btnMusicOff" (click)='activeMusic()' matTooltip="Ligar música">
-                <i class="fas fa-volume-mute"></i>
-            </a>
-            <div id="btnMusicOn" (click)='activeMusic()' matTooltip="Desligar música">
-                <div id="bar_0"></div>
-                <div id="bar_1" class="bars noSound"></div>
-                <div id="bar_2" class="bars noSound"></div>
-                <div id="bar_3" class="bars noSound"></div>
-                <div id="bar_4" class="bars noSound"></div>
-                <div id="bar_5" class="bars noSound"></div>
-            </div>
-        </div>
-        <div id="btnsLoginBox">
-            <a id="buttonLogin" (click)='goTo2("login")' matTooltip="Login">
-                <i class="fas fa-sign-in-alt"></i>
-                <span></span>
-            </a>
-            <a id="buttonLogged" matTooltip="Perfil, Admin e Logoff" [matMenuTriggerFor]="menu">
-                <img id="buttonLogged_Img" [src]="loggedAs.photo" alt="">
-            </a>
-            <mat-menu #menu>
-                <button mat-menu-item (click)='goTo("admin/profile")'>
-                    <mat-icon>account_circle</mat-icon>
-                    Meu Perfil
-                </button>
-                <button mat-menu-item (click)='goTo("admin/projects")'>
-                    <mat-icon>apps</mat-icon>
-                    Posts de Projetos
-                </button>
-                <button mat-menu-item (click)='goTo("admin/tutorials")'>
-                    <mat-icon>library_books</mat-icon>
-                    Posts de Tutoriais
-                </button>
-                <button mat-menu-item (click)='goTo("admin/articles")'>
-                    <mat-icon>library_books</mat-icon>
-                    Posts do Artigos
-                </button>
-                <button mat-menu-item (click)='goTo("admin/users")'>
-                    <mat-icon>people</mat-icon>
-                    Usuários
-                </button>
-                <button mat-menu-item (click)='goTo("admin/config")'>
-                    <mat-icon>construction</mat-icon>
-                    Configurações
-                </button>
-                <button mat-menu-item (click)='goTo2("login")'>
-                    <mat-icon>login</mat-icon>
-                    Logoff
-                </button>
-            </mat-menu>
-        </div>
-    </div>
-    <div id="navToolbar" class="navToolbar">
-        <a (click)='goTo("")'>
-            <i class="fas fa-home"></i>
-            <span >ÍNICIO</span>
-        </a>
-        <a (click)='goTo("projects")'>
-            <i class="fas fa-laptop-code"></i>
-            <span>PROJETOS</span>
-        </a>
-        <a (click)='goTo("tutorials")'>
-            <i class="fas fa-book"></i>
-            <span>TUTORIAIS</span>
-        </a>
-        <a (click)='goTo("articles")'>
-            <i class="fas fa-archive"></i>
-            <span>ARTIGOS</span>
-        </a>
-        <a (click)='goTo("info")'>
-            <i class="fas fa-user-astronaut"></i>
-            <span>INFO</span>
-        </a>
-    </div>
-</div> -->
-
 <mat-toolbar id="mat-toolbar-id">
     <mat-toolbar-row class="first">
+        <div id="logo" class="logo hidden">
+            <img src="../../../favicon.ico" alt="logo" (click)='goTo("")'>
+        </div>
         <button mat-icon-button aria-label="Projetos" [matMenuTriggerFor]="menuNav" aria-label="icon-button with a menu"
             class="mobile">
             <mat-icon style="font-size: 25px;">menu</mat-icon>
-            <!-- <mat-icon>more_vert</mat-icon> -->
-            <!-- <mat-icon>more_horiz</mat-icon> -->
-            <!-- <br><span>menu</span> -->
         </button>
-        <mat-menu #menuNav>
+        <mat-menu #menuNav class="mat-elevation-z8">
+            <button mat-menu-item style="width: 80vw;" disabled>
+                <span>MENU</span>
+            </button>
             <button mat-menu-item (click)='goTo("")'>
                 <mat-icon>home</mat-icon>
                 <span>Home</span>
             </button>
+            <mat-list>
+                <mat-divider></mat-divider>
+            </mat-list>
             <button mat-menu-item (click)='goTo("projects")'>
                 <mat-icon>laptop_windows</mat-icon>
                 <span>Projetos</span>

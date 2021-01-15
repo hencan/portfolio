@@ -150,11 +150,11 @@ body {
 }
 
 .divider-vertical {
-  display: flex; 
+  display: flex;
   align-self: stretch;
-  margin: 6px 4px; 
-  border: none; 
-  border-right: solid 1px rgb(185, 185, 185); 
+  margin: 6px 4px;
+  border: none;
+  border-right: solid 1px rgb(185, 185, 185);
 }
 
 .filtersItems {
