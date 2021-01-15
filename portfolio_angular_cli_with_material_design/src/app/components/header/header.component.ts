@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   isLogged: any = this.loginService.isLogged
 
-
+  logo: any 
 
   constructor(
     private router: Router,
@@ -24,6 +24,10 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.databaseService.getLogos().subscribe(response => {
+      this.logo = response.logo
+    })
+
     // window.addEventListener('scroll', (event) => {
     //   this.changeStyleHeader()
     // })

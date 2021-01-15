@@ -1,7 +1,7 @@
 <mat-toolbar id="mat-toolbar-id">
     <mat-toolbar-row class="first">
         <div id="logo" class="logo hidden">
-            <img src="../../../favicon.ico" alt="logo" (click)='goTo("")'>
+            <img [src]="logo" alt="logo" (click)='goTo("")'>
         </div>
         <button mat-icon-button aria-label="Projetos" [matMenuTriggerFor]="menuNav" aria-label="icon-button with a menu"
             class="mobile">

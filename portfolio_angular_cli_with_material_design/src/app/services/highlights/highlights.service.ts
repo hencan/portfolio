@@ -22,14 +22,15 @@ export class HighlightsService {
     // Deixa o header transparente somente quando em home e login e deixa o ícone do login com highlight
     if (id == 0) {
       document.getElementById('mat-toolbar-id').classList.add('transparent')
+      login.classList.remove('selected_color_white')
       logo.classList.add('hidden')
     } else if (id == 'login') {
       document.getElementById('mat-toolbar-id').classList.add('transparent')
-      login.classList.add('selected')
+      login.classList.add('selected_color_white')
       logo.classList.add('hidden')
     } else {
       document.getElementById('mat-toolbar-id').classList.remove('transparent')
-      login.classList.remove('selected')
+      login.classList.remove('selected_color_white')
       logo.classList.remove('hidden')
     }
 
