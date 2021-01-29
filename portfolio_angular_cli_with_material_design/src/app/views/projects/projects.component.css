@@ -102,8 +102,7 @@ tr.cardDetailHiddenRow:hover {
     display: flex;
     flex-direction: column;
     height: auto;
-    padding-bottom: 20px;
-    border-radius: 2.5px;
+    border-bottom: solid 1px rgb(201, 203, 204);
   }
   .mat-cell:first-of-type {
     padding-left: 0;
@@ -119,5 +118,8 @@ tr.cardDetailHiddenRow:hover {
   }
   .cardDetailExpanded {
     padding: 5px;
+  }
+  th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border: none;
   }
 }

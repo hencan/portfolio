@@ -293,7 +293,8 @@ body {
 
 .category {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
+  flex-direction: column;
   height: auto;
   margin: 2.5px 0 10px 10px;
   display: -webkit-box;
@@ -305,17 +306,16 @@ body {
 .categoryChips {
   font-size: var(--font_size_categoryChips_desktop);
   font-weight: 100;
-  margin: 0 2.5px 5px 0;
+  margin: 0 7.5px 5px 0;
   border-radius: 50rem!important;
-  /* background-color: #212529!important; */
-  background-color: rgba(241, 243, 244);
-  border: solid 1px rgb(7, 19, 33);
+  /* background-color: rgba(241, 243, 244); */
+  background-color: rgba(0, 0, 0, .1);
+  color: rgba(0,0,0,.87);
+  border: solid 1px rgb(185, 185, 185);
   font-weight: 400!important;
   display: inline-block;
-  padding: .35em .65em;
+  padding: .5em 1em;
   line-height: 1;
-  /* color: #fff; */
-  color: rgb(7, 19, 33);
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -348,7 +348,7 @@ body {
   }
   .imageCapa {
     width: var(--image_size_mobile);
-    margin: 0 10px;
+    margin: 20px 10px 0;
   }
   .title {
     font-size: var(--font_size_title_mobile);
@@ -372,7 +372,7 @@ body {
     padding: 0 0 0 14px;
   }
   .category {
-    margin: 1.5px 10px 5px;
+    margin: 1.5px 10px 20px;
   }
   .categoryChips {
     font-size: var(--font_size_categoryChips_mobile);

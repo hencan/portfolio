@@ -26,11 +26,9 @@ table {
   /* background-color: rgba(241, 243, 244, 0.85); */
 }
 
-.imageCapa:hover, .title:hover {
-  filter: brightness(50%);
-  cursor: pointer;
-  /* transition: filter 0.5s; */
-  text-decoration: underline;
+tr.mat-row:hover {
+  background-color: rgb(201, 203, 204);
+  cursor: default;
 }
 
 /* Visualização Desktop */
@@ -44,13 +42,15 @@ table {
     display: flex;
     flex-direction: column;
     height: auto;
-    padding-bottom: 20px;
-    border-radius: 2.5px;
+    border-bottom: solid 1px rgb(201, 203, 204);
   }
   .mat-cell:first-of-type {
     padding-left: 0;
   }
   .mat-cell {
     padding-left: 0;
+  }
+  th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border: none;
   }
 }

@@ -40,7 +40,7 @@
   <!-- Filter Code -->
   <div class="btnsFilters filtersItems fiHide">
     <mat-chip-list aria-label="Filter selection">
-      <mat-chip *ngFor="let chip of listChips" (click)="selectChips(this.chip)">
+      <mat-chip *ngFor="let chip of listChips" (click)="selectChips(this.chip)" style="background-color: rgb(241, 243, 244); border: solid 1px rgb(185, 185, 185);">
         {{chip | uppercase}}
       </mat-chip>
     </mat-chip-list>
@@ -82,8 +82,7 @@
             {{element.subtitle}}
           </span>
           <span class="dateAndBy">
-            <!-- {{element.date}}   •   {{element.author | uppercase}} -->
-            {{element.date}}
+            Emissão: {{element.date}}
           </span>
           <div class="category">
             <span class="categoryChips" *ngFor="let category of element.categories">
