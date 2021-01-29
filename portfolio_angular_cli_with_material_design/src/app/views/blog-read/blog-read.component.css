@@ -79,10 +79,15 @@ button:hover {
 
 .imgAuthor {
     width: 30px;
+    margin-left: 10px;
     border-radius: 25px;
     border: solid 2px rgb(76, 76, 76);
 }
-.dateAndBy, .category {
+.dateAndBy {
+    padding: 0;
+    margin: 10px 0 0 10px;
+}
+.category {
     padding: 0;
     margin: 10px 0 0 0;
 }
@@ -111,11 +116,12 @@ button:hover {
         position: initial;
         position: fixed;
         top: 78px;
-        right: calc(4% + 40px);
+        right: 4%;
         width: 9vw;
         height: 9vw;
     }
     .buttonShare {
+        top: 118px;
         right: 4%;
     }
     .buttonBack mat-icon, .buttonShare mat-icon {

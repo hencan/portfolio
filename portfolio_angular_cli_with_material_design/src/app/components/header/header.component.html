@@ -5,49 +5,50 @@
         </div>
         <button mat-icon-button aria-label="Projetos" [matMenuTriggerFor]="menuNav" aria-label="icon-button with a menu"
             class="mobile">
-            <mat-icon style="font-size: 25px;">menu</mat-icon>
+            <!-- <mat-icon style="font-size: 25px;">menu</mat-icon> -->
+            MENU
         </button>
         <mat-menu #menuNav class="mat-elevation-z8">
             <button mat-menu-item style="width: 80vw;" disabled>
-                <span>MENU</span>
+                <span>PÁGINAS</span>
             </button>
             <button mat-menu-item (click)='goTo("projects")'>
                 <mat-icon>laptop_windows</mat-icon>
-                <span>Projetos</span>
+                <span>PROJETOS</span>
             </button>
             <button mat-menu-item (click)='goTo("tutorials")'>
                 <mat-icon>local_library</mat-icon>
-                <span>Tutoriais</span>
+                <span>TUTORIAIS</span>
             </button>
             <button mat-menu-item (click)='goTo("articles")'>
                 <mat-icon>inventory_2</mat-icon>
-                <span>Artigos</span>
+                <span>ARTIGOS</span>
             </button>
             <button mat-menu-item (click)='goTo("info")'>
                 <mat-icon>account_circle</mat-icon>
-                <span>Info</span>
+                <span>INFO</span>
             </button>
             <mat-list>
                 <mat-divider></mat-divider>
             </mat-list>
             <button mat-menu-item style="width: 80vw;" disabled>
-                <span>LINK´S</span>
+                <span>LINK´S EXTERNOS</span>
             </button>
             <a mat-menu-item href='https://github.com/hencan' target="_blank">
                 <i class="fab fa-github"></i>
-                <span>Github Hencan</span>
+                <span>GITHUB</span>
             </a>
             <a mat-menu-item href='https://codepen.io/hencan' target="_blank">
                 <i class="fab fa-codepen"></i>
-                <span>CodePen Hencan</span>
+                <span>CODEPEN</span>
             </a>
             <a mat-menu-item href='https://www.linkedin.com/in/hencan/' target="_blank">
                 <i class="fab fa-linkedin"></i>
-                <span>LinkedIn Hencan</span>
+                <span>LINKEDIN</span>
             </a>
             <a mat-menu-item disabled>
                 <i class="fab fa-instagram"></i>
-                <span>Instagran Hencan</span>
+                <span>INSTAGRAM</span>
             </a>
             <br>
         </mat-menu>

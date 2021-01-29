@@ -142,6 +142,7 @@ mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
         margin: 0 2.5%;
     }
     mat-toolbar-row.first button:first-of-type {
+        margin-left: 0;
         margin-right: auto;
     }
     mat-toolbar-row.second {
