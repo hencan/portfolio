@@ -11,13 +11,6 @@
             <button mat-menu-item style="width: 80vw;" disabled>
                 <span>MENU</span>
             </button>
-            <button mat-menu-item (click)='goTo("")'>
-                <mat-icon>home</mat-icon>
-                <span>Home</span>
-            </button>
-            <mat-list>
-                <mat-divider></mat-divider>
-            </mat-list>
             <button mat-menu-item (click)='goTo("projects")'>
                 <mat-icon>laptop_windows</mat-icon>
                 <span>Projetos</span>
@@ -37,6 +30,9 @@
             <mat-list>
                 <mat-divider></mat-divider>
             </mat-list>
+            <button mat-menu-item style="width: 80vw;" disabled>
+                <span>LINK´S</span>
+            </button>
             <a mat-menu-item href='https://github.com/hencan' target="_blank">
                 <i class="fab fa-github"></i>
                 <span>Github Hencan</span>
@@ -53,12 +49,7 @@
                 <i class="fab fa-instagram"></i>
                 <span>Instagran Hencan</span>
             </a>
-            <!-- <button mat-menu-item disabled>
-            <mat-icon>business</mat-icon>
-            <span>Empresas</span>
-        </button> -->
-
-
+            <br>
         </mat-menu>
 
         <app-music-player></app-music-player>
@@ -114,7 +105,7 @@
         </div>
     </mat-toolbar-row>
     <mat-toolbar-row class="second">
-        <button mat-button aria-label="Projetos" (click)='goTo("")'>
+        <button mat-button aria-label="Home" (click)='goTo("")'>
             <mat-icon>home</mat-icon>
             <br><span>Home</span>
         </button>
@@ -142,3 +133,20 @@
     </mat-toolbar-row>
 
 </mat-toolbar>
+<!-- <div class="toolborbottom">
+    <button mat-icon-button aria-label="Home" (click)='goTo("")' class="mobile">
+        <mat-icon style="font-size: 25px;">home</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Projetos" (click)='goTo("projects")' class="mobile">
+        <mat-icon style="font-size: 25px;">laptop_windows</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Tutoriais" (click)='goTo("tutorials")' class="mobile">
+        <mat-icon style="font-size: 25px;">local_library</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Artigos" (click)='goTo("articles")' class="mobile">
+        <mat-icon style="font-size: 25px;">inventory_2</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Info" (click)='goTo("info")' class="mobile">
+        <mat-icon style="font-size: 25px;">account_circle</mat-icon>
+    </button>
+</div> -->
