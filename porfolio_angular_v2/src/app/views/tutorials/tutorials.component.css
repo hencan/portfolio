@@ -1,0 +1,56 @@
+/* Some styles is in global file style.css */
+
+.tutorials {
+  /* position: absolute; */
+  /* top: 90px; */
+  /* width: 98%; */
+  width: 100%;
+  min-height: calc(100vh - 104px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(241, 243, 244);
+  padding: 10px 0;
+  /* margin: 0 1% 0; */
+}
+
+table {
+  margin: 0;
+}
+
+.mat-table, .mat-row, .mat-cell {
+  background-color: transparent;
+}
+
+.mat-cell {
+  /* background-color: rgba(241, 243, 244, 0.85); */
+}
+
+tr.mat-row:hover {
+  background-color: rgb(201, 203, 204);
+  cursor: default;
+}
+
+/* Visualização Desktop */
+
+@media(min-width: 450.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 450px) {
+  .mat-row {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border-bottom: solid 1px rgb(201, 203, 204);
+  }
+  .mat-cell:first-of-type {
+    padding-left: 0;
+  }
+  .mat-cell {
+    padding-left: 0;
+  }
+  th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border: none;
+  }
+}

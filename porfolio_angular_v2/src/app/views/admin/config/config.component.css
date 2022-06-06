@@ -1,0 +1,26 @@
+#configAdmin {
+    display: none;
+    background-color: rgb(241, 243, 244);
+}
+.configAdmin {}
+.configCard {
+    width: 250px;
+    height: 225px;
+    margin-left: calc((100vw - 250px)/2);
+    margin-top: calc((100vh - 225px)/3);
+    text-align: center;
+}
+.button {
+    margin: 20px 0;
+    color: white; 
+    background-color: rgb(29, 116, 245);
+}
+/* Visualização Desktop */
+@media(min-width: 650.5px) {
+    
+}
+
+/* Visualização Mobile */
+@media(max-width: 650px) {
+    
+}

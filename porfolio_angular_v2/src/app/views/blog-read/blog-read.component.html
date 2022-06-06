@@ -1,0 +1,80 @@
+<!-- Progress Bar -->
+<mat-progress-bar *ngIf="valueProgress < 100" mode="indeterminate" [value]="valueProgress"></mat-progress-bar>
+
+<div id="blogRead" class="blogRead">
+
+  <button class="buttonBack" mat-mini-fab (click)="cancel()" matTooltip="Voltar">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+  <button class="buttonShare" mat-mini-fab (click)="share()" matTooltip="Compartilhar">
+    <mat-icon>share</mat-icon>
+  </button>
+
+  <div class="showReaderCard">
+    <!-- Title Card Form -->
+    <mat-card-subtitle>Artigo nº {{storeData.id}}</mat-card-subtitle>
+
+    <!-- Title Field -->
+    <div class="title">
+      {{storeData.title}}
+    </div>
+
+    <!-- Image Field -->
+    <div>
+      <img class="capa" [src]="photoBase64"> <br />
+    </div>
+
+    <!-- Subtitle Field -->
+    <div class="subtitle">
+      {{storeData.subtitle}}
+    </div>
+
+    <!-- Paragraf1 Field -->
+
+    <div class="content" *ngIf="storeData.paragraf1" [innerHtml]='storeData.paragraf1'></div>
+
+    <!-- Paragraf2 Field -->
+
+    <div class="content" *ngIf="storeData.paragraf2" [innerHtml]='storeData.paragraf2'></div>
+
+    <!-- Paragraf3 Field -->
+
+    <div class="content" *ngIf="storeData.paragraf3" [innerHtml]='storeData.paragraf3'></div>
+
+    <!-- Paragraf4 Field -->
+
+    <div class="content" *ngIf="storeData.paragraf4" [innerHtml]='storeData.paragraf4'></div>
+
+    <!-- Paragraf5 Field -->
+
+    <div class="content" *ngIf="storeData.paragraf5" [innerHtml]='storeData.paragraf5'></div>
+
+    <mat-list>
+      <mat-divider></mat-divider>
+    </mat-list>
+
+    <!-- authorship Field -->
+    <br>
+    <div class="authorship">
+      <img class="imgAuthor" [src]="authorData.photo" alt="">
+      <div class="dateAndBy">
+        <span>{{storeData.author}}</span>
+        <span>{{storeData.date}}</span>
+      </div>
+      <div class="category">
+        <span class="categoryChips" *ngFor="let category of storeData.categories">
+          {{ category.toString() | uppercase }}
+        </span>
+      </div>
+    </div>
+    <br>
+
+    <mat-list>
+      <mat-divider></mat-divider>
+    </mat-list>
+
+    <!-- DISQUS AREA -->
+    <!-- <div id="disqus_thread"></div> -->
+
+  </div>
+</div>

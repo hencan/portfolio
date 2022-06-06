@@ -1,0 +1,47 @@
+<div id="login" class="login showLog">
+    <mat-card class="loginCard mat-elevation-z5">
+        <mat-card-title>Login</mat-card-title>
+        <form id="loginCardForm" class="loginCardForm">
+            <mat-form-field appearance="outline" hintLabel="">
+                <mat-label>Username</mat-label>
+                <input matInput id="user" #input1 maxlength="20" placeholder="Nome de Usuário" name="username"
+                  [(ngModel)]="storeData.username" required>
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-hint align="end">{{input1.value?.length || 0}}/20</mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" hintLabel="">
+                <mat-label>Password</mat-label>
+                <input matInput #input2 name="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="storeData.password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="end">{{input2.value?.length || 0}}/20 </mat-hint>
+              </mat-form-field>
+
+            <button mat-raised-button color='primary' (click)="login()">Entrar</button>
+        </form>
+    </mat-card>
+</div>
+
+<div id="logged" class="logged showLog">
+    <mat-card class="loginCard mat-elevation-z5">
+        <mat-card-title>Logged</mat-card-title>
+        <form class="loginCardForm">
+
+            <mat-form-field appearance="outline" hintLabel="">
+                <mat-label>Username</mat-label>
+                <input matInput disabled name="username"
+                  [(ngModel)]="storeData.username">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" hintLabel="">
+                <mat-label>Permissão</mat-label>
+                <input matInput disabled name="permission"
+                  [(ngModel)]="storeData.permission">
+              </mat-form-field>
+
+            <button mat-raised-button color='warn' (click)='loggof()'>Sair</button>
+        </form>
+    </mat-card>
+</div>

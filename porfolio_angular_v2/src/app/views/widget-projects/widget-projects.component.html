@@ -1,0 +1,79 @@
+<div id="widgetsProjects" class="widgetsProjects">
+    <!-- Progress Bar -->
+    <!-- <mat-progress-bar *ngIf="valueProgress < 100" mode="indeterminate" [value]="valueProgress"></mat-progress-bar> -->
+
+    <!-- <mat-spinner *ngIf="valueProgress < 100"></mat-spinner> -->
+    <!-- <table mat-table>
+
+        ImageTitle Column
+        <ng-container matColumnDef="imageTitle">
+            <th mat-header-cell *matHeaderCellDef> Imagem Capa </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="card">
+                    <img [src]="element.imageTitle" class="capa">
+                    <div class="label">
+                        <span class="category">
+                            {{element.categories | uppercase }}
+                        </span>
+    
+                        <span class="title">
+                            {{element.title}}
+                        </span>
+                        <span>
+                            {{element.date}} | {{element.author}}
+                        </span>
+                        
+                        <span class="condense">
+                            {{element.subtitle}}
+                        </span>
+                    </div>
+                </div>    
+            </td>
+        </ng-container>
+
+        Title Column
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Título </th>
+            <td mat-cell *matCellDef="let element">
+                <div >
+                    <span class="category">
+                        {{element.categories | uppercase }}
+                    </span>
+
+                    <span class="title">
+                        {{element.title}}
+                    </span>
+                    <span>
+                        {{element.date}} | {{element.author}}
+                    </span>
+                    
+                    <span class="condense">
+                        {{element.subtitle}}
+                    </span>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> -->
+        <div *ngFor="let project of projects"> 
+            <div class="card">
+                <img [src]="project.imageTitle" class="capa" (click)='goTo("projects")'>
+                <div class="label">
+                    <span class="category">
+                        {{project.categories | uppercase }}
+                    </span>
+
+                    <span class="title condense" (click)='goTo("projects")'>
+                        {{project.title}}
+                    </span>
+
+                    <span class="dateAndBy">
+                        {{project.date}} | {{project.author}}
+                    </span>
+                </div>
+                <br>
+            </div>    
+          </div>
+</div>

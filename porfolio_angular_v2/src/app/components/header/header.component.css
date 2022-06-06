@@ -1,0 +1,184 @@
+* {}
+
+mat-toolbar {
+    background-color: rgba(241, 243, 244);
+    color: rgb(136, 136, 136);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+mat-toolbar-row {
+    display: flex;
+}
+
+.logo {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.logo img {
+    width: 24px;
+    opacity: 0.25;
+    cursor: pointer;
+    border-radius: 2.5px;
+}
+.logo img:hover {
+    opacity: 1;
+}
+
+mat-toolbar-row.first {
+    justify-content: flex-start;
+    height: 40px;
+}
+
+app-music-player {
+    z-index: 1;
+    margin-right: auto;
+}
+
+mat-toolbar-row.second {
+    justify-content: flex-end;
+}
+
+mat-toolbar-row span {
+    font-size: 10px;
+    font-weight: 100;
+}
+
+app-music-player {
+    z-index: 1;
+}
+
+mat-toolbar-row.first button mat-icon {
+    font-size: 20px;
+    font-weight: 100;
+}
+
+mat-toolbar-row.second button, mat-toolbar-row.third button {
+    line-height: 25px;
+    margin-left: 20px;
+}
+
+mat-toolbar-row.second button mat-icon, mat-toolbar-row.third button mat-icon {
+    font-size: 22.5px;
+}
+
+.selected_color_white, .selected_color_white span, .selected_color_white mat-icon {
+    color: white;
+}
+.selected_color_black, .selected_color_black span, .selected_color_black mat-icon {
+    color: black;
+}
+
+/* #navToolbar a mat-icon:hover {
+    color: rgba(241, 243, 244, 0.85);
+} */
+
+#btnsLoginBox {
+    cursor: pointer;
+    text-align: right;
+}
+
+#buttonLogin {
+    background-color: transparent;
+}
+
+#buttonLogin mat-icon:hover, #buttonLogin i:hover {
+}
+
+#buttonLogged {
+    display: none;
+    background-color: transparent;
+}
+
+#buttonLogged img {
+    width: 23px;
+    border-radius: 10px;
+}
+
+.title-mobile {
+    display: none;
+}
+
+.mobile {
+    display: none;
+}
+
+.transparent {
+    background-color: transparent;
+    color: rgb(136, 136, 136);
+    box-shadow: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/* .toolborbottom {
+    display: none;
+} */
+
+/* Animations */
+
+/* Visualização Desktop */
+
+@media(min-width: 450.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 450px) {
+    .logo img {
+        margin-top: 13px;    
+    }    
+    mat-toolbar-row.first {
+        justify-content: flex-end;
+        height: 70px;
+    }
+    app-music-player {
+        margin-right: 0;
+    }
+    mat-toolbar-row.first button {
+        margin: 0 2.5%;
+    }
+    mat-toolbar-row.first button:first-of-type {
+        margin-left: 0;
+        margin-right: auto;
+    }
+    mat-toolbar-row.second {
+        display: none;
+    }
+    .mobile {
+        display: block;
+        line-height: 20px;
+        margin: 0;
+        z-index: 1;
+    }
+    .mobile mat-icon {
+        margin-top: 2.5px;
+        font-size: 25px;
+    }
+    #buttonLogin mat-icon {
+        font-size: 20px;
+    }
+    a.mat-menu-item i {
+        margin-right: 16px;
+        vertical-align: middle;
+        color: rgba(0, 0, 0, .54);
+        font-size: 24px;
+    }
+    /* .toolborbottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(241, 243, 244);
+        color: rgb(136, 136, 136);
+        padding: 10px 0;
+    } */
+}
+
+@media(max-width: 340px) {}

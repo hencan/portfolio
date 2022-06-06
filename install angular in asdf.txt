@@ -1,0 +1,9 @@
+npm install -g @angular/cli
+
+npm link @angular/cli
+
+ng serve --host 0.0.0.0 --port 3000
+
+ng serve --host 0.0.0.0 --port 3000 --live-reload
+
+ng lint <project> --fix

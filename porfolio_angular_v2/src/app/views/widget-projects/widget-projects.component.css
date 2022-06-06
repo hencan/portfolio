@@ -1,0 +1,115 @@
+.widgetsProjects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+span {
+    font-size: 0.8rem;
+    padding: 5px;
+    border-radius: 2px;
+}
+/* table {
+    background-color: rgb(241, 243, 244);
+} */
+.card {
+    width: 380px;
+    height: 295px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    border: solid 2px rgba(76, 76, 76, 0.15);
+    border-radius: 5px;
+    /* box-shadow: 2px 3px rgb(76, 76, 76);; */
+    /* border-radius: 10px; */
+    margin-bottom: 10px;
+    background-color: white;
+}
+.capa {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+.capa:hover, .title:hover {
+    filter: opacity(50%);
+    cursor: pointer;
+    transition: filter 0.5s
+}
+.label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* padding: 10px; */
+}
+.category {
+    margin: 10px 0 5px;
+    color: rgb(76, 76, 76);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: SairaStencilOne;
+    font-display: block;
+    padding: 0 10px;
+}
+.title {
+    /* text-align: justify; */
+    /* font-family: ShareTechMono; */
+    font-family: Special_Elite;
+    font-display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(31, 31, 31);
+    padding: 0 10px;
+    margin: 0 0 5px;
+}
+.dateAndBy {
+    color: rgb(56, 56, 56);
+    font-family: Roboto_Mono;
+    font-display: block;
+    font-size: 0.7rem;
+    padding: 0 10px;
+}
+.condense {
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    word-break: break-word;
+}
+
+
+/* .title:hover {
+    color: rgb(0, 74, 133);
+    cursor: pointer;
+} */
+
+/* Visualização Desktop */
+@media(min-width: 650.5px) {
+  
+}
+
+/* Visualização Mobile */
+@media(max-width: 650px) {
+    .widgetsProjects {
+        margin: 0 5px;
+        flex-direction: column;
+    }
+    /* .mat-row  {
+        display: flex; 
+        flex-direction: column;
+        height: auto;
+    }
+    .mat-cell:first-of-type {
+        padding-left: 0;
+    } */
+    .card {
+        width: 100%;
+    }
+    .capa {
+        width: 100%;
+        /* margin-left: 2.5%; */
+    }
+    .label {
+        width: 100%;
+    } 
+    
+}

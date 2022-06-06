@@ -1,0 +1,86 @@
+#btnsMusic {
+    width: 40px;
+    height: 40px;
+}
+
+#btnMusicOff mat-icon {
+    font-size: 20px;
+}
+
+#btnMusicOn {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    padding-top: 11px;
+}
+
+#bar_0 {
+    width: 0.25px;
+    height: 18px;
+    margin: 0;
+}
+
+#bar_1, #bar_2, #bar_3, #bar_4, #bar_5 {
+    width: 2px;
+    /* border-radius: 20px 20px 0 0; */
+    border-radius: 20px;
+    height: 15px;
+    margin: 0 1px;
+}
+
+.sound {
+    animation: animeBars 0.8s infinite ease-in-out alternate;
+    background-color: rgb(136, 136, 136);
+
+}
+
+.noSound {
+    background-color: rgb(136, 136, 136);
+}
+
+#bar_1 {
+    animation-delay: 0;
+}
+
+#bar_2 {
+    animation-delay: 0.25s;
+}
+
+#bar_3 {
+    animation-delay: 0.75s;
+}
+
+#bar_4 {
+    animation-delay: 0.55s;
+}
+
+#bar_5 {
+    animation-delay: 0.45s;
+}
+
+@keyframes animeBars {
+    from {
+        height: 15px;
+    }
+    to {
+        height: 2px;
+    }
+}
+
+/* Visualização Desktop */
+
+@media(min-width: 450.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 450px) {
+    #btnMusicOff mat-icon {
+        /* font-size: 17.5px; */
+    }
+}
+
+@media(max-width: 340px) {}

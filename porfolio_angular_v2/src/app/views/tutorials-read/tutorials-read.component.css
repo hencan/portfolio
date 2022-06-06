@@ -1,0 +1,157 @@
+#tutorialsRead {
+    /* display: none; */
+}
+
+.tutorialsRead {
+    /* position: absolute; */
+    /* top: 90px; */
+    /* width: 98%; */
+    width: 100%;
+    min-height: calc(100vh - 104px);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    /* margin: 0 1%; */
+    padding-bottom: 20px;
+}
+
+.capa {
+    margin-left: calc((100% - 452px)/2);
+    border: solid 1px rgb(116, 116, 116);
+    border-radius: 2.5px;
+}
+
+.title {
+    line-height: 35px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(31, 31, 31);
+    padding: 0;
+    margin: 30px 0;
+}
+
+.subtitle {
+    line-height: 30px;
+    font-weight: 200;
+    padding: 0;
+    margin: 50px 0 20px;
+}
+
+.content {
+    word-break: break-all;
+}
+
+/* Botões */
+
+button {}
+
+button:hover {
+    background-color: rgb(16, 16, 16);
+    color: rgba(241, 243, 244, 0.65);
+}
+
+.buttonBack, .buttonShare {
+    position: fixed;
+    top: 114px;
+    right: 2%;
+    color: rgb(16, 16, 16);
+    background-color: rgba(241, 243, 244, 0.65);
+    z-index: 10;
+}
+
+.buttonShare {
+    top: 164px;
+}
+
+.buttonBack mat-icon, .buttonShare mat-icon {
+    /* font-size: 20px; */
+}
+
+/* Fotter */
+
+.authorship {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: rgb(87, 87, 87);
+}
+
+.imgAuthor {
+    width: 30px;
+    margin-left: 10px;
+    border-radius: 25px;
+    border: solid 2px rgb(76, 76, 76);
+}
+
+.dateAndBy {
+    padding: 0;
+    margin: 10px 0 0 10px;
+}
+.category {
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+/* .right {
+    margin-left: auto;
+    margin-right: 0;
+} */
+
+/* Visualização Desktop */
+
+@media(min-width: 450.5px) {}
+
+/* Visualização Mobile */
+
+@media(max-width: 550px) {
+    .capa {
+        width: 100%;
+        margin-left: auto;
+    }
+}
+
+@media(max-width: 450px) {
+    .buttonBack, .buttonShare {
+        position: initial;
+        position: fixed;
+        top: 78px;
+        right: 4%;
+        width: 9vw;
+        height: 9vw;
+    }
+    .buttonShare {
+        top: 118px;
+        right: 4%;
+    }
+    .buttonBack mat-icon, .buttonShare mat-icon {
+        font-size: 4.5vw;
+    }
+    .capa {
+        width: 100%;
+        margin-left: auto;
+    }
+    .title {
+        letter-spacing: initial;
+        line-height: normal;
+        text-align: left;
+        margin: 15px 5px 10px;
+    }
+    .subtitle {
+        letter-spacing: initial;
+        line-height: initial;
+        margin: 10px 5px 20px;
+    }
+    .content {
+        line-height: normal;
+    }
+    .authorship {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+    .imgAuthor {
+        height: 25px;
+        border-radius: 25px;
+        margin-top: 6px;
+    }
+}
